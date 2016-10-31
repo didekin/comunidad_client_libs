@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.didekinservice.common.gcm.GcmMockTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.didekinservice.common.gcm.GcmMockTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.didekinservice.common.gcm.html">com.didekinservice.common.gcm</a> &gt; GcmMockTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.382s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testMulticast_1</td>
+<td>0.365s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testMulticast_2</td>
+<td>0.017s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>Oct 31, 2016 8:03:38 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59175] starting to accept connections
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:59175/fcm/send http/1.1
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 240
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: key= AIzaSyBRcUJ9Z9LNlmblvEBuX53U1jFTkwRcr4g
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Host: localhost:59175
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Connection: Keep-Alive
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Accept-Encoding: gzip
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: User-Agent: okhttp/3.4.1
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;registration_ids&quot;:[&quot;registration_id_1A&quot;],&quot;priority&quot;:&quot;normal&quot;,&quot;delay_while_idle&quot;:true,&quot;time_to_live&quot;:1724,&quot;restricted_package_name&quot;:&quot;com.didekindroid&quot;,&quot;collapse_key&quot;:&quot;incidencia_open&quot;,&quot;data&quot;:{&quot;comunidadId&quot;:999,&quot;typeMsg&quot;:&quot;incidencia_open&quot;}}
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (240-byte body)
+Oct 31, 2016 8:03:39 PM com.squareup.okhttp.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[59175] received request: POST /fcm/send HTTP/1.1 and responded: HTTP/1.1 200 OK
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:59175/fcm/send (4ms)
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 140
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;multicast_id&quot;:1001,&quot;success&quot;:1,&quot;failure&quot;:0,&quot;canonical_ids&quot;:1,&quot;results&quot;:[{&quot;message_id&quot;:&quot;msg_id_1&quot;,&quot;registration_id&quot;:&quot;registration_id_1B&quot;}]}
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (140-byte body)
+Oct 31, 2016 8:03:39 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59175] done accepting connections: Socket closed
+Oct 31, 2016 8:03:39 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 execute
+INFO: MockWebServer[59193] starting to accept connections
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; POST http://localhost:59193/fcm/send http/1.1
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Type: application/json
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 303
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Authorization: key= AIzaSyBRcUJ9Z9LNlmblvEBuX53U1jFTkwRcr4g
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Host: localhost:59193
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Connection: Keep-Alive
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Accept-Encoding: gzip
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: User-Agent: okhttp/3.4.1
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;registration_ids&quot;:[&quot;registration_id_2A&quot;,&quot;registration_id_1A&quot;,&quot;registration_id_3A&quot;,&quot;registration_id_4A&quot;],&quot;priority&quot;:&quot;normal&quot;,&quot;delay_while_idle&quot;:true,&quot;time_to_live&quot;:1724,&quot;restricted_package_name&quot;:&quot;com.didekindroid&quot;,&quot;collapse_key&quot;:&quot;incidencia_open&quot;,&quot;data&quot;:{&quot;comunidadId&quot;:999,&quot;typeMsg&quot;:&quot;incidencia_open&quot;}}
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: --&gt; END POST (303-byte body)
+Oct 31, 2016 8:03:39 PM com.squareup.okhttp.mockwebserver.MockWebServer$4 processOneRequest
+INFO: MockWebServer[59193] received request: POST /fcm/send HTTP/1.1 and responded: HTTP/1.1 200 OK
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- 200 OK http://localhost:59193/fcm/send (2ms)
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: Content-Length: 224
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: 
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: {&quot;multicast_id&quot;:2002,&quot;success&quot;:2,&quot;failure&quot;:2,&quot;canonical_ids&quot;:2,&quot;results&quot;:[{&quot;error&quot;:&quot;InvalidRegistration&quot;},{&quot;message_id&quot;:&quot;msg_id_1&quot;},{&quot;message_id&quot;:&quot;msg_id_3&quot;,&quot;registration_id&quot;:&quot;registration_id_3B&quot;},{&quot;error&quot;:&quot;NotRegistered&quot;}]}
+Oct 31, 2016 8:03:39 PM okhttp3.internal.platform.Platform log
+INFO: &lt;-- END HTTP (224-byte body)
+Oct 31, 2016 8:03:39 PM com.squareup.okhttp.mockwebserver.MockWebServer$3 acceptConnections
+INFO: MockWebServer[59193] done accepting connections: Socket closed
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 2.14.1</a> at Oct 31, 2016 8:03:39 PM</p>
+</div>
+</div>
+</body>
+</html>

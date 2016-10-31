@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: com.squareup.retrofit2:converter-gson:2.1.0">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/Cannot resolve external dependency com.squareup.retrofit2:converter-gson:2.1.0 because no repositories are defined." />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
