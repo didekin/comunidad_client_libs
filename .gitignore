@@ -3,7 +3,6 @@
 /**/*.ipr
 /**/*.iws
 .idea/
-services/.idea/
 
 # Mac files
 .DS_Store
@@ -12,30 +11,18 @@ services/.idea/
 .gradle/
 
 # AWS related files
-aws/
-.ebignore
-.elasticbeanstalk/
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
 
 # Elastic Beanstalk configuration
-services/src/main/resources/.ebextensions/env-var.config
-services/src/main/resources/.ebextensions/https-instance-securitygroup.config
-# Entornos AWS para test
-services/src/test/resources/aws_*_test.properties
 
 # Build and logs
-logs/
 build/
-services/build/**
 /**/libs/*.jar
 /**/*.bat
 
 # Configuración de entornos
-terminal/
+# terminal/
 
 # SECURITY
 
 # Basurilla
-/**/trash.sql
 
