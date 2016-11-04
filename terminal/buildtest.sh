@@ -1,5 +1,5 @@
 # It must be executed after 'cdlibs' with './terminal/buildtest.sh environment version'
-# Environments: local, pre, pro
+# Environments: local, master
 
 #!/bin/bash
 
@@ -16,7 +16,18 @@ setArgsLibs "$1" "$2"
 
 ./gradlew clean
 
-if [ $ENV = "$LOCAL_ENV" ] || [ $ENV = "$PRE_ENV" ] ; then
+git checkout $ENV
+
+if [ $ENV = "$LOCAL_ENV" ] ; then
+    git add .
+    git commit -m  "version $VERSION"
+fi
+
+if [ $ENV = "$PRO_ENV" ] ; then
+    git merge "$LOCAL_ENV"  -m "version $VERSION"
+fi
+
+if [ $ENV = "$LOCAL_ENV" ] ; then
 
     ./gradlew -Pversionjar=$VERSION_SUFFIX-$ENV client_lib:build
     echo "gradle clientlib_build exit code = $?"
@@ -30,6 +41,8 @@ else
     ./gradlew -Pversionjar=$VERSION_SUFFIX client_gcm_lib:build
     echo "gradle clientgcmlib_build exit code = $?"
 fi
+
+git push "$GITREMOTE $ENV"
 
 rm releases/$ENV/*
 mv client_lib/build/libs/*.jar releases/$ENV/
