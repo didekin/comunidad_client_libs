@@ -10,6 +10,7 @@ function setArgsLibs() {
     fi
 
     export VERSION_SUFFIX="$2"
+    export VERSION="didekinlibs-$VERSION_SUFFIX"
     export GITREMOTE=didekinlibs
     export LOCAL_ENV="local"
     export PRO_ENV="master"
