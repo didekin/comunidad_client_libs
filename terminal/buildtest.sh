@@ -42,9 +42,11 @@ else
     echo "gradle clientgcmlib_build exit code = $?"
 fi
 
-git push "$GITREMOTE $ENV"
+git push $GITREMOTE $ENV
 
 rm releases/$ENV/*
 mv client_lib/build/libs/*.jar releases/$ENV/
 mv client_gcm_lib/build/libs/*.jar releases/$ENV/
+
+git checkout localdev
 
