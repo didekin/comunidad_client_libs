@@ -48,5 +48,5 @@ rm releases/$ENV/*
 mv client_lib/build/libs/*.jar releases/$ENV/
 mv client_gcm_lib/build/libs/*.jar releases/$ENV/
 
-git checkout localdev
+git checkout local
 
