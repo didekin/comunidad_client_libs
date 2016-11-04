@@ -1,0 +1,18 @@
+
+function setArgsLibs() {
+
+    [ $# -ne 2 ] && { echo "args count should be 2" 1>&2; exit 1;}
+
+    export ENV="$1"
+
+    if ! [ $ENV = "local" ] && ! [ $ENV = "pre" ]  && ! [ $ENV = "pro" ] ; then
+            echo "Wrong type of environment: $ENV" 1>&2; exit 1;
+    fi
+
+    export VERSION_SUFFIX="$2"
+    export GITREMOTE=didekinlibs
+    export LOCAL_ENV="local"
+    export PRE_ENV="pre"
+    export PRO_ENV="pro"
+    echo "Environment: $ENV, version: $VERSION_SUFFIX"
+}

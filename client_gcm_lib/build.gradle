@@ -1,13 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-targetCompatibility = JavaVersion.VERSION_1_7
-sourceCompatibility = JavaVersion.VERSION_1_7
-
-//noinspection GroovyAssignabilityCheck
+//noinspection GroovyAssignabilityCheck,GroovyMissingReturnStatement
 jar {
     baseName = 'client_gcm_lib'
-    version = ''
+    if(project.hasProperty('versionjar')) {
+        version = versionjar
+    }
 }
 
 dependencies {
@@ -15,9 +14,10 @@ dependencies {
     testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
 }
 
-//noinspection GroovyAssignabilityCheck
+//noinspection GroovyMissingReturnStatement
 test {
     filter {
+        //noinspection GrUnresolvedAccess
         includeTestsMatching "com.didekinservice.common.gcm.*Test"
     }
 }

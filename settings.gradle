@@ -1,3 +1,3 @@
 rootProject.name = 'didekinlibs'
-include ':client_lib', ':client_gcm_lib', ':client_pro_lib'
+include ':client_lib', ':client_gcm_lib'
 

@@ -10,19 +10,11 @@
 # Gradle root files
 .gradle/
 
-# AWS related files
-
-# Elastic Beanstalk configuration
-
 # Build and logs
 build/
 /**/libs/*.jar
 /**/*.bat
 
-# Configuración de entornos
-# terminal/
-
-# SECURITY
-
-# Basurilla
+# Releases
+/releases
 

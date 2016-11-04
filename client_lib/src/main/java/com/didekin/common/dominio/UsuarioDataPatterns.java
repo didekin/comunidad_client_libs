@@ -11,6 +11,7 @@ import static java.util.regex.Pattern.compile;
  * Date: 10/06/15
  * Time: 10:13
  */
+@SuppressWarnings("unused")
 public enum UsuarioDataPatterns implements DataPatternsIf {
 
     MUNICIPIO_DESC("[0-9a-zA-ZñÑáéíóúüÜ,[\\s]]{2,100}"),

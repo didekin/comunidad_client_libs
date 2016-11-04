@@ -8,7 +8,7 @@ import java.io.InputStream;
  * Date: 13/05/16
  * Time: 11:46
  */
-public interface JksInClient {
+interface JksInClient {
 
     InputStream getInputStream() throws IOException;
 
