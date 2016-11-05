@@ -8,7 +8,8 @@ import java.io.InputStream;
  * Date: 13/05/16
  * Time: 11:46
  */
-interface JksInClient {
+@SuppressWarnings("WeakerAccess")
+public interface JksInClient {
 
     InputStream getInputStream() throws IOException;
 
