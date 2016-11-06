@@ -37,7 +37,7 @@ echo "gradle client_lib build exit code = $?"
 git push $GITREMOTE $ENV
 
 #rm releases/$ENV/*
-mv client_lib/build/libs/*.jar releases/$ENV/
+mv client_lib/build/libs/*.jar client_lib/releases/$ENV/
 
 git checkout local
 
