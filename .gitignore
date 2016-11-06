@@ -16,5 +16,5 @@ build/
 /**/*.bat
 
 # Releases
-/releases
+/**/releases/
 
