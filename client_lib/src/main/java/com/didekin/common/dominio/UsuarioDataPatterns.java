@@ -28,7 +28,7 @@ public enum UsuarioDataPatterns implements DataPatternsIf {
     /* USUARIO */
     EMAIL("[\\w\\._\\-]{1,48}@[\\w\\-_]{1,40}\\.[\\w&&[^0-9]]{1,10}"),
     PASSWORD("[0-9a-zA-Z_ñÑáéíóúüÜ]{6,60}"),
-    ALIAS("[0-9a-zA-Z_ñÑáéíóúüÜ]{6,30}"),
+    ALIAS("[0-9a-zA-Z_ñÑáéíóúüÜ ]{6,30}"),
 
     /* USUARIO_COMUNIDAD */
     PORTAL("[\\w_ñÑáéíóúüÜºª\\.\\-\\s]{1,10}"),

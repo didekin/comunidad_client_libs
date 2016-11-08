@@ -39,10 +39,9 @@ public class GcmMockTest {
     private static final String REGISTRATION_ID_3_B = "registration_id_3B";
     private static final String REGISTRATION_ID_4_A = "registration_id_4A";
 
-    MockWebServer server;
-    static RetrofitHandler retrofitHandler;
-    GcmEndPointImp endPointImp;
-    List<String> gcmTokens = new ArrayList<>();
+    private MockWebServer server;
+    private GcmEndPointImp endPointImp;
+    private List<String> gcmTokens = new ArrayList<>();
 
 
     @Rule
@@ -67,7 +66,7 @@ public class GcmMockTest {
     @Before
     public void setUp() throws Exception
     {
-        retrofitHandler = new RetrofitHandler(server.url("/mock/").toString(), 60);
+        RetrofitHandler retrofitHandler = new RetrofitHandler(server.url("/mock/").toString(), 60);
         endPointImp = new GcmEndPointImp(retrofitHandler);
     }
 
