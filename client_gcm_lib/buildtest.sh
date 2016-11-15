@@ -12,6 +12,8 @@ if ! [ -f $FUNCTIONS_FILE ]
         . $FUNCTIONS_FILE
 fi
 
+[ $# -ne 2 ] && { echo "args count should be 2" 1>&2; exit 1;}
+
 setArgsLibs "$1" "$2"
 
 ./gradlew clean

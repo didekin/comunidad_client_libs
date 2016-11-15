@@ -1,8 +1,5 @@
 
 function setArgsLibs() {
-
-    [ $# -ne 2 ] && { echo "args count should be 2" 1>&2; exit 1;}
-
     export ENV="$1"
 
     if ! [ $ENV = "local" ] && ! [ $ENV = "master" ] ; then
