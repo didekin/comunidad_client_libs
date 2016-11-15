@@ -16,7 +16,7 @@ fi
 
 setArgsLibs "$1" "$2"
 
-./gradlew clean
+./gradlew client_lib:clean
 
 git checkout ${ENV}
 
@@ -38,7 +38,7 @@ echo "gradle client_lib build exit code = $?"
 
 git push ${GITREMOTE} ${ENV}
 
-rm releases/${ENV}/*
+# rm client_lib/releases/${ENV}/*
 mv client_lib/build/libs/*.jar client_lib/releases/${ENV}/
 
 git checkout local
