@@ -20,6 +20,11 @@ public class ErrorBean {
         this.httpStatus = httpStatus;
     }
 
+    public ErrorBean(DidekinExceptionMsg exceptionMsg)
+    {
+        this(exceptionMsg.getHttpMessage(), exceptionMsg.getHttpStatus());
+    }
+
     public int getHttpStatus()
     {
         return httpStatus;
