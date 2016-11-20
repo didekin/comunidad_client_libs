@@ -1,17 +1,18 @@
 package com.didekin.incidencia.dominio;
 
-import com.didekin.comunidad.ComunidadSerialNumber;
-
 import java.io.Serializable;
+
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.AMBITO_INCIDENCIA;
 
 /**
  * User: pedro@didekin
  * Date: 12/11/15
  * Time: 18:20
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class AmbitoIncidencia implements Serializable {
 
-    private static final long serialVersionUID = ComunidadSerialNumber.AMBITO_INCIDENCIA.number;
+    private static final long serialVersionUID = AMBITO_INCIDENCIA.number;
 
     private final short ambitoId;
 
