@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.usuario.Usuario;
 
 import java.io.InvalidObjectException;
@@ -10,19 +9,18 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import static com.didekin.common.exception.DidekinExceptionMsg.INCIDENCIA_USER_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCIDENCIA_USER;
 
 /**
  * User: pedro@didekin
  * Date: 12/11/15
  * Time: 17:08
- */
-
-/**
+ *
  * Holder object for the incidencia and its initiating user data, plus timeStamp for resolucion,
  * if there is one associated  to the incidencia.
  * Integrity constraint: incidencia.userName == userComu.userName, if both exists.
  */
-@SuppressWarnings("PrivateMemberAccessBetweenOuterAndInnerClass")
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
 public final class IncidenciaUser implements Serializable {
 
     private final Incidencia incidencia;
@@ -88,7 +86,7 @@ public final class IncidenciaUser implements Serializable {
 
     //    ==================== BUILDER ====================
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings({"unused", "WeakerAccess"})
     public final static class IncidenciaUserBuilder implements BeanBuilder<IncidenciaUser> {
 
         private Incidencia incidencia;
@@ -132,9 +130,10 @@ public final class IncidenciaUser implements Serializable {
 
     //    ================================== SERIALIZATION PROXY ==================================
 
+    @SuppressWarnings("WeakerAccess")
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.INCIDENCIA_USER.number;
+        private static final long serialVersionUID = INCIDENCIA_USER.number;
 
         private final Incidencia incidencia;
         private final Usuario usuario;

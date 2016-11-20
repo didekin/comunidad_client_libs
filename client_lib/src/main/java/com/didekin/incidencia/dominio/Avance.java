@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -9,13 +8,14 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import static com.didekin.common.exception.DidekinExceptionMsg.AVANCE_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION_AVANCE;
 
 /**
  * User: pedro@didekin
  * Date: 11/03/16
  * Time: 12:03
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Avance implements Serializable {
 
     private final long avanceId;
@@ -157,7 +157,7 @@ public final class Avance implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.INCID_RESOLUCION_AVANCE.number;
+        private static final long serialVersionUID = INCID_RESOLUCION_AVANCE.number;
 
         private final long avanceId;
         private final String avanceDesc;

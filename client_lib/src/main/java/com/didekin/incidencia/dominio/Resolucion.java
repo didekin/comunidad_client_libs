@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.common.gcm.GcmToComunidadHelper;
 
 import java.io.InvalidObjectException;
@@ -12,6 +11,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static com.didekin.common.exception.DidekinExceptionMsg.RESOLUCION_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION;
 
 /**
  * User: pedro@didekin
@@ -19,7 +19,7 @@ import static com.didekin.common.exception.DidekinExceptionMsg.RESOLUCION_WRONG_
  * Time: 18:30
  */
 
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
 public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     private final String userName;
@@ -120,6 +120,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     //    ===============================  BUILDER  ============================
 
+    @SuppressWarnings("WeakerAccess")
     public static final class ResolucionBuilder implements BeanBuilder<Resolucion> {
 
         private String userName;
@@ -247,9 +248,10 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         throw new InvalidObjectException("Use innerSerial to serialize");
     }
 
+    @SuppressWarnings("WeakerAccess")
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.INCID_RESOLUCION.number;
+        private static final long serialVersionUID = INCID_RESOLUCION.number;
 
         private final String userName;
         private final String descripcion;

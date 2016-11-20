@@ -1,7 +1,6 @@
 package com.didekin.usuario;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.common.exception.DidekinExceptionMsg;
 
 import java.io.InvalidObjectException;
@@ -11,13 +10,14 @@ import java.io.Serializable;
 import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_COMPARABLE;
 import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_EQUAL_ABLE;
 import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_HASHABLE;
+import static com.didekin.usuario.UsuarioSerialNumber.USUARIO;
 
 /**
  * User: pedro
  * Date: 29/03/15
  * Time: 12:02
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Usuario implements Comparable<Usuario>, Serializable {
 
     private final long uId;
@@ -135,6 +135,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
 
     //    ========================== BUILDER ===============================
 
+    @SuppressWarnings({"WeakerAccess", "unused"})
     public static class UsuarioBuilder implements BeanBuilder<Usuario> {
 
         //Parameters; all optional.
@@ -202,9 +203,10 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
 
 //    ============================= SERIALIZATION PROXY ==================================
 
+    @SuppressWarnings("WeakerAccess")
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.USUARIO.number;
+        private static final long serialVersionUID = USUARIO.number;
 
         private final long usuarioId;
         private final String userName;

@@ -2,7 +2,6 @@ package com.didekin.usuariocomunidad;
 
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.comunidad.Comunidad;
 import com.didekin.usuario.Usuario;
 
@@ -13,13 +12,14 @@ import java.sql.Timestamp;
 import java.util.regex.Pattern;
 
 import static com.didekin.common.exception.DidekinExceptionMsg.USERCOMU_WRONG_INIT;
+import static com.didekin.usuariocomunidad.UsuarioComunidadSerialNumber.USUARIO_COMUNIDAD;
 
 /**
  * User: pedro
  * Date: 29/03/15
  * Time: 12:02
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Serializable {
 
     private final String portal;
@@ -176,6 +176,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     //    ==================== BUILDER ====================
 
+    @SuppressWarnings("WeakerAccess")
     public static class UserComuBuilder implements BeanBuilder<UsuarioComunidad> {
 
         private String portal;
@@ -255,7 +256,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.USUARIO_COMUNIDAD.number;
+        private static final long serialVersionUID = USUARIO_COMUNIDAD.number;
 
         private final Comunidad comunidad;
         private final Usuario usuario;

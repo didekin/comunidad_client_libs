@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.common.exception.DidekinExceptionMsg;
 import com.didekin.usuariocomunidad.UsuarioComunidad;
 
@@ -10,17 +9,16 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCID_IMPORTANCIA;
+
 /**
  * User: pedro@didekin
  * Date: 19/02/16
  * Time: 19:01
- */
-
-/**
  * Holder object for an incidencia and the importancia assigned by an user.
  * Integrity constraint: incidencia.comunidad == userComu.comunidad
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused", "WeakerAccess"})
 public final class IncidImportancia implements Serializable {
 
     private final Incidencia incidencia;
@@ -157,7 +155,7 @@ public final class IncidImportancia implements Serializable {
 
     private static class InnerSerial implements Serializable{
 
-        private static final long serialVersionUID = ComunidadSerialNumber.INCID_IMPORTANCIA.number;
+        private static final long serialVersionUID = INCID_IMPORTANCIA.number;
 
         private final Incidencia incidencia;
         private final UsuarioComunidad userComu;

@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.comunidad.ComunidadSerialNumber;
 import com.didekin.common.gcm.GcmToComunidadHelper;
 import com.didekin.comunidad.Comunidad;
 
@@ -11,13 +10,14 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 import static com.didekin.common.exception.DidekinExceptionMsg.INCIDENCIA_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCIDENCIA;
 
 /**
  * User: pedro@didekin
  * Date: 12/11/15
  * Time: 17:07
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Incidencia implements Serializable, GcmToComunidadHelper {
 
     private final long incidenciaId;
@@ -218,7 +218,7 @@ public final class Incidencia implements Serializable, GcmToComunidadHelper {
     @SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess"})
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.INCIDENCIA.number;
+        private static final long serialVersionUID = INCIDENCIA.number;
 
         private final long incidenciaId;
         private final Comunidad comunidad;
