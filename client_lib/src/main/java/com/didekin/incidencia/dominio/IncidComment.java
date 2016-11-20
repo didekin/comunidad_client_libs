@@ -12,7 +12,7 @@ import static com.didekin.common.exception.DidekinExceptionMsg.INCIDENCIA_COMMEN
  * Date: 03/02/16
  * Time: 10:40
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
 public final class IncidComment {
 
     private final long commentId;
@@ -85,7 +85,7 @@ public final class IncidComment {
 
     // ==================== BUILDER ====================
 
-    @SuppressWarnings("PrivateMemberAccessBetweenOuterAndInnerClass")
+    @SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess"})
     public final static class IncidCommentBuilder implements BeanBuilder<IncidComment> {
 
         private long commentId;
