@@ -11,8 +11,8 @@ import retrofit2.http.POST;
 
 import static com.didekin.oauth2.OauthConstant.GRANT_TYPE_PARAM;
 import static com.didekin.oauth2.OauthConstant.REFRESH_TK_PARAM;
-import static com.didekin.usuario.controller.UsuarioServiceConstant.PSWD_PARAM;
-import static com.didekin.usuario.controller.UsuarioServiceConstant.USER_PARAM;
+import static com.didekin.usuario.UsuarioEndPoints.PSWD_PARAM;
+import static com.didekin.usuario.UsuarioEndPoints.USER_PARAM;
 
 /**
  * User: pedro@didekin

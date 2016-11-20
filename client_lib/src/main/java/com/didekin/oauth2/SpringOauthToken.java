@@ -15,6 +15,7 @@ import java.sql.Timestamp;
  * "refreshToken":{"expiration":"Nov 21, 2016 9:49:03 AM","value":"37b5e17d-42f9-4a97-89c1-00c64a33253d"},
  * "scope":["readwrite"],"additionalInformation":{}}
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class SpringOauthToken {
 
     private final String value;

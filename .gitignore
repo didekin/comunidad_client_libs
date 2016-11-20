@@ -11,7 +11,7 @@
 .gradle/
 
 # Build and logs
-build/
+/**/build/
 /**/libs/*.jar
 /**/*.bat
 

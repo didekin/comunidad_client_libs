@@ -1,0 +1,19 @@
+package com.didekin.usuario;
+
+/**
+ * User: pedro@didekin
+ * Date: 09/11/15
+ * Time: 16:25
+ */
+public enum UsuarioSerialNumber {
+
+    USUARIO(72L),
+    ;
+
+    public final long number;
+
+    UsuarioSerialNumber(long number)
+    {
+        this.number = number;
+    }
+}

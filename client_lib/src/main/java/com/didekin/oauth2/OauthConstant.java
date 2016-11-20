@@ -1,5 +1,7 @@
 package com.didekin.oauth2;
 
+import com.didekin.usuariocomunidad.Rol;
+
 /**
  * User: pedro@didekin
  * Date: 04/09/15
@@ -29,8 +31,8 @@ public final class OauthConstant {
     public static final String INCID_WRITE = INCID_PATH + "/write";
 
     /*Authorities. They are based on Rol enum class.*/
-    public static final String ADMON_AUTH = com.didekin.usuario.dominio.Rol.ADMINISTRADOR.authority;
-    public static final String USER_AUTH = com.didekin.usuario.dominio.Rol.PROPIETARIO.authority;
+    public static final String ADMON_AUTH = Rol.ADMINISTRADOR.authority;
+    public static final String USER_AUTH = Rol.PROPIETARIO.authority;
 
     private OauthConstant()
     {

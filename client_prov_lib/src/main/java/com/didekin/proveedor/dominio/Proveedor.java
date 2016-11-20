@@ -1,7 +1,7 @@
 package com.didekin.proveedor.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.incidservice.dominio.TipoServicio;
+import com.didekin.incidencia.dominio.TipoServicio;
 import com.didekin.usuario.dominio.Usuario;
 
 import java.sql.Timestamp;
