@@ -7,8 +7,8 @@ package com.didekin.incidencia.dominio;
  */
 public final class IncidAndResolBundle {
 
-    final IncidImportancia incidImportancia;
-    final boolean hasResolucion;
+    private final IncidImportancia incidImportancia;
+    private final boolean hasResolucion;
 
     public IncidAndResolBundle(IncidImportancia incidImportancia, boolean hasResolucion)
     {

@@ -37,7 +37,7 @@ public interface UsuarioComunidadEndPoints {
     String USERCOMU_DELETE = USER_WRITE + "/usercomus/delete";
     String USERCOMU_MODIFY = USER_WRITE + "/usercomus";
     String USERCOMU_READ = USER_READ + "/usercomus";
-
+    String USERCOMUS_BY_COMU = COMUNIDAD_READ + "/usercomus_by_comu";
     String USERCOMUS_BY_USER = USER_READ + "/usercomus_by_user";
 
     @DELETE(USERCOMU_DELETE + "/{comunidadId}")
@@ -70,6 +70,10 @@ public interface UsuarioComunidadEndPoints {
 
     @POST(REG_USERCOMU)
     Call<Integer> regUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
+
+    @GET(USERCOMUS_BY_COMU + "/{comunidadId}")
+    Call<List<UsuarioComunidad>> seeUserComusByComu(@Header("Authorization") String accessToken,
+                                                    @Path("comunidadId") long comunidadId);
 
     @GET(USERCOMUS_BY_USER)
     Call<List<UsuarioComunidad>> seeUserComusByUser(@Header("Authorization") String accessToken);

@@ -6,8 +6,8 @@ package com.didekin.incidencia.dominio;
  * Time: 15:34
  */
 public class ImportanciaUser {
-    final String userAlias;
-    final short importancia;
+    private final String userAlias;
+    private final short importancia;
 
     public ImportanciaUser(String userAlias, short importancia)
     {
