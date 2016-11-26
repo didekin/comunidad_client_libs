@@ -11,6 +11,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import rx.Observable;
 
 import static com.didekin.common.controller.CommonServiceConstant.MIME_JSON;
 
@@ -48,7 +49,7 @@ public interface UsuarioEndPoints {
     Call<Boolean> deleteAccessToken(@Header("Authorization") String accessToken, @Path("oldTk") String oldAccessToken);
 
     @DELETE(USER_DELETE)
-    Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
+    Observable<Boolean> deleteUser(@Header("Authorization") String accessToken);
 
     @Headers({
             "Content-Type:" + MIME_JSON
