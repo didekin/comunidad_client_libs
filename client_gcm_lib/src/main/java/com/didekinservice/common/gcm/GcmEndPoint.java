@@ -29,7 +29,7 @@ public interface GcmEndPoint {
 
     // Authorization header.
     String AUTHORIZATION_KEY = "Authorization:key";
-    String GCM_API_KEY = "AIzaSyBRcUJ9Z9LNlmblvEBuX53U1jFTkwRcr4g";
+    String GCM_API_KEY = "AAAADknoTJQ:APA91bGRihWJup9TYYtKl6LV7d01f5DZJDr5edlwh8KV4fLzq8S20OYyxnqP7Hsj2b4B4zDU0G_jzDH8bOwXGlz77XMFzcPWnEZ8EcDqTbiNTSjDHxuegT2eE8Dsn9YvozF4GIbIHFaJ";
 
     @Headers({
             "Content-Type:" + MIME_JSON,
