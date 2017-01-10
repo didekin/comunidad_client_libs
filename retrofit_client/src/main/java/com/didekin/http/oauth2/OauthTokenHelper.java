@@ -1,6 +1,6 @@
-package com.didekin.oauth2;
+package com.didekin.http.oauth2;
 
-import static com.didekin.oauth2.OauthConstant.BEARER_TOKEN_TYPE;
+import static com.didekin.http.oauth2.OauthConstant.BEARER_TOKEN_TYPE;
 
 /**
  * User: pedro@didekin

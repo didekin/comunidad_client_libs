@@ -1,6 +1,7 @@
-package com.didekin.usuariocomunidad;
+package com.didekin.retrofit;
 
 import com.didekin.comunidad.Comunidad;
+import com.didekin.usuariocomunidad.UsuarioComunidad;
 
 import java.util.List;
 
@@ -13,11 +14,11 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static com.didekin.comunidad.ComunidadEndPoints.COMUNIDAD_PATH;
-import static com.didekin.comunidad.ComunidadEndPoints.COMUNIDAD_READ;
-import static com.didekin.usuario.UsuarioEndPoints.OPEN;
-import static com.didekin.usuario.UsuarioEndPoints.USER_READ;
-import static com.didekin.usuario.UsuarioEndPoints.USER_WRITE;
+import static com.didekin.retrofit.ComunidadEndPoints.COMUNIDAD_PATH;
+import static com.didekin.retrofit.ComunidadEndPoints.COMUNIDAD_READ;
+import static com.didekin.retrofit.UsuarioEndPoints.OPEN;
+import static com.didekin.retrofit.UsuarioEndPoints.USER_READ;
+import static com.didekin.retrofit.UsuarioEndPoints.USER_WRITE;
 
 /**
  * User: pedro@didekin

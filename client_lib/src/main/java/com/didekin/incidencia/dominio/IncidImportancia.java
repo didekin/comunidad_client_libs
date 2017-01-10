@@ -1,7 +1,7 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.common.exception.DidekinExceptionMsg;
+import com.didekin.common.exception.IncidenciaExceptionMsg;
 import com.didekin.usuariocomunidad.UsuarioComunidad;
 
 import java.io.InvalidObjectException;
@@ -127,11 +127,11 @@ public final class IncidImportancia implements Serializable {
         {
             IncidImportancia incidImportancia = new IncidImportancia(this);
             if (incidImportancia.incidencia == null) {
-                throw new IllegalStateException(DidekinExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
+                throw new IllegalStateException(IncidenciaExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
             }
             if (incidImportancia.userComu != null
                     && (! incidImportancia.userComu.getComunidad().equals(incidImportancia.incidencia.getComunidad()))){
-                throw new IllegalStateException(DidekinExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
+                throw new IllegalStateException(IncidenciaExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
             }
             return incidImportancia;
         }

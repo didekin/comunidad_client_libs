@@ -1,4 +1,7 @@
-package com.didekin.usuario;
+package com.didekin.retrofit;
+
+import com.didekin.usuario.GcmTokenWrapper;
+import com.didekin.usuario.Usuario;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -12,7 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static com.didekin.common.controller.CommonServiceConstant.MIME_JSON;
+import static com.didekin.http.CommonServiceConstant.MIME_JSON;
 
 /**
  * User: pedro@didekin

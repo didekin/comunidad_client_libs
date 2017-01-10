@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekin.common.exception.DidekinExceptionMsg.AVANCE_WRONG_INIT;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.AVANCE_WRONG_INIT;
 import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION_AVANCE;
 
 /**

@@ -1,4 +1,4 @@
-package com.didekin.oauth2;
+package com.didekin.http.oauth2;
 
 /**
  * User: pedro@didekin

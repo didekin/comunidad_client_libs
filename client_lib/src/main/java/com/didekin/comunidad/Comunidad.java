@@ -8,9 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekin.common.exception.DidekinExceptionMsg.COMUNIDAD_NOT_COMPARABLE;
-import static com.didekin.common.exception.DidekinExceptionMsg.COMUNIDAD_NOT_HASHABLE;
-import static com.didekin.common.exception.DidekinExceptionMsg.COMUNIDAD_WRONG_INIT;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_NOT_COMPARABLE;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_NOT_HASHABLE;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_WRONG_INIT;
 
 
 /**

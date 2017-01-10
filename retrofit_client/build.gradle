@@ -1,9 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'idea'
 
-//noinspection GroovyAssignabilityCheck,GroovyMissingReturnStatement
+//noinspection GroovyMissingReturnStatement
 jar {
-    baseName = 'client_gcm_lib'
+    baseName = 'retrofit_client'
     if(project.hasProperty('versionjar')) {
         version = versionjar
     }
@@ -11,17 +11,9 @@ jar {
 
 dependencies {
     compile project(':client_lib')
-    testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
     testCompile 'junit:junit:4.12'
-}
-
-//noinspection GroovyMissingReturnStatement
-test {
-    filter {
-        //noinspection GrUnresolvedAccess
-        includeTestsMatching "com.didekinservice.common.gcm.*Test"
-    }
 }

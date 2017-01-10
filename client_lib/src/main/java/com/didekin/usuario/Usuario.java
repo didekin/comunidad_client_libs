@@ -1,15 +1,15 @@
 package com.didekin.usuario;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.common.exception.DidekinExceptionMsg;
+import com.didekin.common.exception.IncidenciaExceptionMsg;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
-import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_COMPARABLE;
-import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_EQUAL_ABLE;
-import static com.didekin.common.exception.DidekinExceptionMsg.USER_NOT_HASHABLE;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.USER_NOT_COMPARABLE;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.USER_NOT_EQUAL_ABLE;
+import static com.didekin.common.exception.IncidenciaExceptionMsg.USER_NOT_HASHABLE;
 import static com.didekin.usuario.UsuarioSerialNumber.USUARIO;
 
 /**
@@ -185,7 +185,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             Usuario usuario = new Usuario(this);
 
             if (usuario.uId == 0 && usuario.userName == null) {
-                throw new IllegalStateException(DidekinExceptionMsg.USER_WRONG_INIT.toString());
+                throw new IllegalStateException(IncidenciaExceptionMsg.USER_WRONG_INIT.toString());
             }
             return usuario;
         }

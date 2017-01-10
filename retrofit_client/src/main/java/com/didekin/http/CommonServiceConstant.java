@@ -1,4 +1,4 @@
-package com.didekin.common.controller;
+package com.didekin.http;
 
 /**
  * User: pedro@didekin

@@ -1,4 +1,4 @@
-package com.didekin.common.controller;
+package com.didekin.http;
 
 import java.io.IOException;
 import java.io.InputStream;
