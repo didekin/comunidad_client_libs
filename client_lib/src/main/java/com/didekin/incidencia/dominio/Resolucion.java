@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
 
-import static com.didekin.common.exception.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
 import static com.didekin.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION;
 
 /**

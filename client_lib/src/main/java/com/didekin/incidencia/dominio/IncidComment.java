@@ -5,7 +5,7 @@ import com.didekin.usuario.Usuario;
 
 import java.sql.Timestamp;
 
-import static com.didekin.common.exception.IncidenciaExceptionMsg.INCIDENCIA_COMMENT_WRONG_INIT;
+import static com.didekin.incidencia.dominio.IncidenciaExceptionMsg.INCIDENCIA_COMMENT_WRONG_INIT;
 
 /**
  * User: pedro@didekin

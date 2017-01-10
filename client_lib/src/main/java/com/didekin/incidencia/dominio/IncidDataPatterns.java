@@ -13,6 +13,7 @@ import static java.util.regex.Pattern.compile;
  * Date: 17/11/15
  * Time: 19:26
  */
+@SuppressWarnings("unused")
 public enum IncidDataPatterns implements DataPatternsIf {
 
     INCID_DESC("[\\w_ñÑáéíóúüÜÁÉÍÓÚ%&ºª@#,:;¿\\?¡\\!\\(\\)\\.\\-\\s]{2,300}"),

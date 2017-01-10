@@ -5,6 +5,7 @@ package com.didekin.incidencia.dominio;
  * Date: 27/03/16
  * Time: 15:34
  */
+@SuppressWarnings("unused")
 public class ImportanciaUser {
     private final String userAlias;
     private final short importancia;

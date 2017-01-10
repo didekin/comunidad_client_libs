@@ -1,7 +1,6 @@
 package com.didekin.incidencia.dominio;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekin.common.exception.IncidenciaExceptionMsg;
 import com.didekin.usuariocomunidad.UsuarioComunidad;
 
 import java.io.InvalidObjectException;

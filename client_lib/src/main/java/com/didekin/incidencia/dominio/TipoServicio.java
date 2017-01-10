@@ -5,6 +5,7 @@ package com.didekin.incidencia.dominio;
  * Date: 13/11/15
  * Time: 18:09
  */
+@SuppressWarnings("unused")
 public class TipoServicio {
 
     private final int servicioTipoId;

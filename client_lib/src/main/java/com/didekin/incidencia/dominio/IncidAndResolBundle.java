@@ -5,6 +5,7 @@ package com.didekin.incidencia.dominio;
  * Date: 17/03/16
  * Time: 15:34
  */
+@SuppressWarnings("unused")
 public final class IncidAndResolBundle {
 
     private final IncidImportancia incidImportancia;
