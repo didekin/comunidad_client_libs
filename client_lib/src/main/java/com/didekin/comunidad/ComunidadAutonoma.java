@@ -7,6 +7,7 @@ import java.io.Serializable;
  * Date: 16/06/15
  * Time: 15:09
  */
+@SuppressWarnings("unused")
 public class ComunidadAutonoma implements Serializable {
 
     private static final long serialVersionUID = ComunidadSerialNumber.COMUNIDAD_AUTONOMA.number;

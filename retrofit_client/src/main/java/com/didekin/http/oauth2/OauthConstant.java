@@ -26,10 +26,6 @@ public final class OauthConstant {
     /*Http basic authentication realm.*/
     public static final String USERS_RSRC_ID = "users_didekin";
 
-    public static final String INCID_PATH = "/incidencia";
-    public static final String INCID_READ = INCID_PATH + "/read";
-    public static final String INCID_WRITE = INCID_PATH + "/write";
-
     /*Authorities. They are based on Rol enum class.*/
     public static final String ADMON_AUTH = Rol.ADMINISTRADOR.authority;
     public static final String USER_AUTH = Rol.PROPIETARIO.authority;

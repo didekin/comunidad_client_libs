@@ -1,7 +1,4 @@
-package com.didekin.incidencia.controller;
-
-import static com.didekin.oauth2.OauthConstant.INCID_READ;
-import static com.didekin.oauth2.OauthConstant.INCID_WRITE;
+package com.didekin.http;
 
 /**
  * User: pedro@didekin
@@ -10,6 +7,10 @@ import static com.didekin.oauth2.OauthConstant.INCID_WRITE;
  */
 @SuppressWarnings("WeakerAccess")
 public final class IncidServConstant {
+
+    public static final String INCID_PATH = "/incidencia";
+    public static final String INCID_WRITE = INCID_PATH + "/write";
+    public static final String INCID_READ = INCID_PATH + "/read";
 
     private IncidServConstant()
     {

@@ -1,4 +1,4 @@
-package com.didekin.incidencia.controller;
+package com.didekin.retrofit;
 
 import com.didekin.incidencia.dominio.ImportanciaUser;
 import com.didekin.incidencia.dominio.IncidAndResolBundle;
@@ -18,25 +18,26 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static com.didekin.incidencia.controller.IncidServConstant.CLOSE_INCIDENCIA;
-import static com.didekin.incidencia.controller.IncidServConstant.DELETE_INCID;
-import static com.didekin.incidencia.controller.IncidServConstant.MOD_INCID_IMPORTANCIA;
-import static com.didekin.incidencia.controller.IncidServConstant.MOD_RESOLUCION;
-import static com.didekin.incidencia.controller.IncidServConstant.REG_INCID_COMMENT;
-import static com.didekin.incidencia.controller.IncidServConstant.REG_INCID_IMPORTANCIA;
-import static com.didekin.incidencia.controller.IncidServConstant.REG_RESOLUCION;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_INCIDS_CLOSED_BY_COMU;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_INCID_COMMENTS;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_INCID_IMPORTANCIA;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_RESOLUCION;
-import static com.didekin.incidencia.controller.IncidServConstant.SEE_USERCOMUS_IMPORTANCIA;
+import static com.didekin.http.IncidServConstant.CLOSE_INCIDENCIA;
+import static com.didekin.http.IncidServConstant.DELETE_INCID;
+import static com.didekin.http.IncidServConstant.MOD_INCID_IMPORTANCIA;
+import static com.didekin.http.IncidServConstant.MOD_RESOLUCION;
+import static com.didekin.http.IncidServConstant.REG_INCID_COMMENT;
+import static com.didekin.http.IncidServConstant.REG_INCID_IMPORTANCIA;
+import static com.didekin.http.IncidServConstant.REG_RESOLUCION;
+import static com.didekin.http.IncidServConstant.SEE_INCIDS_CLOSED_BY_COMU;
+import static com.didekin.http.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
+import static com.didekin.http.IncidServConstant.SEE_INCID_COMMENTS;
+import static com.didekin.http.IncidServConstant.SEE_INCID_IMPORTANCIA;
+import static com.didekin.http.IncidServConstant.SEE_RESOLUCION;
+import static com.didekin.http.IncidServConstant.SEE_USERCOMUS_IMPORTANCIA;
 
 /**
  * User: pedro@didekin
  * Date: 12/11/15
  * Time: 17:05
  */
+@SuppressWarnings("unused")
 public interface IncidenciaServEndPoints {
 
     @PUT(CLOSE_INCIDENCIA)

@@ -1,6 +1,7 @@
 package com.didekin.retrofit;
 
 import com.didekin.comunidad.Comunidad;
+import com.didekin.http.ComunidadServConstant;
 
 import java.util.List;
 
@@ -19,13 +20,9 @@ import retrofit2.http.Path;
 @SuppressWarnings("unused")
 public interface ComunidadEndPoints {
 
-    String COMUNIDAD_PATH = "/comunidad";
-    String COMUNIDAD_READ = COMUNIDAD_PATH + "/read";
-    String COMUNIDAD_SEARCH = UsuarioEndPoints.OPEN + "/comunidad_search";
-
-    @GET(COMUNIDAD_READ + "/{comunidadId}")
+    @GET(ComunidadServConstant.COMUNIDAD_READ + "/{comunidadId}")
     Call<Comunidad> getComuData(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
-    @POST(COMUNIDAD_SEARCH)
+    @POST(ComunidadServConstant.COMUNIDAD_SEARCH)
     Call<List<Comunidad>> searchComunidades(@Body Comunidad comunidad);
 }

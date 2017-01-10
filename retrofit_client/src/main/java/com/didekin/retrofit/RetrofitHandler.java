@@ -1,6 +1,6 @@
 package com.didekin.retrofit;
 
-import com.didekin.exception.ErrorBean;
+import com.didekin.http.ErrorBean;
 import com.didekin.http.JksInClient;
 
 import java.io.FileInputStream;

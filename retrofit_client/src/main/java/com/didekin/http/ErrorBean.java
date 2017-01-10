@@ -1,6 +1,6 @@
-package com.didekin.exception;
+package com.didekin.http;
 
-import static com.didekin.http.GenericExceptionMsg.GENERIC_INTERNAL_ERROR;
+import com.didekin.exception.ExceptionMsgIf;
 
 /**
  * User: pedro

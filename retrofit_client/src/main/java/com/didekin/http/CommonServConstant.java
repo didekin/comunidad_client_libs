@@ -6,16 +6,15 @@ package com.didekin.http;
  * Time: 16:59
  */
 @SuppressWarnings("unused")
-public final class CommonServiceConstant {
+public final class CommonServConstant {
 
     // Mime types.
     public static final String MIME_JSON = "application/json";
     public static final String FORM_URLENCODED = "application/x-www-form-urlencoded";
-
     /*Common paths out of the control of both authorization and resource servers.*/
     public static final String ERROR = "/error";
 
-    private CommonServiceConstant()
+    private CommonServConstant()
     {
     }
 }

@@ -7,6 +7,5 @@ package com.didekin.exception;
  */
 public interface ExceptionMsgIf {
     String getHttpMessage();
-
     int getHttpStatus();
 }
