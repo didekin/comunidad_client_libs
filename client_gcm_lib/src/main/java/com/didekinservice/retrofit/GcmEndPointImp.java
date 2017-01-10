@@ -12,6 +12,8 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static com.didekinservice.common.gcm.GcmErrorMessage.InternalServerError;
+
 /**
  * User: pedro@didekin
  * Date: 31/05/16
@@ -59,7 +61,7 @@ public class GcmEndPointImp implements GcmEndPoint {
             gcmResponse = response.body();
             gcmResponse.setTokensToProcess(multicastRequest.getRegistration_ids());
         } catch (IOException e) {
-            throw new GcmException(new ErrorBean(e.getMessage(), GcmResponse.GcmErrorMessage.InternalServerError.httpStatusCode));
+            throw new GcmException(new ErrorBean(e.getMessage(), InternalServerError.httpStatusCode));
         }
         return gcmResponse;
     }

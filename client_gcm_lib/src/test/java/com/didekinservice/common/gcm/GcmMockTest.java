@@ -18,8 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.didekin.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
-import static com.didekinservice.common.gcm.GcmResponse.GcmErrorMessage.InvalidRegistration;
-import static com.didekinservice.common.gcm.GcmResponse.GcmErrorMessage.NotRegistered;
+import static com.didekinservice.common.gcm.GcmErrorMessage.InvalidRegistration;
+import static com.didekinservice.common.gcm.GcmErrorMessage.NotRegistered;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
