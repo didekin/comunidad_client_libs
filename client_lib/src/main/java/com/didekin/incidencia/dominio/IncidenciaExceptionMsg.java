@@ -1,4 +1,4 @@
-package com.didekin.http.incidencia;
+package com.didekin.incidencia.dominio;
 
 import com.didekin.exception.ExceptionMsg;
 import com.didekin.exception.ExceptionMsgIf;
