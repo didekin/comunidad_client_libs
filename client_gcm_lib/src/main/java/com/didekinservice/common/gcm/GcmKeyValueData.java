@@ -1,4 +1,4 @@
-package com.didekin.common.gcm;
+package com.didekinservice.common.gcm;
 
 /**
  * User: pedro@didekin

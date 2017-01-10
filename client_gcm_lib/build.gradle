@@ -10,12 +10,8 @@ jar {
 }
 
 dependencies {
-    compile project(':client_lib')
+    compile project(':retrofit_client')
     testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
-    testCompile 'junit:junit:4.12'
 }
 
 //noinspection GroovyMissingReturnStatement

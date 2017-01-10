@@ -7,6 +7,7 @@ import com.didekin.common.dominio.BeanBuilder;
  * Date: 02/06/16
  * Time: 12:44
  */
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class GcmRequest {
 
     // OPTIONS in request messages.
@@ -61,7 +62,6 @@ public class GcmRequest {
 
     //    ==================== BUILDER ====================
 
-    @SuppressWarnings("unused")
     public static class Builder implements BeanBuilder<GcmRequest> {
 
         private final GcmRequestData data;

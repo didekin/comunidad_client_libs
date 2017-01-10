@@ -1,7 +1,11 @@
-package com.didekinservice.common.gcm;
+package com.didekinservice.retrofit;
 
-import com.didekin.common.controller.RetrofitHandler;
-import com.didekin.common.exception.ErrorBean;
+import com.didekin.http.ErrorBean;
+import com.didekin.retrofit.RetrofitHandler;
+import com.didekinservice.common.gcm.GcmException;
+import com.didekinservice.common.gcm.GcmMulticastRequest;
+import com.didekinservice.common.gcm.GcmResponse;
+import com.didekinservice.common.gcm.GcmSingleRequest;
 
 import java.io.IOException;
 
@@ -53,7 +57,7 @@ public class GcmEndPointImp implements GcmEndPoint {
                 throw new GcmException(retrofitHandler.getErrorBean(response));
             }
             gcmResponse = response.body();
-            gcmResponse.setTokensToProcess(multicastRequest.registration_ids);
+            gcmResponse.setTokensToProcess(multicastRequest.getRegistration_ids());
         } catch (IOException e) {
             throw new GcmException(new ErrorBean(e.getMessage(), GcmResponse.GcmErrorMessage.InternalServerError.httpStatusCode));
         }

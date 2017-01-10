@@ -1,4 +1,8 @@
-package com.didekinservice.common.gcm;
+package com.didekinservice.retrofit;
+
+import com.didekinservice.common.gcm.GcmMulticastRequest;
+import com.didekinservice.common.gcm.GcmResponse;
+import com.didekinservice.common.gcm.GcmSingleRequest;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -6,7 +10,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
-import static com.didekin.common.controller.CommonServiceConstant.MIME_JSON;
+import static com.didekin.http.CommonServConstant.MIME_JSON;
 
 /**
  * User: pedro@didekin

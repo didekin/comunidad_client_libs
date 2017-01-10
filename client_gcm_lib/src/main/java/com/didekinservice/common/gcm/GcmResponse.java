@@ -151,7 +151,6 @@ public class GcmResponse {
         }
     }
 
-    @SuppressWarnings("WeakerAccess")
     public enum GcmErrorMessage {
 
         /**

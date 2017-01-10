@@ -1,8 +1,9 @@
 package com.didekinservice.common.gcm;
 
-import com.didekin.common.controller.RetrofitHandler;
+import com.didekin.retrofit.RetrofitHandler;
 import com.didekinservice.common.gcm.GcmResponse.Result;
 import com.didekinservice.incidservice.gcm.GcmIncidRequestData;
+import com.didekinservice.retrofit.GcmEndPointImp;
 import com.google.gson.Gson;
 import com.squareup.okhttp.mockwebserver.MockResponse;
 import com.squareup.okhttp.mockwebserver.MockWebServer;

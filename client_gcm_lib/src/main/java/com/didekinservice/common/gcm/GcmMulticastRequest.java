@@ -9,6 +9,7 @@ import java.util.List;
  * Date: 02/06/16
  * Time: 09:12
  */
+@SuppressWarnings("WeakerAccess")
 public final class GcmMulticastRequest {
 
     /**
@@ -36,6 +37,11 @@ public final class GcmMulticastRequest {
         restricted_package_name = builder.gcmRequest.restricted_package_name;
         collapse_key = builder.gcmRequest.collapse_key;
         data = builder.gcmRequest.data;
+    }
+
+    public String[] getRegistration_ids()
+    {
+        return registration_ids;
     }
 
     //    ==================== BUILDER ====================
