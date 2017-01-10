@@ -1,5 +1,8 @@
 package com.didekin.http;
 
+import com.didekin.exception.ExceptionMsg;
+import com.didekin.exception.ExceptionMsgIf;
+
 /**
  * User: pedro@didekin
  * Date: 07/11/15

@@ -1,6 +1,6 @@
 package com.didekin.retrofit;
 
-import com.didekin.http.ErrorBean;
+import com.didekin.exception.ErrorBean;
 import com.didekin.http.oauth2.OauthConstant;
 import com.didekin.http.oauth2.SpringOauthToken;
 

@@ -8,9 +8,9 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_NOT_COMPARABLE;
-import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_NOT_HASHABLE;
-import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_WRONG_INIT;
+import static com.didekin.comunidad.ComunidadExceptionMsg.COMUNIDAD_NOT_COMPARABLE;
+import static com.didekin.comunidad.ComunidadExceptionMsg.COMUNIDAD_NOT_HASHABLE;
+import static com.didekin.comunidad.ComunidadExceptionMsg.COMUNIDAD_WRONG_INIT;
 
 
 /**
@@ -18,7 +18,7 @@ import static com.didekin.common.exception.IncidenciaExceptionMsg.COMUNIDAD_WRON
  * Date: 29/03/15
  * Time: 12:02
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Comunidad implements Comparable<Comunidad>, Serializable {
 
     private final long c_Id;

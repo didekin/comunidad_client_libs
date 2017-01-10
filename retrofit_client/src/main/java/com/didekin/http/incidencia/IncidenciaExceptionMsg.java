@@ -1,7 +1,7 @@
 package com.didekin.http.incidencia;
 
-import com.didekin.http.ExceptionMsg;
-import com.didekin.http.ExceptionMsgIf;
+import com.didekin.exception.ExceptionMsg;
+import com.didekin.exception.ExceptionMsgIf;
 
 /**
  * User: pedro@didekin

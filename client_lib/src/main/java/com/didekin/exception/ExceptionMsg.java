@@ -1,4 +1,4 @@
-package com.didekin.http;
+package com.didekin.exception;
 
 /**
  * User: pedro@didekin

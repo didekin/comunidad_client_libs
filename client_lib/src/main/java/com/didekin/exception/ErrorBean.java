@@ -1,4 +1,4 @@
-package com.didekin.http;
+package com.didekin.exception;
 
 import static com.didekin.http.GenericExceptionMsg.GENERIC_INTERNAL_ERROR;
 
@@ -10,7 +10,7 @@ import static com.didekin.http.GenericExceptionMsg.GENERIC_INTERNAL_ERROR;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class ErrorBean {
 
-    public static final ErrorBean GENERIC_ERROR = new ErrorBean(GENERIC_INTERNAL_ERROR.getHttpMessage(), GENERIC_INTERNAL_ERROR.getHttpStatus());
+    public static final ErrorBean GENERIC_ERROR = new ErrorBean(GenericExceptionMsg.GENERIC_INTERNAL_ERROR.getHttpMessage(), GenericExceptionMsg.GENERIC_INTERNAL_ERROR.getHttpStatus());
     private final String message;
     private final int httpStatus;
 
