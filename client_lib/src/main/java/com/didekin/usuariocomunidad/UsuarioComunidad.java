@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.regex.Pattern;
 
-import static com.didekin.common.exception.IncidenciaExceptionMsg.USERCOMU_WRONG_INIT;
+import static com.didekin.usuariocomunidad.UsuarioComunidadExceptionMsg.USERCOMU_WRONG_INIT;
 import static com.didekin.usuariocomunidad.UsuarioComunidadSerialNumber.USUARIO_COMUNIDAD;
 
 /**
