@@ -8,7 +8,6 @@ package com.didekinservice.common;
 @SuppressWarnings("unused")
 public final class GcmServConstant {
 
-
     // Path added to base URL.
     public static final String FCM_PATH_REQUEST = "/fcm/send";
     // Accept-encoding header.
