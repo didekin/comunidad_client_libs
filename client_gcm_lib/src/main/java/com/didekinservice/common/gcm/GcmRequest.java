@@ -1,6 +1,7 @@
 package com.didekinservice.common.gcm;
 
 import com.didekin.common.dominio.BeanBuilder;
+import com.didekinservice.common.GcmServConstant;
 
 /**
  * User: pedro@didekin
@@ -13,7 +14,6 @@ public class GcmRequest {
     // OPTIONS in request messages.
     static final String PRIORITY_NORMAL = "normal";
     static final int TIME_TO_LIVE_DEFAULT = 1724; //48h.
-    public static final String PACKAGE_DIDEKINDROID = "com.didekindroid";
 
     /**
      * Sets the priority of the message. Valid values are "normal" and "high."
@@ -81,7 +81,7 @@ public class GcmRequest {
                 time_to_live = GcmRequest.TIME_TO_LIVE_DEFAULT;
             }
             if (restricted_package_name == null) {
-                restricted_package_name = GcmRequest.PACKAGE_DIDEKINDROID;
+                restricted_package_name = GcmServConstant.didekin_package;
             }
             if (collapse_key == null){
                 collapse_key = data.typeMsg;

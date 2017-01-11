@@ -5,7 +5,7 @@ package com.didekinservice.common.gcm;
  * Date: 04/12/15
  * Time: 14:53
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class GcmTokensHolder {
 
     private final String originalGcmTk;

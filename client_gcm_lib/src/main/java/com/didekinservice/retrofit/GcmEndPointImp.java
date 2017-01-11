@@ -12,6 +12,8 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Response;
 
+import static com.didekinservice.common.GcmServConstant.GZIP;
+import static com.didekinservice.common.GcmServConstant.didekin_api_key_header;
 import static com.didekinservice.common.gcm.GcmErrorMessage.InternalServerError;
 
 /**
@@ -19,7 +21,7 @@ import static com.didekinservice.common.gcm.GcmErrorMessage.InternalServerError;
  * Date: 31/05/16
  * Time: 17:47
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class GcmEndPointImp implements GcmEndPoint {
 
     private final RetrofitHandler retrofitHandler;
@@ -30,31 +32,25 @@ public class GcmEndPointImp implements GcmEndPoint {
     }
 
     @Override
-    public Call<GcmResponse> sendGcmSingleRequest(GcmSingleRequest singleRequest)
+    public Call<GcmResponse> sendGcmSingleRequest(String acceptEncoding, String authorizationKey, GcmSingleRequest singleRequest)
     {
-        return retrofitHandler.getService(GcmEndPoint.class).sendGcmSingleRequest(singleRequest);
+        return retrofitHandler.getService(GcmEndPoint.class).sendGcmSingleRequest(acceptEncoding, authorizationKey, singleRequest);
     }
 
     @Override
-    public Call<GcmResponse> sendGcmMulticastRequest(GcmMulticastRequest multicastRequest)
+    public Call<GcmResponse> sendGcmMulticastRequest(String acceptEncoding, String authorizationKey, GcmMulticastRequest multicastRequest)
     {
-        return retrofitHandler.getService(GcmEndPoint.class).sendGcmMulticastRequest(multicastRequest);
-    }
-
-    @Override
-    public Call<GcmResponse> sendGcmMulticastRequest(String acceptEncoding, GcmMulticastRequest multicastRequest)
-    {
-        return retrofitHandler.getService(GcmEndPoint.class).sendGcmMulticastRequest(acceptEncoding, multicastRequest);
+        return retrofitHandler.getService(GcmEndPoint.class).sendGcmMulticastRequest(acceptEncoding, authorizationKey, multicastRequest);
     }
 
 //    ================================ CONVENIENCE METHODS ================================
 
-    public GcmResponse sendGcmMulticastRequestImp(GcmMulticastRequest multicastRequest)
+    public GcmResponse sendMulticast(String acceptEncoding, String authorizationKey, GcmMulticastRequest multicastRequest)
             throws GcmException
     {
         GcmResponse gcmResponse;
         try {
-            Response<GcmResponse> response = sendGcmMulticastRequest(multicastRequest).execute();
+            Response<GcmResponse> response = sendGcmMulticastRequest(acceptEncoding, authorizationKey, multicastRequest).execute();
             if (!response.isSuccessful()) {
                 throw new GcmException(retrofitHandler.getErrorBean(response));
             }
@@ -64,5 +60,17 @@ public class GcmEndPointImp implements GcmEndPoint {
             throw new GcmException(new ErrorBean(e.getMessage(), InternalServerError.httpStatusCode));
         }
         return gcmResponse;
+    }
+
+    public GcmResponse sendMulticastGzip(String authorizationKey, GcmMulticastRequest multicastRequest)
+            throws GcmException
+    {
+        return sendMulticast(GZIP, authorizationKey, multicastRequest);
+    }
+
+    public GcmResponse sendDidekinMulticastGzip(GcmMulticastRequest multicastRequest)
+            throws GcmException
+    {
+        return sendMulticastGzip(didekin_api_key_header, multicastRequest);
     }
 }

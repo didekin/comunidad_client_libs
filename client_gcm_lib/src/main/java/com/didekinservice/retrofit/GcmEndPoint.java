@@ -12,37 +12,29 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 import static com.didekin.http.CommonServConstant.MIME_JSON;
+import static com.didekinservice.common.GcmServConstant.ACCEPT_ENCODING;
+import static com.didekinservice.common.GcmServConstant.AUTHORIZATION;
 
 /**
  * User: pedro@didekin
  * Date: 29/11/15
  * Time: 12:56
  */
-@SuppressWarnings("unused")
 public interface GcmEndPoint {
 
     @Headers({
-            "Content-Type:" + MIME_JSON,
-            "Authorization:key= " + GcmServConstant.GCM_API_KEY
+            "Content-Type:" + MIME_JSON
     })
     @POST(GcmServConstant.FCM_PATH_REQUEST)
-    Call<GcmResponse> sendGcmSingleRequest(@Body GcmSingleRequest singleRequest);
+    Call<GcmResponse> sendGcmSingleRequest(@Header(ACCEPT_ENCODING) String acceptEncoding,
+                                           @Header(AUTHORIZATION) String authorizationKey,
+                                           @Body GcmSingleRequest singleRequest);
 
     @Headers({
-            "Content-Type:" + MIME_JSON,
-            "Authorization:key= " + GcmServConstant.GCM_API_KEY
+            "Content-Type:" + MIME_JSON
     })
     @POST(GcmServConstant.FCM_PATH_REQUEST)
-    Call<GcmResponse> sendGcmMulticastRequest(@Body GcmMulticastRequest multicastRequest);
-
-    /**
-     *  Overloaded version for tests: accept-encoding=identity.
-     */
-    @Headers({
-            "Content-Type:" + MIME_JSON,
-            "Authorization:key= " + GcmServConstant.GCM_API_KEY
-    })
-    @POST(GcmServConstant.FCM_PATH_REQUEST)
-    Call<GcmResponse> sendGcmMulticastRequest(@Header(GcmServConstant.ACCEPT_ENCODING) String acceptEncoding,
+    Call<GcmResponse> sendGcmMulticastRequest(@Header(ACCEPT_ENCODING) String acceptEncoding,
+                                              @Header(AUTHORIZATION) String authorizationKey,
                                               @Body GcmMulticastRequest multicastRequest);
 }

@@ -89,7 +89,7 @@ public class GcmMockTest {
                 new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L)).build())
                 .build();
 
-        GcmResponse gcmResponse = endPointImp.sendGcmMulticastRequestImp(request);
+        GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
         assertThat(gcmResponse.getSuccess(), is(1));
         assertThat(gcmResponse.getCanonical_ids(), is(1));
         assertThat(gcmResponse.getMulticast_id(), is(1001L));
@@ -122,7 +122,7 @@ public class GcmMockTest {
                         .build())
                 .build();
 
-        GcmResponse gcmResponse = endPointImp.sendGcmMulticastRequestImp(request);
+        GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
 
         assertThat(gcmResponse.getResults().length, is(4));
         assertThat(gcmResponse.getSuccess(), is(2));
