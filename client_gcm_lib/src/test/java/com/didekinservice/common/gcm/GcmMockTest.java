@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.didekin.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
+import static com.didekinservice.common.gcm.GcmRequestConstant.didekin_package;
 import static com.didekinservice.common.gcm.GcmErrorMessage.InvalidRegistration;
 import static com.didekinservice.common.gcm.GcmErrorMessage.NotRegistered;
 import static org.hamcrest.CoreMatchers.is;
@@ -86,7 +87,7 @@ public class GcmMockTest {
 
         gcmTokens.add(REGISTRATION_ID_1_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), null).build())
+                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), didekin_package).build())
                 .build();
 
         GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
@@ -118,7 +119,7 @@ public class GcmMockTest {
         gcmTokens.add(REGISTRATION_ID_4_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(
                 gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), null)
+                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), didekin_package)
                         .build())
                 .build();
 

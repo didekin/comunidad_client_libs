@@ -1,5 +1,7 @@
 package com.didekinservice.common;
 
+import com.didekinservice.common.gcm.GcmRequestConstant;
+
 /**
  * User: pedro@didekin
  * Date: 10/01/17
@@ -7,11 +9,6 @@ package com.didekinservice.common;
  */
 @SuppressWarnings("unused")
 public final class GcmServConstant {
-
-    // Server credentials.
-    private static final String didekin_api_key =
-            "AAAADknoTJQ:APA91bGRihWJup9TYYtKl6LV7d01f5DZJDr5edlwh8KV4fLzq8S20OYyxnqP7Hsj2b4B4zDU0G_jzDH8bOwXGlz77XMFzcPWnEZ8EcDqTbiNTSjDHxuegT2eE8Dsn9YvozF4GIbIHFaJ";
-    public static final String didekin_package = "com.didekindroid";
 
     // Firebase gcm URL.
     public static final String FCM_HOST_PORT = "https://fcm.googleapis.com";
@@ -24,7 +21,7 @@ public final class GcmServConstant {
     // Http header parameter values.
     public static final String IDENTITY = "identity";
     public static final String GZIP = "gzip";
-    public static final String didekin_api_key_header = "key=" + didekin_api_key;
+    public static final String didekin_api_key_header = "key=" + GcmRequestConstant.didekin_api_key;
 
     private GcmServConstant()
     {
