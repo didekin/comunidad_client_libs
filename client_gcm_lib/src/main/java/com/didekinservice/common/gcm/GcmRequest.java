@@ -1,7 +1,6 @@
 package com.didekinservice.common.gcm;
 
 import com.didekin.common.dominio.BeanBuilder;
-import com.didekinservice.common.GcmServConstant;
 
 /**
  * User: pedro@didekin
@@ -11,12 +10,9 @@ import com.didekinservice.common.GcmServConstant;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class GcmRequest {
 
-    // OPTIONS in request messages.
-    static final String PRIORITY_NORMAL = "normal";
-    static final int TIME_TO_LIVE_DEFAULT = 1724; //48h.
-
     /**
      * Sets the priority of the message. Valid values are "normal" and "high."
+     * Default: normal.
      */
     final String priority;
 
@@ -28,8 +24,8 @@ public class GcmRequest {
 
     /**
      * This parameter specifies how long (in seconds) the message should be kept in FCM storage if the device is offline.
-     * The maximum time to live supported is 4 weeks, and the default value is 4 weeks.
-     * The default value is false.
+     * The maximum time to live supported is 4 weeks.
+     * Default: 48h.
      */
     final int time_to_live;
 
@@ -42,6 +38,7 @@ public class GcmRequest {
      * This parameter identifies a group of messages that can be collapsed, so that only the last message
      * gets sent when delivery can be resumed.
      * A maximum of 4 different collapse keys is allowed at any given time.
+     * Default: the type of message.
      */
     final String collapse_key;
 
@@ -75,34 +72,29 @@ public class GcmRequest {
         public GcmRequest build()
         {
             if (priority == null) {
-                priority = GcmRequest.PRIORITY_NORMAL;
+                priority = GcmRequestConstant.PRIORITY_NORMAL;
             }
             if (time_to_live == 0) {
-                time_to_live = GcmRequest.TIME_TO_LIVE_DEFAULT;
+                time_to_live = GcmRequestConstant.TIME_TO_LIVE_DEFAULT;
             }
             if (restricted_package_name == null) {
-                restricted_package_name = GcmServConstant.didekin_package;
+                throw new IllegalStateException("App package cannot be null");
             }
             if (collapse_key == null){
-                collapse_key = data.typeMsg;
+                collapse_key = data.getTypeMsg();
             }
             return new GcmRequest(this);
         }
 
-        public Builder(GcmRequestData data)
+        public Builder(GcmRequestData data, String appPackage)
         {
             this.data = data;
+            restricted_package_name = appPackage;
         }
 
         public Builder priority(String initValue)
         {
             priority = initValue;
-            return this;
-        }
-
-        public Builder restrictedPkgName(String initValue)
-        {
-            restricted_package_name = initValue;
             return this;
         }
 

@@ -86,7 +86,7 @@ public class GcmMockTest {
 
         gcmTokens.add(REGISTRATION_ID_1_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L)).build())
+                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), null).build())
                 .build();
 
         GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
@@ -118,7 +118,7 @@ public class GcmMockTest {
         gcmTokens.add(REGISTRATION_ID_4_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(
                 gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L))
+                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), null)
                         .build())
                 .build();
 

@@ -7,11 +7,16 @@ import com.didekinservice.common.gcm.GcmRequestData;
  */
 public class GcmIncidRequestData extends GcmRequestData {
 
-    final long comunidadId;
+    private final long comunidadId;
 
     public GcmIncidRequestData(String typeMsg, long comunidadId)
     {
         super(typeMsg);
         this.comunidadId = comunidadId;
+    }
+
+    public long getComunidadId()
+    {
+        return comunidadId;
     }
 }

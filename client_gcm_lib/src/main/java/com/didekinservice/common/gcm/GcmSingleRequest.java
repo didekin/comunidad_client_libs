@@ -10,8 +10,8 @@ import com.didekin.common.dominio.BeanBuilder;
 public final class GcmSingleRequest {
 
     /**
-     *  This parameter specifies the recipient of a message.
-     *  The value must be a registration token, notification key, or topic.
+     * This parameter specifies the recipient of a message.
+     * The value must be a registration token, notification key, or topic.
      */
     final String to;
 
@@ -35,7 +35,8 @@ public final class GcmSingleRequest {
 
     //    ==================== BUILDER ====================
 
-    public static class Builder implements BeanBuilder<GcmSingleRequest>{
+    public static class Builder implements BeanBuilder<GcmSingleRequest> {
+
         private final String to;
         private final com.didekinservice.common.gcm.GcmRequest gcmRequest;
 
@@ -46,7 +47,7 @@ public final class GcmSingleRequest {
             return new GcmSingleRequest(this);
         }
 
-        public Builder(String to, com.didekinservice.common.gcm.GcmRequest gcmRequest)
+        public Builder(String to, GcmRequest gcmRequest)
         {
             this.to = to;
             this.gcmRequest = gcmRequest;

@@ -7,10 +7,15 @@ package com.didekinservice.common.gcm;
  */
 public abstract class GcmRequestData {
 
-    final String typeMsg;
+    private final String typeMsg;
 
     protected GcmRequestData(String typeMsg)
     {
         this.typeMsg = typeMsg;
+    }
+
+    public String getTypeMsg()
+    {
+        return typeMsg;
     }
 }
