@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.didekin.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
+import static com.didekinservice.common.GcmServConstant.IDENTITY;
 import static com.didekinservice.common.gcm.GcmErrorMessage.InvalidRegistration;
 import static com.didekinservice.common.gcm.GcmErrorMessage.NotRegistered;
 import static org.hamcrest.CoreMatchers.is;
@@ -74,7 +75,7 @@ public class GcmMockTest {
     }
 
     /**
-     *  Multicast with only one token.
+     * Multicast with only one token.
      */
     @Test
     public void testMulticast_1() throws Exception
@@ -91,7 +92,7 @@ public class GcmMockTest {
                 new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), didekin_package).build())
                 .build();
 
-        GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
+        GcmResponse gcmResponse = endPointImp.sendMulticastGzip("apiKey_1", request);
         assertThat(gcmResponse.getSuccess(), is(1));
         assertThat(gcmResponse.getCanonical_ids(), is(1));
         assertThat(gcmResponse.getMulticast_id(), is(1001L));
@@ -100,7 +101,7 @@ public class GcmMockTest {
     }
 
     /**
-     *  Multicast with 4 tokens.
+     * Multicast with 4 tokens.
      */
     @Test
     public void testMulticast_2() throws Exception
@@ -124,7 +125,7 @@ public class GcmMockTest {
                         .build())
                 .build();
 
-        GcmResponse gcmResponse = endPointImp.sendDidekinMulticastGzip(request);
+        GcmResponse gcmResponse = endPointImp.sendMulticast(IDENTITY, "apiKey_2", request);
 
         assertThat(gcmResponse.getResults().length, is(4));
         assertThat(gcmResponse.getSuccess(), is(2));

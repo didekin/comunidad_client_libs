@@ -12,8 +12,6 @@ import java.io.IOException;
 import retrofit2.Call;
 import retrofit2.Response;
 
-import static com.didekinservice.common.GcmServConstant.GZIP;
-import static com.didekinservice.common.GcmServConstant.didekin_api_key_header;
 import static com.didekinservice.common.gcm.GcmErrorMessage.InternalServerError;
 
 /**
@@ -62,15 +60,10 @@ public class GcmEndPointImp implements GcmEndPoint {
         return gcmResponse;
     }
 
+    @SuppressWarnings("SameParameterValue")
     public GcmResponse sendMulticastGzip(String authorizationKey, GcmMulticastRequest multicastRequest)
             throws GcmException
     {
-        return sendMulticast(GZIP, authorizationKey, multicastRequest);
-    }
-
-    public GcmResponse sendDidekinMulticastGzip(GcmMulticastRequest multicastRequest)
-            throws GcmException
-    {
-        return sendMulticastGzip(didekin_api_key_header, multicastRequest);
+        return sendMulticast(null, authorizationKey, multicastRequest);
     }
 }
