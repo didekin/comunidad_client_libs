@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.didekin.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
-import static com.didekinservice.common.gcm.GcmRequestConstant.didekin_package;
 import static com.didekinservice.common.gcm.GcmErrorMessage.InvalidRegistration;
 import static com.didekinservice.common.gcm.GcmErrorMessage.NotRegistered;
 import static org.hamcrest.CoreMatchers.is;
@@ -31,6 +30,8 @@ import static org.junit.Assert.assertThat;
  * Time: 12:34
  */
 public class GcmMockTest {
+
+    private static final String didekin_package = "com.didekindroid";
 
     private static final String MSG_ID_1 = "msg_id_1";
     private static final String MSG_ID_3 = "msg_id_3";

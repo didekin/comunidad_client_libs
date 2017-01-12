@@ -1,9 +1,5 @@
 package com.didekinservice.common;
 
-import com.didekinservice.common.gcm.GcmRequestConstant;
-
-import static com.didekinservice.common.gcm.GcmRequestConstant.didekin_api_key;
-
 /**
  * User: pedro@didekin
  * Date: 10/01/17
@@ -23,7 +19,6 @@ public final class GcmServConstant {
     // Http header parameter values.
     public static final String IDENTITY = "identity";
     public static final String GZIP = "gzip";
-    public static final String didekin_api_key_header = "key=" + didekin_api_key;
 
     private GcmServConstant()
     {
