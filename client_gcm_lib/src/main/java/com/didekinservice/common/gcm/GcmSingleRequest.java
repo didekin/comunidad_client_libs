@@ -7,6 +7,7 @@ import com.didekin.common.dominio.BeanBuilder;
  * Date: 02/06/16
  * Time: 13:07
  */
+@SuppressWarnings({"WeakerAccess", "unused"})
 public final class GcmSingleRequest {
 
     /**
@@ -14,11 +15,10 @@ public final class GcmSingleRequest {
      * The value must be a registration token, notification key, or topic.
      */
     final String to;
-
     final String priority;
     final boolean delay_while_idle;
     final int time_to_live;
-    public final String restricted_package_name;
+    final String restricted_package_name;
     final String collapse_key;
     final GcmRequestData data;
 

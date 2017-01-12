@@ -49,8 +49,8 @@ public final class GcmMulticastRequest {
     @SuppressWarnings("unused")
     public static class Builder implements BeanBuilder<GcmMulticastRequest> {
 
-        final String[] registration_ids;
-        final GcmRequest gcmRequest;
+        private final String[] registration_ids;
+        private final GcmRequest gcmRequest;
 
         @Override
         public GcmMulticastRequest build()
