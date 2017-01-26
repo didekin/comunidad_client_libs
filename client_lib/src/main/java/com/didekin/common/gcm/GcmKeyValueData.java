@@ -11,7 +11,7 @@ public final class GcmKeyValueData {
     /**
      * The key to retrieve from the data payload the type of message.
      */
-    String type_message_key = "typeMsg";
+    public String type_message_key = "typeMsg";
 
     private GcmKeyValueData()
     {
