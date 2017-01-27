@@ -10,7 +10,7 @@ jar {
 }
 
 dependencies {
-    testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
+    testCompile rootProject.ext.mock_server
 }
 
 //noinspection GroovyMissingReturnStatement

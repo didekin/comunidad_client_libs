@@ -17,6 +17,12 @@ allprojects {
 ext {
     sourceCompatibilityVersion = JavaVersion.VERSION_1_7
     targetCompatibilityVersion = JavaVersion.VERSION_1_7
+
+    junit = ["junit:junit:4.12"]
+    mock_server = 'com.squareup.okhttp:mockwebserver:2.7.5'
+    retrofit2 = ['com.squareup.retrofit2:retrofit:2.1.0',
+                 'com.squareup.retrofit2:converter-gson:2.1.0',
+                 'com.squareup.okhttp3:logging-interceptor:3.5.0']
 }
 
 task wrapper(type: Wrapper) {
