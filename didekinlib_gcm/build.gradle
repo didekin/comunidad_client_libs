@@ -10,7 +10,6 @@ jar {
 }
 
 dependencies {
-    compile project(':didekinlib_http')
     testCompile 'com.squareup.okhttp:mockwebserver:2.7.5'
 }
 
