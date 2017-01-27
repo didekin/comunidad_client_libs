@@ -1,6 +1,7 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.http.ErrorBean;
+
+import com.didekinlib.gcm.model.common.ErrorBean;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -22,7 +23,7 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
  * Date: 05/08/15
  * Time: 20:07
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class GcmRetrofitHandler {
 
     private final Retrofit retrofit;

@@ -11,7 +11,8 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
-import static com.didekinlib.http.CommonServConstant.MIME_JSON;
+import static com.didekinlib.gcm.model.common.GcmServConstant.MIME_JSON;
+
 
 /**
  * User: pedro@didekin

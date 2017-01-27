@@ -1,12 +1,11 @@
 package com.didekinlib.gcm.retrofit;
 
+import com.didekinlib.gcm.model.common.ErrorBean;
 import com.didekinlib.gcm.model.common.GcmErrorMessage;
 import com.didekinlib.gcm.model.common.GcmException;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
 import com.didekinlib.gcm.model.common.GcmSingleRequest;
-import com.didekinlib.http.ErrorBean;
-import com.didekinlib.http.retrofit.RetrofitHandler;
 
 import java.io.IOException;
 
@@ -21,9 +20,9 @@ import retrofit2.Response;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class GcmEndPointImp implements GcmEndPoint {
 
-    private final RetrofitHandler retrofitHandler;
+    private final GcmRetrofitHandler retrofitHandler;
 
-    public GcmEndPointImp(RetrofitHandler retrofitHandler)
+    public GcmEndPointImp(GcmRetrofitHandler retrofitHandler)
     {
         this.retrofitHandler = retrofitHandler;
     }
