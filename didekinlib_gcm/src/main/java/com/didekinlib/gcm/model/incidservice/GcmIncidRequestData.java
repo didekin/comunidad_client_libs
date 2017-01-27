@@ -1,6 +1,6 @@
-package com.didekinlib.gcm.incidservice;
+package com.didekinlib.gcm.model.incidservice;
 
-import com.didekinlib.gcm.common.GcmRequestData;
+import com.didekinlib.gcm.model.common.GcmRequestData;
 
 /**
  * This class is used for 'data' JSON payload in FCM incidencia messages.

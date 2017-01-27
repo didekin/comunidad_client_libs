@@ -1,9 +1,9 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.gcm.common.GcmServConstant;
-import com.didekinlib.gcm.common.GcmMulticastRequest;
-import com.didekinlib.gcm.common.GcmSingleRequest;
-import com.didekinlib.gcm.common.GcmResponse;
+import com.didekinlib.gcm.model.common.GcmServConstant;
+import com.didekinlib.gcm.model.common.GcmMulticastRequest;
+import com.didekinlib.gcm.model.common.GcmSingleRequest;
+import com.didekinlib.gcm.model.common.GcmResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;

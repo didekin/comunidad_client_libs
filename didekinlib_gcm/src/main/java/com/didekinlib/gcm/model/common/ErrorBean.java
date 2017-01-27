@@ -1,4 +1,4 @@
-package com.didekinlib.http;
+package com.didekinlib.gcm.model.common;
 
 import com.didekinlib.model.exception.ExceptionMsgIf;
 
@@ -7,7 +7,7 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
  * Date: 20/07/15
  * Time: 16:26
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class ErrorBean {
 
     private final String message;

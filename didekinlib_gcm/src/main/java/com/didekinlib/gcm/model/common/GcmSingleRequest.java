@@ -1,4 +1,4 @@
-package com.didekinlib.gcm.common;
+package com.didekinlib.gcm.model.common;
 
 import com.didekinlib.model.common.dominio.BeanBuilder;
 

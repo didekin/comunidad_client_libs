@@ -1,8 +1,12 @@
 package com.didekinlib.gcm.common;
 
+import com.didekinlib.gcm.model.common.GcmMulticastRequest;
+import com.didekinlib.gcm.model.common.GcmRequest;
+import com.didekinlib.gcm.model.common.GcmResponse;
+import com.didekinlib.gcm.model.common.GcmTokensHolder;
 import com.didekinlib.http.retrofit.RetrofitHandler;
-import com.didekinlib.gcm.common.GcmResponse.Result;
-import com.didekinlib.gcm.incidservice.GcmIncidRequestData;
+import com.didekinlib.gcm.model.common.GcmResponse.Result;
+import com.didekinlib.gcm.model.incidservice.GcmIncidRequestData;
 import com.didekinlib.gcm.retrofit.GcmEndPointImp;
 import com.google.gson.Gson;
 import com.squareup.okhttp.mockwebserver.MockResponse;
@@ -18,9 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.didekinlib.model.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
-import static com.didekinlib.gcm.common.GcmServConstant.IDENTITY;
-import static com.didekinlib.gcm.common.GcmErrorMessage.InvalidRegistration;
-import static com.didekinlib.gcm.common.GcmErrorMessage.NotRegistered;
+import static com.didekinlib.gcm.model.common.GcmServConstant.IDENTITY;
+import static com.didekinlib.gcm.model.common.GcmErrorMessage.InvalidRegistration;
+import static com.didekinlib.gcm.model.common.GcmErrorMessage.NotRegistered;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;

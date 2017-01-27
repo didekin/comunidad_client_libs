@@ -1,4 +1,4 @@
-package com.didekinlib.gcm.common;
+package com.didekinlib.gcm.model.common;
 
 /**
  * User: pedro@didekin

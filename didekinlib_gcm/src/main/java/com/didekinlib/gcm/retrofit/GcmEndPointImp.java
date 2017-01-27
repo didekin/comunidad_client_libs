@@ -1,10 +1,10 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.gcm.common.GcmErrorMessage;
-import com.didekinlib.gcm.common.GcmException;
-import com.didekinlib.gcm.common.GcmMulticastRequest;
-import com.didekinlib.gcm.common.GcmResponse;
-import com.didekinlib.gcm.common.GcmSingleRequest;
+import com.didekinlib.gcm.model.common.GcmErrorMessage;
+import com.didekinlib.gcm.model.common.GcmException;
+import com.didekinlib.gcm.model.common.GcmMulticastRequest;
+import com.didekinlib.gcm.model.common.GcmResponse;
+import com.didekinlib.gcm.model.common.GcmSingleRequest;
 import com.didekinlib.http.ErrorBean;
 import com.didekinlib.http.retrofit.RetrofitHandler;
 
