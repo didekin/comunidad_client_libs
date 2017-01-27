@@ -3,11 +3,11 @@ package com.didekinlib.gcm.common;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
 import com.didekinlib.gcm.model.common.GcmRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
-import com.didekinlib.gcm.model.common.GcmTokensHolder;
-import com.didekinlib.http.retrofit.RetrofitHandler;
 import com.didekinlib.gcm.model.common.GcmResponse.Result;
+import com.didekinlib.gcm.model.common.GcmTokensHolder;
 import com.didekinlib.gcm.model.incidservice.GcmIncidRequestData;
 import com.didekinlib.gcm.retrofit.GcmEndPointImp;
+import com.didekinlib.gcm.retrofit.GcmRetrofitHandler;
 import com.google.gson.Gson;
 import com.squareup.okhttp.mockwebserver.MockResponse;
 import com.squareup.okhttp.mockwebserver.MockWebServer;
@@ -21,10 +21,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.didekinlib.model.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
-import static com.didekinlib.gcm.model.common.GcmServConstant.IDENTITY;
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.InvalidRegistration;
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.NotRegistered;
+import static com.didekinlib.gcm.model.common.GcmServConstant.IDENTITY;
+import static com.didekinlib.model.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -74,7 +74,7 @@ public class GcmMockTest {
     @Before
     public void setUp() throws Exception
     {
-        RetrofitHandler retrofitHandler = new RetrofitHandler(server.url("/mock/").toString(), 60);
+        GcmRetrofitHandler retrofitHandler = new GcmRetrofitHandler(server.url("/mock/").toString(), 60);
         endPointImp = new GcmEndPointImp(retrofitHandler);
     }
 
