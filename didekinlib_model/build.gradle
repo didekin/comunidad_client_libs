@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+//noinspection GroovyMissingReturnStatement
+jar {
+    baseName = 'didekinlib_model'
+    if(project.hasProperty('versionjar')) {
+        version = versionjar
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+
