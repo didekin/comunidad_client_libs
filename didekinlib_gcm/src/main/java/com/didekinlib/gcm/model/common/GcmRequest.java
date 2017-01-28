@@ -14,25 +14,25 @@ public class GcmRequest {
      * Sets the priority of the message. Valid values are "normal" and "high."
      * Default: normal.
      */
-    private final String priority;
+    final String priority;
 
     /**
      * When this parameter is set to true, it indicates that the message should not be sent until the device becomes active.
      * The default value is false.
      */
-    private final boolean delay_while_idle;
+    final boolean delay_while_idle;
 
     /**
      * This parameter specifies how long (in seconds) the message should be kept in FCM storage if the device is offline.
      * The maximum time to live supported is 4 weeks.
      * Default: 48h.
      */
-    private final int time_to_live;
+    final int time_to_live;
 
     /**
      * This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.
      */
-    private final String restricted_package_name;
+    final String restricted_package_name;
 
     /**
      * This parameter identifies a group of messages that can be collapsed, so that only the last message
@@ -40,12 +40,12 @@ public class GcmRequest {
      * A maximum of 4 different collapse keys is allowed at any given time.
      * Default: the type of message.
      */
-    private final String collapse_key;
+    final String collapse_key;
 
     /**
      * This parameter specifies the custom key-value pairs of the message's payload.
      */
-    private final GcmRequestData data;
+    final GcmRequestData data;
 
     private GcmRequest(Builder builder)
     {
@@ -55,36 +55,6 @@ public class GcmRequest {
         restricted_package_name = builder.restricted_package_name;
         collapse_key = builder.collapse_key;
         delay_while_idle = builder.delay_while_idle;
-    }
-
-    public String getPriority()
-    {
-        return priority;
-    }
-
-    public boolean isDelay_while_idle()
-    {
-        return delay_while_idle;
-    }
-
-    public int getTime_to_live()
-    {
-        return time_to_live;
-    }
-
-    public String getRestricted_package_name()
-    {
-        return restricted_package_name;
-    }
-
-    public String getCollapse_key()
-    {
-        return collapse_key;
-    }
-
-    public GcmRequestData getData()
-    {
-        return data;
     }
 
     //    ==================== BUILDER ====================

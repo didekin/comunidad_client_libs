@@ -15,12 +15,22 @@ public final class GcmSingleRequest {
      * The value must be a registration token, notification key, or topic.
      */
     final String to;
-    final GcmRequest gcmRequest;
+    final String priority;
+    final boolean delay_while_idle;
+    final int time_to_live;
+    final String restricted_package_name;
+    final String collapse_key;
+    final GcmRequestData data;
 
-    public GcmSingleRequest(Builder builder)
+    private GcmSingleRequest(Builder builder)
     {
         to = builder.to;
-        gcmRequest = builder.gcmRequest;
+        priority = builder.gcmRequest.priority;
+        delay_while_idle = builder.gcmRequest.delay_while_idle;
+        time_to_live = builder.gcmRequest.time_to_live;
+        restricted_package_name = builder.gcmRequest.restricted_package_name;
+        collapse_key = builder.gcmRequest.collapse_key;
+        data = builder.gcmRequest.data;
     }
 
     //    ==================== BUILDER ====================
