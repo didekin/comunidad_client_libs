@@ -8,7 +8,7 @@ package com.didekinlib.http;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class UsuarioServConstant {
 
-    // Code constants.
+    // Code constants. // TODO: eliminar esta constante.
     public static final int IS_USER_DELETED = -1;
     /*Params used by the authorization server*/
     public static final String USER_PARAM = "username";
