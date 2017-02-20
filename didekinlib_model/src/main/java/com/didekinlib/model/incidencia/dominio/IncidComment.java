@@ -3,14 +3,20 @@ package com.didekinlib.model.incidencia.dominio;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.didekinlib.model.usuario.Usuario;
 
+import java.io.InvalidObjectException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.sql.Timestamp;
+
+import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.INCIDENCIA_COMMENT_WRONG_INIT;
+import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INCID_COMMENT;
 
 /**
  * User: pedro@didekin
  * Date: 03/02/16
  * Time: 10:40
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
+@SuppressWarnings("unused, WeakerAccess")
 public final class IncidComment {
 
     private final long commentId;
@@ -83,7 +89,6 @@ public final class IncidComment {
 
     // ==================== BUILDER ====================
 
-    @SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess"})
     public final static class IncidCommentBuilder implements BeanBuilder<IncidComment> {
 
         private long commentId;
@@ -142,10 +147,61 @@ public final class IncidComment {
             IncidComment comment = new IncidComment(this);
             if (comment.commentId <= 0) {
                 if (comment.descripcion == null || comment.incidencia == null) {
-                    throw new IllegalStateException(IncidenciaExceptionMsg.INCIDENCIA_COMMENT_WRONG_INIT.toString());
+                    throw new IllegalStateException(INCIDENCIA_COMMENT_WRONG_INIT.toString());
                 }
             }
             return comment;
+        }
+    }
+
+    //    ============================== SERIALIZATION PROXY ==================================
+
+    /**
+     * Return an InnerSerial object that will replace the current Avance instance during serialization.
+     * In the deserialization the readResolve() method of the InnerSerial object will be used.
+     */
+    private Object writeReplace()
+    {
+        return new InnerSerial(this);
+    }
+
+    private void readObject(ObjectInputStream inputStream) throws InvalidObjectException
+    {
+        throw new InvalidObjectException("Use innerSerial to serialize");
+    }
+
+    private static class InnerSerial implements Serializable {
+
+        private static final long serialVersionUID = INCID_COMMENT.number;
+
+        private final long commentId;
+        private final String descripcion;
+        private final Incidencia incidencia;
+        private final Usuario redactor;
+        private final Timestamp fechaAlta;
+
+        public InnerSerial(IncidComment comment)
+        {
+            commentId = comment.commentId;
+            descripcion = comment.descripcion;
+            incidencia = comment.incidencia;
+            redactor = comment.redactor;
+            fechaAlta = comment.fechaAlta;
+        }
+
+        /**
+         * Returns a logically equivalent InnerSerial instance of the enclosing class instance,
+         * that will replace it during deserialization.
+         */
+        private Object readResolve()
+        {
+            return new IncidCommentBuilder()
+                    .commentId(commentId)
+                    .descripcion(descripcion)
+                    .incidencia(incidencia)
+                    .redactor(redactor)
+                    .fechaAlta(fechaAlta)
+                    .build();
         }
     }
 }
