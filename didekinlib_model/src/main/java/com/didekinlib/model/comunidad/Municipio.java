@@ -114,4 +114,10 @@ public final class Municipio implements Comparable<Municipio>, Serializable {
         }
         return 0;
     }
+
+    @Override
+    public String toString()
+    {
+        return nombre;
+    }
 }

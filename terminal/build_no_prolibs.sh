@@ -1,4 +1,4 @@
-# It must be executed after 'cdlibs' with './terminal/build_no_prov.sh environment version'
+# It must be executed after 'cdlibs' with './terminal/build_no_prolibs.sh environment version'
 # Environments: local, master
 
 #!/bin/bash

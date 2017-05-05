@@ -87,4 +87,10 @@ public final class Provincia implements Comparable<Provincia>, Serializable{
             return 0;
         }
     }
+
+    @Override
+    public String toString()
+    {
+        return nombre;
+    }
 }

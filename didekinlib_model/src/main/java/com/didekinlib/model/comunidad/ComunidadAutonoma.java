@@ -53,4 +53,10 @@ public class ComunidadAutonoma implements Serializable {
     {
         return (int) cuId;
     }
+
+    @Override
+    public String toString()
+    {
+        return nombre;
+    }
 }
