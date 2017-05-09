@@ -38,7 +38,7 @@ echo "gradle didekinlib_model build exit code = $?"
 
 git push ${GITREMOTE} ${ENV}
 
-# rm didekinlib_model/releases/${ENV}/*
+rm didekinlib_model/releases/${ENV}/*
 mv didekinlib_model/build/libs/*.jar didekinlib_model/releases/${ENV}/
 
 git checkout local

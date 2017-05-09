@@ -38,7 +38,7 @@ echo "gradle didekinlib_http build exit code = $?"
 
 git push ${GITREMOTE} ${ENV}
 
-# rm didekinlib_http/releases/${ENV}/*
+rm didekinlib_http/releases/${ENV}/*
 mv didekinlib_http/build/libs/*.jar didekinlib_http/releases/${ENV}/
 
 git checkout local
