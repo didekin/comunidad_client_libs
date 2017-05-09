@@ -138,7 +138,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
         return tipoVia.equals(comunidad.tipoVia)
                 && nombreVia.equals(comunidad.nombreVia)
                 && numero == comunidad.numero
-                && (sufijoNumero != null ? sufijoNumero.equals(comunidad.sufijoNumero): comunidad.sufijoNumero == null)
+                && (sufijoNumero != null ? sufijoNumero.equals(comunidad.sufijoNumero) : comunidad.sufijoNumero == null)
                 && municipio.equals(comunidad.municipio);
     }
 
@@ -151,7 +151,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
     @Override
     public int hashCode()
     {
-        if (c_Id > 0){
+        if (c_Id > 0) {
             return ((int) (c_Id ^ (c_Id >>> 32))) * 31;
         }
 
@@ -159,7 +159,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
             throw new UnsupportedOperationException(ComunidadExceptionMsg.COMUNIDAD_NOT_HASHABLE.toString());
         }
 
-        int hash  = tipoVia.hashCode();
+        int hash = tipoVia.hashCode();
         hash = 31 * hash + nombreVia.hashCode();
         hash = 31 * hash + numero;
         hash = sufijoNumero != null ? 31 * hash + sufijoNumero.hashCode() : 1;
@@ -185,11 +185,11 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
         if ((result = tipoVia.compareToIgnoreCase(comunidadIn.getTipoVia())) != 0) {
             return result;
         }
-        if(numero != comunidadIn.getNumero()){
+        if (numero != comunidadIn.getNumero()) {
             return numero < comunidadIn.getNumero() ? -1 : 1;
         }
         if (sufijoNumero != null) {
-           return sufijoNumero.compareToIgnoreCase(comunidadIn.getSufijoNumero());
+            return sufijoNumero.compareToIgnoreCase(comunidadIn.getSufijoNumero());
         } else {
             return comunidadIn.getSufijoNumero() == null ? 0 : 1;
         }
@@ -210,6 +210,35 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
 
         public ComunidadBuilder()
         {
+        }
+
+        public ComunidadBuilder copyComunidadNonNullValues(Comunidad initValue)
+        {
+            if (initValue.c_Id > 0L) {
+                c_Id = initValue.c_Id;
+            }
+            if (initValue.tipoVia != null && !initValue.tipoVia.isEmpty()) {
+                tipoVia = initValue.tipoVia;
+            }
+            if (initValue.nombreVia != null && !initValue.nombreVia.isEmpty()) {
+                nombreVia = initValue.nombreVia;
+            }
+            if (initValue.numero > 0) {
+                numero = initValue.numero;
+            }
+            if (initValue.sufijoNumero != null && !initValue.sufijoNumero.isEmpty()) {
+                sufijoNumero = initValue.sufijoNumero;
+            }
+            if (initValue.municipio != null) {
+                municipio = initValue.municipio;
+            }
+            if (initValue.fechaAlta != null) {
+                fechaAlta = initValue.fechaAlta;
+            }
+            if (initValue.fechaMod != null) {
+                fechaMod = initValue.fechaMod;
+            }
+            return this;
         }
 
         public ComunidadBuilder c_id(long initValue)
