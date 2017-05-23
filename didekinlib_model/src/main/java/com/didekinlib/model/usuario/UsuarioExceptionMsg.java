@@ -11,7 +11,8 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
-    USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 417)),
+    USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 409)),
+    USER_DATA_NOT_INSERTED(new ExceptionMsg(null, 409)),
     USER_NOT_COMPARABLE(new ExceptionMsg(null, 412)),
     USER_NOT_EQUAL_ABLE(new ExceptionMsg(null, 412)),
     USER_NAME_NOT_FOUND(new ExceptionMsg(null, 404)),
