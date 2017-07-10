@@ -9,8 +9,6 @@ import com.didekinlib.gcm.model.incidservice.GcmIncidRequestData;
 import com.didekinlib.gcm.retrofit.GcmEndPointImp;
 import com.didekinlib.gcm.retrofit.GcmRetrofitHandler;
 import com.google.gson.Gson;
-import com.squareup.okhttp.mockwebserver.MockResponse;
-import com.squareup.okhttp.mockwebserver.MockWebServer;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -20,6 +18,9 @@ import org.junit.rules.ExternalResource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.MockWebServer;
 
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.InvalidRegistration;
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.NotRegistered;
