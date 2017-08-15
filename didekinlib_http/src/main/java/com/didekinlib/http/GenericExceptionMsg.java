@@ -12,7 +12,7 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 public enum GenericExceptionMsg implements ExceptionMsgIf {
 
     BAD_REQUEST(new ExceptionMsg("Bad Request", 400)),
-    GENERIC_INTERNAL_ERROR(new ExceptionMsg(null, 500)),
+    GENERIC_INTERNAL_ERROR(new ExceptionMsg("Internal Server Error", 500)),
     NOT_FOUND(new ExceptionMsg("Not Found", 404)),
     TOKEN_NOT_DELETED(new ExceptionMsg(null, 417)),
     TOKEN_NULL(new ExceptionMsg(null, 400)),
