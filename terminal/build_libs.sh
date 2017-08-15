@@ -11,5 +11,5 @@ source ./didekinlib_model/buildtest.sh $1 $2
 source ./didekinlib_http/buildtest.sh $1 $2
 source ./didekinlib_gcm/buildtest.sh $1 $2
 
-echo "==== FINAL!!!: build_no_prov finish, exit code = $? ======"
+echo "==== FINAL!!!: build_libs finish, exit code = $? ======"
 
