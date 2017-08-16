@@ -11,6 +11,7 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
+    PASSWORD_NOT_SENT(new ExceptionMsg("password_not_sent", 500)),
     USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 409)),
     USER_DATA_NOT_INSERTED(new ExceptionMsg(null, 409)),
     USER_NOT_COMPARABLE(new ExceptionMsg(null, 412)),
