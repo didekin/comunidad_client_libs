@@ -7,6 +7,7 @@ import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,7 +17,7 @@ import java.util.List;
  * Time: 18:30
  */
 
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
+@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused", "WeakerAccess"})
 public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     private final String userName;
@@ -42,6 +43,21 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         fechaAlta = builder.fechaAlta;
         incidencia = builder.incidencia;
         avances = builder.avances;
+    }
+
+    public static Resolucion doResolucionWithAvance(Resolucion resolucion, String userName)
+    {
+        List<Avance> avances = new ArrayList<>(1);
+        avances.add(new Avance.AvanceBuilder()
+                .copyAvance(resolucion.getAvances().get(0))
+                .userName(userName)
+                .build());
+
+        return new Resolucion.ResolucionBuilder(resolucion.getIncidencia())
+                .fechaPrevista(resolucion.getFechaPrev())
+                .costeEstimado(resolucion.getCosteEstimado())
+                .avances(avances)
+                .buildAsFk();
     }
 
     @Override
