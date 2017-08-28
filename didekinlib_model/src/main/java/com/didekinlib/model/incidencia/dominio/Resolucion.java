@@ -45,7 +45,8 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         avances = builder.avances;
     }
 
-    public static Resolucion doResolucionWithAvance(Resolucion resolucion, String userName)
+
+    public static Resolucion doResolucionModifiedWithNewAvance(Resolucion resolucion, String userName)
     {
         List<Avance> avances = new ArrayList<>(1);
         avances.add(new Avance.AvanceBuilder()
@@ -53,6 +54,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
                 .userName(userName)
                 .build());
 
+        // Only take into account possible modified fields.
         return new Resolucion.ResolucionBuilder(resolucion.getIncidencia())
                 .fechaPrevista(resolucion.getFechaPrev())
                 .costeEstimado(resolucion.getCosteEstimado())
