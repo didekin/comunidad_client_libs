@@ -11,6 +11,8 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.regex.Pattern;
 
+import static com.didekinlib.model.usuariocomunidad.Rol.ADMINISTRADOR;
+import static com.didekinlib.model.usuariocomunidad.Rol.PRESIDENTE;
 import static com.didekinlib.model.usuariocomunidad.UsuarioComunidadSerialNumber.USUARIO_COMUNIDAD;
 
 /**
@@ -101,13 +103,16 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     public boolean hasAdministradorAuthority()
     {
-        String[] rolesArray = Pattern.compile(",").split(roles);
-        for (String rol : rolesArray) {
-            if (rol.equals(Rol.ADMINISTRADOR.function) || rol.equals(Rol.PRESIDENTE.function)) {
-                return true;
-            }
-        }
-        return false;
+        return getHighestRolFunction().equals(ADMINISTRADOR.function) || getHighestRolFunction().equals(PRESIDENTE.function);
+    }
+
+    /**
+     * The method return the first string in the rol array. The order corresponds to the definition
+     * of the roles variable in the database: SET('adm', 'pre', 'pro', 'inq').
+     * The roles 'adm' and 'pre' are hierarchically equivalent.
+     */
+    public String getHighestRolFunction(){
+        return Pattern.compile(",").split(roles)[0];
     }
 
     // ............................ Serializable ...............................
