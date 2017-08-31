@@ -12,6 +12,7 @@
 
 # Build and logs
 /**/build/
+/**/out/
 /**/libs/*.jar
 /**/*.bat
 
