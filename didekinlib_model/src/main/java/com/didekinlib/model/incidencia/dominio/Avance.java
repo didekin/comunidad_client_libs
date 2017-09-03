@@ -79,7 +79,7 @@ public final class Avance implements Serializable {
 
     public Timestamp getFechaAlta()
     {
-        return fechaAlta != null? new Timestamp(fechaAlta.getTime()) : null;
+        return fechaAlta != null ? new Timestamp(fechaAlta.getTime()) : null;
     }
 
     //    ===============================  BUILDER  ============================

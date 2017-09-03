@@ -17,7 +17,7 @@ import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.INC
  *
  * Holder object for the incidencia and its initiating user data, plus timeStamp for resolucion,
  * if there is one associated  to the incidencia.
- * Integrity constraint: incidencia.userName == userComu.userName, if both exists.
+ * Integrity constraint: incidencia.userName == usuario.userName, if both exists.
  */
 @SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused"})
 public final class IncidenciaUser implements Serializable {
@@ -121,6 +121,9 @@ public final class IncidenciaUser implements Serializable {
             IncidenciaUser incidenciaUser = new IncidenciaUser(this);
 
             if (incidenciaUser.incidencia == null || incidenciaUser.incidencia.getUserName() == null){
+                throw new IllegalStateException(INCIDENCIA_USER_WRONG_INIT.toString());
+            }
+            if (!incidenciaUser.incidencia.getUserName().equals(incidenciaUser.usuario.getUserName())) {
                 throw new IllegalStateException(INCIDENCIA_USER_WRONG_INIT.toString());
             }
             return incidenciaUser;
