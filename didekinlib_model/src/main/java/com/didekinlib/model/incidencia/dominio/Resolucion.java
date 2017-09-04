@@ -109,7 +109,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     public List<Avance> getAvances()
     {
-        if (avances != null) {
+        if (avances != null || avances.size() > 0) {
             return Collections.unmodifiableList(avances);
         }
         return avances; // null.
