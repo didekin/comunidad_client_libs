@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
+
 /**
  * User: pedro@didekin
  * Date: 12/11/15
@@ -43,23 +45,6 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         fechaAlta = builder.fechaAlta;
         incidencia = builder.incidencia;
         avances = builder.avances;
-    }
-
-
-    public static Resolucion doResolucionModifiedWithNewAvance(Resolucion resolucion, String userName)
-    {
-        List<Avance> avances = new ArrayList<>(1);
-        avances.add(new Avance.AvanceBuilder()
-                .copyAvance(resolucion.getAvances().get(0))
-                .userName(userName)
-                .build());
-
-        // Only take into account possible modified fields.
-        return new Resolucion.ResolucionBuilder(resolucion.getIncidencia())
-                .fechaPrevista(resolucion.getFechaPrev())
-                .costeEstimado(resolucion.getCosteEstimado())
-                .avances(avances)
-                .buildAsFk();
     }
 
     @Override
@@ -124,7 +109,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     public List<Avance> getAvances()
     {
-        if (avances != null){
+        if (avances != null) {
             return Collections.unmodifiableList(avances);
         }
         return avances; // null.
@@ -235,7 +220,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
                     || resolucion.descripcion == null
                     || resolucion.fechaPrev == null
                     ) {
-                throw new IllegalStateException(IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT.toString());
+                throw new IllegalStateException(RESOLUCION_WRONG_INIT.toString());
             }
             return resolucion;
         }
@@ -243,8 +228,8 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         public Resolucion buildAsFk()
         {
             Resolucion resolucion = new Resolucion(this);
-            if (resolucion.incidencia == null) {
-                throw new IllegalStateException(IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT.toString());
+            if (resolucion.incidencia == null || resolucion.incidencia.getIncidenciaId() <= 0) {
+                throw new IllegalStateException(RESOLUCION_WRONG_INIT.toString());
             }
             return resolucion;
         }
@@ -312,5 +297,44 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
                     .avances(avances)
                     .build();
         }
+    }
+
+    /*    ============================== STATIC UTILITY METHODS ==================================*/
+
+    /**
+     * @return true if the resolucion to be modified has an avance.
+     */
+    public static boolean hasResolToBeModifiedAvance(Resolucion resolucion)
+    {
+        return resolucion.getAvances() != null && resolucion.getAvances().size() == 1 && !resolucion.getAvances().get(0).getAvanceDesc().isEmpty();
+    }
+
+    /**
+     * @param resolucion to be modified as sent by a client application.
+     * @param userName   doing the modification.
+     * @return a resolucion with the new data to be modified, including zero o one new avance.
+     */
+    public static Resolucion doResolucionModifiedWithNewAvance(Resolucion resolucion, String userName)
+    {
+        // Check for valid states of resolucion.avances in the instance to be persisted.
+        if (resolucion.getAvances() != null && resolucion.getAvances().size() > 1) {
+            throw new IllegalArgumentException(RESOLUCION_WRONG_INIT.toString());
+        }
+
+        List<Avance> avances = null;
+        // Adds avance.
+        if (hasResolToBeModifiedAvance(resolucion)) {
+            avances = new ArrayList<>(1);
+            avances.add(new Avance.AvanceBuilder()
+                    .copyAvance(resolucion.getAvances().get(0))
+                    .userName(userName)
+                    .build());
+        }
+        // Only take into account possible modified fields.
+        return new Resolucion.ResolucionBuilder(resolucion.getIncidencia())
+                .fechaPrevista(resolucion.getFechaPrev())
+                .costeEstimado(resolucion.getCosteEstimado())
+                .avances(avances)
+                .buildAsFk();
     }
 }
