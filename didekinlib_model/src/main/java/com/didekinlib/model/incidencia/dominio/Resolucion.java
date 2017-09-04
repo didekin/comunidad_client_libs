@@ -8,10 +8,11 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
+import static java.util.Collections.emptyList;
+import static java.util.Collections.unmodifiableList;
 
 /**
  * User: pedro@didekin
@@ -110,9 +111,9 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
     public List<Avance> getAvances()
     {
         if (avances != null || avances.size() > 0) {
-            return Collections.unmodifiableList(avances);
+            return unmodifiableList(avances);
         }
-        return avances; // null.
+        return avances;
     }
 
     @Override
@@ -193,8 +194,8 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         @SuppressWarnings("unchecked")
         public ResolucionBuilder avances(List<Avance> avances)
         {
-            List<Avance> emptyList = Collections.emptyList();
-            this.avances = (avances == null ? emptyList : Collections.unmodifiableList(avances));
+            List<Avance> emptyList = emptyList();
+            this.avances = avances == null ? emptyList : unmodifiableList(avances);
             return this;
         }
 
