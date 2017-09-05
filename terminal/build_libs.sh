@@ -7,6 +7,7 @@
 
 ./gradlew clean
 
+# Hay controlar si cada una de estas llamadas tiene éxito.
 source ./didekinlib_model/buildtest.sh $1 $2
 source ./didekinlib_http/buildtest.sh $1 $2
 source ./didekinlib_gcm/buildtest.sh $1 $2

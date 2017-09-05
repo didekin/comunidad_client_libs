@@ -81,8 +81,8 @@ public interface IncidenciaServEndPoints {
     @GET(SEE_INCIDS_OPEN_BY_COMU + "/{comunidadId}")
     Call<List<IncidenciaUser>> seeIncidsOpenByComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
-    @GET(SEE_RESOLUCION + "/{resolucionId}")
-    Call<Resolucion> seeResolucion(@Header("Authorization") String accessToken, @Path("resolucionId") long resolucionId);
+    @GET(SEE_RESOLUCION + "/{incidenciaId}")
+    Call<Resolucion> seeResolucion(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
 
     @GET(SEE_USERCOMUS_IMPORTANCIA + "/{incidenciaId}")
     Call<List<ImportanciaUser>> seeUserComusImportancia(@Header("Authorization") String accessToken,
