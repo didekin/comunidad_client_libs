@@ -32,4 +32,9 @@ public class ErrorBean {
     {
         return exceptionMsg.getHttpMessage();
     }
+
+    public ExceptionMsgIf getExceptionMsg()
+    {
+        return exceptionMsg;
+    }
 }
