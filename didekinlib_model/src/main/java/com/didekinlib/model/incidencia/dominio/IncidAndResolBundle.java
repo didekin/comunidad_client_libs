@@ -5,6 +5,8 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION_BUNDLE;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 
 /**
  * User: pedro@didekin
@@ -31,6 +33,26 @@ public final class IncidAndResolBundle implements Serializable {
     public boolean hasResolucion()
     {
         return hasResolucion;
+    }
+
+    @Override
+    public int hashCode()
+    {
+        int result = incidImportancia.hashCode();
+        return (31 * result) + (hasResolucion ? TRUE.hashCode() : FALSE.hashCode());
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if(this == obj){
+            return true;
+        }
+        if (!(obj instanceof IncidAndResolBundle)){
+            return false;
+        }
+        IncidAndResolBundle objectOut = (IncidAndResolBundle) obj;
+        return incidImportancia.equals(objectOut.incidImportancia) && hasResolucion == objectOut.hasResolucion;
     }
 
     //    ============================== SERIALIZATION PROXY ==================================
