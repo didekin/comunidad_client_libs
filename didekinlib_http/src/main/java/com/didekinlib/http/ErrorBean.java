@@ -10,27 +10,20 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public class ErrorBean {
 
-    private final String message;
-    private final int httpStatus;
-
-    public ErrorBean(String message, int httpStatus)
-    {
-        this.message = message;
-        this.httpStatus = httpStatus;
-    }
+    private final ExceptionMsgIf exceptionMsg;
 
     public ErrorBean(ExceptionMsgIf exceptionMsg)
     {
-        this(exceptionMsg.getHttpMessage(), exceptionMsg.getHttpStatus());
+       this.exceptionMsg = exceptionMsg;
     }
 
     public int getHttpStatus()
     {
-        return httpStatus;
+        return exceptionMsg.getHttpStatus();
     }
 
     public String getMessage()
     {
-        return message;
+        return exceptionMsg.getHttpMessage();
     }
 }
