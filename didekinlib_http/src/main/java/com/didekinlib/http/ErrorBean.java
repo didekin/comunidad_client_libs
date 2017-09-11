@@ -1,5 +1,6 @@
 package com.didekinlib.http;
 
+import com.didekinlib.model.exception.ExceptionMsg;
 import com.didekinlib.model.exception.ExceptionMsgIf;
 
 /**
@@ -15,6 +16,11 @@ public class ErrorBean {
     public ErrorBean(ExceptionMsgIf exceptionMsg)
     {
        this.exceptionMsg = exceptionMsg;
+    }
+
+    public ErrorBean(String httpMessage, int httpCode)
+    {
+        exceptionMsg = new ExceptionMsg(httpMessage, httpCode);
     }
 
     public int getHttpStatus()
