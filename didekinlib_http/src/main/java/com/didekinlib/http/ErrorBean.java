@@ -1,6 +1,5 @@
 package com.didekinlib.http;
 
-import com.didekinlib.model.exception.ExceptionMsg;
 import com.didekinlib.model.exception.ExceptionMsgIf;
 
 /**
@@ -11,30 +10,27 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public class ErrorBean {
 
-    private final ExceptionMsgIf exceptionMsg;
+    private final String message;
+    private final int httpStatus;
+
+    public ErrorBean(String message, int httpStatus)
+    {
+        this.message = message;
+        this.httpStatus = httpStatus;
+    }
 
     public ErrorBean(ExceptionMsgIf exceptionMsg)
     {
-       this.exceptionMsg = exceptionMsg;
-    }
-
-    public ErrorBean(String httpMessage, int httpCode)
-    {
-        exceptionMsg = new ExceptionMsg(httpMessage, httpCode);
+        this(exceptionMsg.getHttpMessage(), exceptionMsg.getHttpStatus());
     }
 
     public int getHttpStatus()
     {
-        return exceptionMsg.getHttpStatus();
+        return httpStatus;
     }
 
     public String getMessage()
     {
-        return exceptionMsg.getHttpMessage();
-    }
-
-    public ExceptionMsgIf getExceptionMsg()
-    {
-        return exceptionMsg;
+        return message;
     }
 }
