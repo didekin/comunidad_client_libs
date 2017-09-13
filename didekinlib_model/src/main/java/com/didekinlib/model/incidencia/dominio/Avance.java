@@ -1,6 +1,7 @@
 package com.didekinlib.model.incidencia.dominio;
 
 import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -20,14 +21,14 @@ public final class Avance implements Serializable {
 
     private final long avanceId;
     private final String avanceDesc;
-    private final String userName;
+    private final Usuario author;
     private final Timestamp fechaAlta;
 
     private Avance(AvanceBuilder builder)
     {
         avanceId = builder.avanceId;
         avanceDesc = builder.avanceDesc;
-        userName = builder.userName;
+        author = builder.author;
         fechaAlta = builder.fechaAlta;
     }
 
@@ -44,7 +45,7 @@ public final class Avance implements Serializable {
             return true;
         }
 
-        if (userName != null ? !userName.equals(avance.userName) : avance.userName != null) {
+        if (author != null ? !author.equals(avance.author) : avance.author != null) {
             return false;
         }
         return !(fechaAlta != null ? !fechaAlta.equals(avance.fechaAlta) : avance.fechaAlta != null);
@@ -57,7 +58,7 @@ public final class Avance implements Serializable {
             return ((int) (avanceId ^ (avanceId >>> 32))) * 31;
         }
 
-        int result = userName != null ? userName.hashCode() : 0;
+        int result = author != null ? author.hashCode() : 0;
         result = 31 * result + (fechaAlta != null ? fechaAlta.hashCode() : 0);
         return result;
     }
@@ -72,9 +73,19 @@ public final class Avance implements Serializable {
         return avanceDesc;
     }
 
+    public Usuario getAuthor()
+    {
+        return author;
+    }
+
     public String getUserName()
     {
-        return userName;
+        return author.getUserName();
+    }
+
+    public String getAlias()
+    {
+        return author.getAlias();
     }
 
     public Timestamp getFechaAlta()
@@ -88,7 +99,7 @@ public final class Avance implements Serializable {
 
         private long avanceId;
         private String avanceDesc;
-        private String userName;
+        private Usuario author;
         private Timestamp fechaAlta;
 
         public AvanceBuilder()
@@ -107,9 +118,9 @@ public final class Avance implements Serializable {
             return this;
         }
 
-        public AvanceBuilder userName(String initValue)
+        public AvanceBuilder author(Usuario initValue)
         {
-            userName = initValue;
+            author = initValue;
             return this;
         }
 
@@ -123,7 +134,7 @@ public final class Avance implements Serializable {
         {
             avanceId = initValue.avanceId;
             avanceDesc = initValue.avanceDesc;
-            userName = initValue.userName;
+            author = initValue.author;
             fechaAlta = initValue.fechaAlta;
             return this;
         }
@@ -161,7 +172,7 @@ public final class Avance implements Serializable {
 
         private final long avanceId;
         private final String avanceDesc;
-        private final String userName;
+        private final Usuario author;
         private final Timestamp fechaAlta;
 
 
@@ -169,7 +180,7 @@ public final class Avance implements Serializable {
         {
             avanceId = avance.avanceId;
             avanceDesc = avance.avanceDesc;
-            userName = avance.userName;
+            author = avance.author;
             fechaAlta = avance.fechaAlta;
         }
 
@@ -182,7 +193,7 @@ public final class Avance implements Serializable {
             return new AvanceBuilder()
                     .avanceId(avanceId)
                     .avanceDesc(avanceDesc)
-                    .userName(userName)
+                    .author(author)
                     .fechaAlta(fechaAlta)
                     .build();
         }
