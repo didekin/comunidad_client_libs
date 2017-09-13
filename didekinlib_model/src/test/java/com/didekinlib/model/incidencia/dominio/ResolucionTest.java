@@ -1,5 +1,7 @@
 package com.didekinlib.model.incidencia.dominio;
 
+import com.didekinlib.model.usuario.Usuario;
+
 import org.junit.Test;
 
 import java.sql.Timestamp;
@@ -45,7 +47,7 @@ public class ResolucionTest {
         List<Avance> avances = doAvances("avance_1");
         avances.add(new Avance.AvanceBuilder()
                 .avanceDesc("avance_2")
-                .userName(USER_ADM)
+                .author(new Usuario.UsuarioBuilder().userName(USER_ADM).build())
                 .build());
         try {
             doResolucionModifiedWithNewAvance(doResolucion(avances), USER_ADM);
@@ -63,7 +65,7 @@ public class ResolucionTest {
         List<Avance> avances = new ArrayList<>(1);
         avances.add(new Avance.AvanceBuilder()
                 .avanceDesc(avanceDesc)
-                .userName(USER_ADM)
+                .author(new Usuario.UsuarioBuilder().userName(USER_ADM).build())
                 .build());
         return avances;
     }

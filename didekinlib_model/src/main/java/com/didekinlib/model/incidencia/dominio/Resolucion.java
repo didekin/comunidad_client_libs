@@ -2,6 +2,7 @@ package com.didekinlib.model.incidencia.dominio;
 
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.didekinlib.model.common.gcm.GcmToComunidadHelper;
+import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -328,7 +329,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
             avances = new ArrayList<>(1);
             avances.add(new Avance.AvanceBuilder()
                     .copyAvance(resolucion.getAvances().get(0))
-                    .userName(userName)
+                    .author(new Usuario.UsuarioBuilder().userName(userName).build())
                     .build());
         }
         // Only take into account possible modified fields.
