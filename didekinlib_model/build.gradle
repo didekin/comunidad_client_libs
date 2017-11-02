@@ -9,6 +9,10 @@ jar {
     }
 }
 
+compileJava {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     testCompile rootProject.ext.junit
 }

@@ -9,6 +9,10 @@ jar {
     }
 }
 
+compileJava {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     compile project(':didekinlib_model')
     compile rootProject.ext.retrofit2
