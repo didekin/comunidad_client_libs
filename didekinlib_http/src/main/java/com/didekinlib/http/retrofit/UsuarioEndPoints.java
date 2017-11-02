@@ -1,7 +1,7 @@
 package com.didekinlib.http.retrofit;
 
-import com.didekinlib.http.UsuarioServConstant;
 import com.didekinlib.http.CommonServConstant;
+import com.didekinlib.http.UsuarioServConstant;
 import com.didekinlib.model.usuario.GcmTokenWrapper;
 import com.didekinlib.model.usuario.Usuario;
 
