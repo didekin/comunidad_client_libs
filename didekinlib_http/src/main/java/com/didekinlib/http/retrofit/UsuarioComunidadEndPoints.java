@@ -1,6 +1,12 @@
 package com.didekinlib.http.retrofit;
 
 
+import com.didekinlib.http.UsuarioComunidadServConstant;
+import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
+
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
