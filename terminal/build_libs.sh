@@ -6,6 +6,7 @@
 [ $# -ne 2 ] && { echo "args count should be 2" 1>&2; exit 1;}
 
 ./gradlew clean
+/usr/bin/ssh-add -K
 
 # Hay controlar si cada una de estas llamadas tiene éxito.
 source ./didekinlib_model/buildtest.sh $1 $2
