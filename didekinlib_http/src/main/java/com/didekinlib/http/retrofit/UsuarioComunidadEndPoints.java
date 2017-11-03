@@ -1,7 +1,6 @@
 package com.didekinlib.http.retrofit;
 
 
-import com.didekinlib.http.UsuarioComunidadServConstant;
 import com.didekinlib.model.comunidad.Comunidad;
 import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
 
@@ -16,6 +15,19 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
+import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER;
+import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_WRITE;
+import static com.didekinlib.http.UsuarioComunidadServConstant.COMUS_BY_USER;
+import static com.didekinlib.http.UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU;
+import static com.didekinlib.http.UsuarioComunidadServConstant.REG_COMU_USERCOMU;
+import static com.didekinlib.http.UsuarioComunidadServConstant.REG_USERCOMU;
+import static com.didekinlib.http.UsuarioComunidadServConstant.REG_USER_USERCOMU;
+import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMUS_BY_COMU;
+import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMUS_BY_USER;
+import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_DELETE;
+import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_MODIFY;
+import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_READ;
+
 /**
  * User: pedro@didekin
  * Date: 20/11/16
@@ -24,41 +36,41 @@ import retrofit2.http.Path;
 @SuppressWarnings("unused")
 public interface UsuarioComunidadEndPoints {
 
-    @DELETE(UsuarioComunidadServConstant.USERCOMU_DELETE + "/{comunidadId}")
+    @DELETE(USERCOMU_DELETE + "/{comunidadId}")
     Call<Integer> deleteUserComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
-    @GET(UsuarioComunidadServConstant.COMUS_BY_USER)
+    @GET(COMUS_BY_USER)
     Call<List<Comunidad>> getComusByUser(@Header("Authorization") String accessToken);
 
-    @GET(UsuarioComunidadServConstant.USERCOMU_READ + "/{comunidadId}")
+    @GET(USERCOMU_READ + "/{comunidadId}")
     Call<UsuarioComunidad> getUserComuByUserAndComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
-    @GET(UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER + "/{comunidadId}")
+    @GET(COMUNIDAD_OLDEST_USER + "/{comunidadId}")
     Call<Boolean> isOldestOrAdmonUserComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
-    @PUT(UsuarioComunidadServConstant.COMUNIDAD_WRITE)
+    @PUT(COMUNIDAD_WRITE)
     Call<Integer> modifyComuData(@Header("Authorization") String accessToken, @Body Comunidad comunidad);
 
-    @PUT(UsuarioComunidadServConstant.USERCOMU_MODIFY)
+    @PUT(USERCOMU_MODIFY)
     Call<Integer> modifyUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
 
-    @POST(UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU)
+    @POST(REG_COMU_AND_USER_AND_USERCOMU)
     Call<Boolean> regComuAndUserAndUserComu(@Body UsuarioComunidad usuarioCom);
 
-    @POST(UsuarioComunidadServConstant.REG_COMU_USERCOMU)
+    @POST(REG_COMU_USERCOMU)
     Call<Boolean> regComuAndUserComu(@Header("Authorization") String accessToken,
                                      @Body UsuarioComunidad usuarioCom);
 
-    @POST(UsuarioComunidadServConstant.REG_USER_USERCOMU)
+    @POST(REG_USER_USERCOMU)
     Call<Boolean> regUserAndUserComu(@Body UsuarioComunidad userCom);
 
-    @POST(UsuarioComunidadServConstant.REG_USERCOMU)
+    @POST(REG_USERCOMU)
     Call<Integer> regUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
 
-    @GET(UsuarioComunidadServConstant.USERCOMUS_BY_COMU + "/{comunidadId}")
+    @GET(USERCOMUS_BY_COMU + "/{comunidadId}")
     Call<List<UsuarioComunidad>> seeUserComusByComu(@Header("Authorization") String accessToken,
                                                     @Path("comunidadId") long comunidadId);
 
-    @GET(UsuarioComunidadServConstant.USERCOMUS_BY_USER)
+    @GET(USERCOMUS_BY_USER)
     Call<List<UsuarioComunidad>> seeUserComusByUser(@Header("Authorization") String accessToken);
 }

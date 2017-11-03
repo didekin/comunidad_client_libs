@@ -1,7 +1,5 @@
 package com.didekinlib.http.retrofit;
 
-import com.didekinlib.http.CommonServConstant;
-import com.didekinlib.http.UsuarioServConstant;
 import com.didekinlib.model.usuario.GcmTokenWrapper;
 import com.didekinlib.model.usuario.Usuario;
 
@@ -17,6 +15,22 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
+import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
+import static com.didekinlib.http.CommonServConstant.MIME_JSON;
+import static com.didekinlib.http.UsuarioServConstant.ACCESS_TOKEN_DELETE;
+import static com.didekinlib.http.UsuarioServConstant.CODE_CHECK_MAIL_SEND;
+import static com.didekinlib.http.UsuarioServConstant.GCM_TOKEN_PARAM;
+import static com.didekinlib.http.UsuarioServConstant.LOGIN;
+import static com.didekinlib.http.UsuarioServConstant.PASSWORD_MODIFY;
+import static com.didekinlib.http.UsuarioServConstant.PASSWORD_SEND;
+import static com.didekinlib.http.UsuarioServConstant.PSWD_PARAM;
+import static com.didekinlib.http.UsuarioServConstant.USER_DELETE;
+import static com.didekinlib.http.UsuarioServConstant.USER_PARAM;
+import static com.didekinlib.http.UsuarioServConstant.USER_READ;
+import static com.didekinlib.http.UsuarioServConstant.USER_READ_GCM_TOKEN;
+import static com.didekinlib.http.UsuarioServConstant.USER_WRITE;
+import static com.didekinlib.http.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
+
 /**
  * User: pedro@didekin
  * Date: 07/06/15
@@ -25,37 +39,41 @@ import retrofit2.http.Path;
 @SuppressWarnings("unused")
 public interface UsuarioEndPoints {
 
-    @DELETE(UsuarioServConstant.ACCESS_TOKEN_DELETE + "/{oldTk}")
+    @FormUrlEncoded
+    @POST(CODE_CHECK_MAIL_SEND)
+    Call<Boolean> codeCheckMailSend(@Header(ACCEPT_LANGUAGE) String localeToStr, @Field(USER_PARAM) String userName);
+
+    @DELETE(ACCESS_TOKEN_DELETE + "/{oldTk}")
     Call<Boolean> deleteAccessToken(@Header("Authorization") String accessToken, @Path("oldTk") String oldAccessToken);
 
-    @DELETE(UsuarioServConstant.USER_DELETE)
+    @DELETE(USER_DELETE)
     Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
 
     @Headers({
-            "Content-Type:" + CommonServConstant.MIME_JSON
+            "Content-Type:" + MIME_JSON
     })
-    @GET(UsuarioServConstant.USER_READ_GCM_TOKEN)
+    @GET(USER_READ_GCM_TOKEN)
     Call<GcmTokenWrapper> getGcmToken(@Header("Authorization") String accessToken);
 
-    @GET(UsuarioServConstant.USER_READ)
+    @GET(USER_READ)
     Call<Usuario> getUserData(@Header("Authorization") String accessToken);
 
     @FormUrlEncoded
-    @POST(UsuarioServConstant.LOGIN)
-    Call<Boolean> login(@Field(UsuarioServConstant.USER_PARAM) String userName, @Field(UsuarioServConstant.PSWD_PARAM) String password);
+    @POST(LOGIN)
+    Call<Boolean> login(@Field(USER_PARAM) String userName, @Field(PSWD_PARAM) String password);
 
     @FormUrlEncoded
-    @POST(UsuarioServConstant.USER_WRITE_GCM_TOKEN)
-    Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(UsuarioServConstant.GCM_TOKEN_PARAM) String gcmToken);
+    @POST(USER_WRITE_GCM_TOKEN)
+    Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(GCM_TOKEN_PARAM) String gcmToken);
 
-    @PUT(UsuarioServConstant.USER_WRITE)
+    @PUT(USER_WRITE)
     Call<Integer> modifyUser(@Header("Authorization") String accessToken, @Body Usuario usuario);
 
     @FormUrlEncoded
-    @POST(UsuarioServConstant.PASSWORD_MODIFY)
-    Call<Integer> passwordChange(@Header("Authorization") String accessToken, @Field(UsuarioServConstant.PSWD_PARAM) String password);
+    @POST(PASSWORD_MODIFY)
+    Call<Integer> passwordChange(@Header("Authorization") String accessToken, @Field(PSWD_PARAM) String password);
 
     @FormUrlEncoded
-    @POST(UsuarioServConstant.PASSWORD_SEND)
-    Call<Boolean> passwordSend(@Field(UsuarioServConstant.USER_PARAM) String userName);
+    @POST(PASSWORD_SEND)
+    Call<Boolean> passwordSend(@Header(ACCEPT_LANGUAGE) String localeToStr, @Field(USER_PARAM) String userName);
 }

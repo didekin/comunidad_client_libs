@@ -8,10 +8,12 @@ package com.didekinlib.http;
 @SuppressWarnings("unused")
 public final class CommonServConstant {
 
+    // Http headers.
+    public static final String ACCEPT_LANGUAGE = "Accept-Language";
     // Mime types.
     public static final String MIME_JSON = "application/json";
     public static final String FORM_URLENCODED = "application/x-www-form-urlencoded";
-    /*Common paths out of the control of both authorization and resource servers.*/
+    // Common paths out of the control of both authorization and resource servers.
     public static final String ERROR = "/error";
 
     private CommonServConstant()
