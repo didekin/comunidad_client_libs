@@ -18,7 +18,6 @@ import retrofit2.http.Path;
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.CommonServConstant.MIME_JSON;
 import static com.didekinlib.http.UsuarioServConstant.ACCESS_TOKEN_DELETE;
-import static com.didekinlib.http.UsuarioServConstant.CODE_CHECK_MAIL_SEND;
 import static com.didekinlib.http.UsuarioServConstant.GCM_TOKEN_PARAM;
 import static com.didekinlib.http.UsuarioServConstant.LOGIN;
 import static com.didekinlib.http.UsuarioServConstant.PASSWORD_MODIFY;
@@ -38,10 +37,6 @@ import static com.didekinlib.http.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
  */
 @SuppressWarnings("unused")
 public interface UsuarioEndPoints {
-
-    @FormUrlEncoded
-    @POST(CODE_CHECK_MAIL_SEND)
-    Call<Boolean> codeCheckMailSend(@Header(ACCEPT_LANGUAGE) String localeToStr, @Field(USER_PARAM) String userName);
 
     @DELETE(ACCESS_TOKEN_DELETE + "/{oldTk}")
     Call<Boolean> deleteAccessToken(@Header("Authorization") String accessToken, @Path("oldTk") String oldAccessToken);

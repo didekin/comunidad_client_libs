@@ -14,10 +14,8 @@ public final class UsuarioServConstant {
     public static final String USER_PARAM = "username";
     public static final String PSWD_PARAM = "password";
     public static final String GCM_TOKEN_PARAM = "gcmtoken";
-    public static final String CODE_CHECK_MAIL = "code_checkmail";
     //Paths used by the resource server.
     public static final String OPEN = "/open";
-    public static final String CODE_CHECK_MAIL_SEND = OPEN + "/code_checkmail_send";
     public static final String LOGIN = OPEN + "/login";
     public static final String PASSWORD_SEND = OPEN + "/pswd_send";
     public static final String OPEN_AREA = OPEN + "/**";

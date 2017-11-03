@@ -27,10 +27,13 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
+import static javax.net.ssl.TrustManagerFactory.getDefaultAlgorithm;
+import static javax.net.ssl.TrustManagerFactory.getInstance;
 import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
+import static retrofit2.converter.gson.GsonConverterFactory.create;
 
 /**
  * User: pedro@didekin
@@ -47,7 +50,7 @@ public class RetrofitHandler {
         retrofit = new Retrofit.Builder()
                 .baseUrl(hostPort)
                 .client(getOkHttpClient(null, timeOut))
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(create())
                 .build();
     }
 
@@ -56,7 +59,8 @@ public class RetrofitHandler {
         retrofit = new Retrofit.Builder()
                 .baseUrl(hostPort)
                 .client(getOkHttpClient(jksInAppClient, timeOut))
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
 
@@ -116,7 +120,7 @@ public class RetrofitHandler {
             keyStore = KeyStore.getInstance(keyStoreType);
             keyStore.load(jksInAppClient.getInputStream(), jksInAppClient.getJksPswd().toCharArray());
             // Create a TrustManager that trusts the CAs in our JksInAppClient
-            tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf = getInstance(getDefaultAlgorithm());
             tmf.init(keyStore);
 
             TrustManager[] trustManagers = tmf.getTrustManagers();

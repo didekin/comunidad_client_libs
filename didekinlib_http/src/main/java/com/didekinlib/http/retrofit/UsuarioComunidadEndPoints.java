@@ -15,6 +15,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
+import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER;
 import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_WRITE;
 import static com.didekinlib.http.UsuarioComunidadServConstant.COMUS_BY_USER;
@@ -55,14 +56,14 @@ public interface UsuarioComunidadEndPoints {
     Call<Integer> modifyUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
 
     @POST(REG_COMU_AND_USER_AND_USERCOMU)
-    Call<Boolean> regComuAndUserAndUserComu(@Body UsuarioComunidad usuarioCom);
+    Call<Boolean> regComuAndUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad usuarioCom);
 
     @POST(REG_COMU_USERCOMU)
     Call<Boolean> regComuAndUserComu(@Header("Authorization") String accessToken,
                                      @Body UsuarioComunidad usuarioCom);
 
     @POST(REG_USER_USERCOMU)
-    Call<Boolean> regUserAndUserComu(@Body UsuarioComunidad userCom);
+    Call<Boolean> regUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad userCom);
 
     @POST(REG_USERCOMU)
     Call<Integer> regUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
