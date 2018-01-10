@@ -62,7 +62,9 @@ public interface UsuarioEndPoints {
     Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(GCM_TOKEN_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
-    Call<Integer> modifyUser(@Header("Authorization") String accessToken, @Body Usuario usuario);
+    Call<Integer> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
+                             @Header("Authorization") String accessToken,
+                             @Body Usuario usuario);
 
     @FormUrlEncoded
     @POST(PASSWORD_MODIFY)

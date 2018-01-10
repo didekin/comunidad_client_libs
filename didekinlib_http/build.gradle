@@ -14,7 +14,7 @@ compileJava {
 }
 
 dependencies {
-    compile project(':didekinlib_model')
-    compile rootProject.ext.retrofit2
-    testCompile rootProject.ext.mock_server
+    implementation project(':didekinlib_model')
+    implementation rootProject.ext.retrofit2
+    testImplementation rootProject.ext.mock_server
 }
