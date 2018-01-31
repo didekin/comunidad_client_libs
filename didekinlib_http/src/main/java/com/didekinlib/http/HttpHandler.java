@@ -1,4 +1,4 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.http;
 
 import com.didekinlib.http.ErrorBean;
 import com.didekinlib.http.JksInClient;
@@ -41,11 +41,11 @@ import static retrofit2.converter.gson.GsonConverterFactory.create;
  * Time: 20:07
  */
 @SuppressWarnings("unused")
-public class RetrofitHandler {
+public class HttpHandler {
 
     private final Retrofit retrofit;
 
-    public RetrofitHandler(final String hostPort, int timeOut)
+    public HttpHandler(final String hostPort, int timeOut)
     {
         retrofit = new Retrofit.Builder()
                 .baseUrl(hostPort)
@@ -54,7 +54,7 @@ public class RetrofitHandler {
                 .build();
     }
 
-    public RetrofitHandler(final String hostPort, final JksInClient jksInAppClient, int timeOut)
+    public HttpHandler(final String hostPort, final JksInClient jksInAppClient, int timeOut)
     {
         retrofit = new Retrofit.Builder()
                 .baseUrl(hostPort)
@@ -67,11 +67,6 @@ public class RetrofitHandler {
     public <T> T getService(Class<T> endPointInterface)
     {
         return retrofit.create(endPointInterface);
-    }
-
-    public Retrofit getRetrofit()
-    {
-        return retrofit;
     }
 
     public ErrorBean getErrorBean(Response<?> response) throws IOException

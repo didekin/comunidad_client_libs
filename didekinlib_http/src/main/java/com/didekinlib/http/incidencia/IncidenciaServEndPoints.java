@@ -1,4 +1,4 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.http.incidencia;
 
 import com.didekinlib.model.incidencia.dominio.ImportanciaUser;
 import com.didekinlib.model.incidencia.dominio.IncidAndResolBundle;
@@ -18,19 +18,19 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static com.didekinlib.http.IncidServConstant.CLOSE_INCIDENCIA;
-import static com.didekinlib.http.IncidServConstant.DELETE_INCID;
-import static com.didekinlib.http.IncidServConstant.MOD_INCID_IMPORTANCIA;
-import static com.didekinlib.http.IncidServConstant.MOD_RESOLUCION;
-import static com.didekinlib.http.IncidServConstant.REG_INCID_COMMENT;
-import static com.didekinlib.http.IncidServConstant.REG_INCID_IMPORTANCIA;
-import static com.didekinlib.http.IncidServConstant.REG_RESOLUCION;
-import static com.didekinlib.http.IncidServConstant.SEE_INCIDS_CLOSED_BY_COMU;
-import static com.didekinlib.http.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
-import static com.didekinlib.http.IncidServConstant.SEE_INCID_COMMENTS;
-import static com.didekinlib.http.IncidServConstant.SEE_INCID_IMPORTANCIA;
-import static com.didekinlib.http.IncidServConstant.SEE_RESOLUCION;
-import static com.didekinlib.http.IncidServConstant.SEE_USERCOMUS_IMPORTANCIA;
+import static com.didekinlib.http.incidencia.IncidServConstant.CLOSE_INCIDENCIA;
+import static com.didekinlib.http.incidencia.IncidServConstant.DELETE_INCID;
+import static com.didekinlib.http.incidencia.IncidServConstant.MOD_INCID_IMPORTANCIA;
+import static com.didekinlib.http.incidencia.IncidServConstant.MOD_RESOLUCION;
+import static com.didekinlib.http.incidencia.IncidServConstant.REG_INCID_COMMENT;
+import static com.didekinlib.http.incidencia.IncidServConstant.REG_INCID_IMPORTANCIA;
+import static com.didekinlib.http.incidencia.IncidServConstant.REG_RESOLUCION;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_INCIDS_CLOSED_BY_COMU;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_INCID_COMMENTS;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_INCID_IMPORTANCIA;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_RESOLUCION;
+import static com.didekinlib.http.incidencia.IncidServConstant.SEE_USERCOMUS_IMPORTANCIA;
 
 /**
  * User: pedro@didekin

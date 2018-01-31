@@ -1,4 +1,6 @@
-package com.didekinlib.http;
+package com.didekinlib.http.comunidad;
+
+import com.didekinlib.http.usuario.UsuarioServConstant;
 
 /**
  * User: pedro@didekin

@@ -1,10 +1,10 @@
-package com.didekinlib.http;
+package com.didekinlib.http.usuariocomunidad;
 
-import static com.didekinlib.http.ComunidadServConstant.COMUNIDAD_PATH;
-import static com.didekinlib.http.ComunidadServConstant.COMUNIDAD_READ;
-import static com.didekinlib.http.UsuarioServConstant.OPEN;
-import static com.didekinlib.http.UsuarioServConstant.USER_READ;
-import static com.didekinlib.http.UsuarioServConstant.USER_WRITE;
+import static com.didekinlib.http.comunidad.ComunidadServConstant.COMUNIDAD_PATH;
+import static com.didekinlib.http.comunidad.ComunidadServConstant.COMUNIDAD_READ;
+import static com.didekinlib.http.usuario.UsuarioServConstant.OPEN;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE;
 
 /**
  * User: pedro@didekin

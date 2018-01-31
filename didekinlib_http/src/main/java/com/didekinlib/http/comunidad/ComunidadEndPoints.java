@@ -1,6 +1,5 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.http.comunidad;
 
-import com.didekinlib.http.ComunidadServConstant;
 import com.didekinlib.model.comunidad.Comunidad;
 
 import java.util.List;

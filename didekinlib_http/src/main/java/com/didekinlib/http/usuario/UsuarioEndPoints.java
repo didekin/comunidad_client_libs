@@ -1,4 +1,4 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.http.usuario;
 
 import com.didekinlib.model.usuario.GcmTokenWrapper;
 import com.didekinlib.model.usuario.Usuario;
@@ -17,18 +17,18 @@ import retrofit2.http.Path;
 
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.CommonServConstant.MIME_JSON;
-import static com.didekinlib.http.UsuarioServConstant.ACCESS_TOKEN_DELETE;
-import static com.didekinlib.http.UsuarioServConstant.GCM_TOKEN_PARAM;
-import static com.didekinlib.http.UsuarioServConstant.LOGIN;
-import static com.didekinlib.http.UsuarioServConstant.PASSWORD_MODIFY;
-import static com.didekinlib.http.UsuarioServConstant.PASSWORD_SEND;
-import static com.didekinlib.http.UsuarioServConstant.PSWD_PARAM;
-import static com.didekinlib.http.UsuarioServConstant.USER_DELETE;
-import static com.didekinlib.http.UsuarioServConstant.USER_PARAM;
-import static com.didekinlib.http.UsuarioServConstant.USER_READ;
-import static com.didekinlib.http.UsuarioServConstant.USER_READ_GCM_TOKEN;
-import static com.didekinlib.http.UsuarioServConstant.USER_WRITE;
-import static com.didekinlib.http.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
+import static com.didekinlib.http.usuario.UsuarioServConstant.ACCESS_TOKEN_DELETE;
+import static com.didekinlib.http.usuario.UsuarioServConstant.GCM_TOKEN_PARAM;
+import static com.didekinlib.http.usuario.UsuarioServConstant.LOGIN;
+import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_MODIFY;
+import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_SEND;
+import static com.didekinlib.http.usuario.UsuarioServConstant.PSWD_PARAM;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_DELETE;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_PARAM;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ_GCM_TOKEN;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
 
 /**
  * User: pedro@didekin

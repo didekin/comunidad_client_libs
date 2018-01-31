@@ -1,4 +1,4 @@
-package com.didekinlib.http.oauth2;
+package com.didekinlib.http.auth;
 
 import com.didekinlib.model.usuariocomunidad.Rol;
 
@@ -8,7 +8,7 @@ import com.didekinlib.model.usuariocomunidad.Rol;
  * Time: 11:02
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
-public final class OauthConstant {
+public final class AuthConstant {
 
     // Oauth2: Grant types.
     public static final String PASSWORD_GRANT = "password";
@@ -30,7 +30,7 @@ public final class OauthConstant {
     public static final String ADMON_AUTH = Rol.ADMINISTRADOR.authority;
     public static final String USER_AUTH = Rol.PROPIETARIO.authority;
 
-    private OauthConstant()
+    private AuthConstant()
     {
     }
 }

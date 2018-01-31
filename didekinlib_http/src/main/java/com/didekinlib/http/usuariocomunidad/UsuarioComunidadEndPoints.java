@@ -1,4 +1,4 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.http.usuariocomunidad;
 
 
 import com.didekinlib.model.comunidad.Comunidad;
@@ -16,18 +16,18 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
-import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER;
-import static com.didekinlib.http.UsuarioComunidadServConstant.COMUNIDAD_WRITE;
-import static com.didekinlib.http.UsuarioComunidadServConstant.COMUS_BY_USER;
-import static com.didekinlib.http.UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU;
-import static com.didekinlib.http.UsuarioComunidadServConstant.REG_COMU_USERCOMU;
-import static com.didekinlib.http.UsuarioComunidadServConstant.REG_USERCOMU;
-import static com.didekinlib.http.UsuarioComunidadServConstant.REG_USER_USERCOMU;
-import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMUS_BY_COMU;
-import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMUS_BY_USER;
-import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_DELETE;
-import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_MODIFY;
-import static com.didekinlib.http.UsuarioComunidadServConstant.USERCOMU_READ;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.COMUNIDAD_WRITE;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.COMUS_BY_USER;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.REG_COMU_USERCOMU;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.REG_USERCOMU;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.REG_USER_USERCOMU;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.USERCOMUS_BY_COMU;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.USERCOMUS_BY_USER;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.USERCOMU_DELETE;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.USERCOMU_MODIFY;
+import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.USERCOMU_READ;
 
 /**
  * User: pedro@didekin

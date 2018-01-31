@@ -1,4 +1,4 @@
-package com.didekinlib.http;
+package com.didekinlib.http.incidencia;
 
 /**
  * User: pedro@didekin
