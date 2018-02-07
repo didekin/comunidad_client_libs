@@ -11,17 +11,12 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum IncidenciaExceptionMsg implements ExceptionMsgIf {
 
-    AVANCE_WRONG_INIT(new ExceptionMsg(null, 412)),
-    INCIDENCIA_COMMENT_WRONG_INIT(new ExceptionMsg(null, 412)),
     INCIDENCIA_NOT_FOUND(new ExceptionMsg(null, 404)),
     INCIDENCIA_NOT_REGISTERED(new ExceptionMsg(null, 409)),
     INCIDENCIA_USER_WRONG_INIT(new ExceptionMsg(null, 412)),
-    INCIDENCIA_WRONG_INIT(new ExceptionMsg(null, 412)),
     INCID_IMPORTANCIA_NOT_FOUND(new ExceptionMsg(null, 404)),
-    INCID_IMPORTANCIA_WRONG_INIT(new ExceptionMsg(null, 412)),
     RESOLUCION_DUPLICATE(new ExceptionMsg(null, 409)), // There exists a resolucion for the same incidencia.
-    RESOLUCION_NOT_FOUND(new ExceptionMsg(null, 404)),
-    RESOLUCION_WRONG_INIT(new ExceptionMsg(null, 412)),;
+    RESOLUCION_NOT_FOUND(new ExceptionMsg(null, 404)),;
 
     private final ExceptionMsgIf msg;
 

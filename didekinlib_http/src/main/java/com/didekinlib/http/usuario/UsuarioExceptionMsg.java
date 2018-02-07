@@ -20,11 +20,8 @@ public enum UsuarioExceptionMsg implements ExceptionMsgIf {
     UNAUTHORIZED_TX_TO_USER(new ExceptionMsg(null, 401)),
     USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 409)),
     USER_DATA_NOT_INSERTED(new ExceptionMsg(null, 409)),
-    USER_NOT_COMPARABLE(new ExceptionMsg(null, 412)),
-    USER_NOT_EQUAL_ABLE(new ExceptionMsg(null, 412)),
     USER_NAME_NOT_FOUND(new ExceptionMsg(null, 404)),
     USER_NAME_DUPLICATE(new ExceptionMsg(null, 409)),
-    USER_NOT_HASHABLE(new ExceptionMsg(null, 412)),
     USER_WRONG_INIT(new ExceptionMsg(null, 412)),
     // userComu
     ROLES_NOT_FOUND(new ExceptionMsg(null, 401)),
