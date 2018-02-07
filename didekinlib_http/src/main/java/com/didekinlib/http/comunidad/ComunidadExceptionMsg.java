@@ -11,12 +11,8 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum ComunidadExceptionMsg implements ExceptionMsgIf {
 
-    COMUNIDAD_NOT_COMPARABLE(new ExceptionMsg(null, 412)),
     COMUNIDAD_DUPLICATE(new ExceptionMsg(null, 409)),
-    COMUNIDAD_NOT_FOUND(new ExceptionMsg(null, 404)),
-    COMUNIDAD_NOT_HASHABLE(new ExceptionMsg(null, 412)),
-    COMUNIDAD_WRONG_INIT(new ExceptionMsg(null, 412)),
-    SUFIJO_NUM_IN_COMUNIDAD_NULL(new ExceptionMsg(null, 412)),;
+    COMUNIDAD_NOT_FOUND(new ExceptionMsg(null, 404)),;
 
     private final ExceptionMsgIf msg;
 
