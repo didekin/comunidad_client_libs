@@ -5,6 +5,7 @@ import com.didekinlib.gcm.model.common.GcmException;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
 import com.didekinlib.gcm.model.common.GcmSingleRequest;
+import com.didekinlib.http.exception.ErrorBean;
 
 import java.io.IOException;
 
