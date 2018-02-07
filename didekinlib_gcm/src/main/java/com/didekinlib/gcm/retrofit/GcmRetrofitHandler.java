@@ -1,8 +1,6 @@
 package com.didekinlib.gcm.retrofit;
 
 
-import com.didekinlib.gcm.model.common.ErrorBean;
-
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 

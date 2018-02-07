@@ -1,6 +1,5 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.gcm.model.common.ErrorBean;
 import com.didekinlib.gcm.model.common.GcmErrorMessage;
 import com.didekinlib.gcm.model.common.GcmException;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
