@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
+import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
 import static com.didekinlib.model.incidencia.dominio.Resolucion.doResolucionModifiedWithNewAvance;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -25,7 +25,7 @@ public class ResolucionTest {
     private static final String USER_ADM = "userAdm";
 
     @Test
-    public void test_DoResolucionModifiedWithNewAvance_1() throws Exception
+    public void test_DoResolucionModifiedWithNewAvance_1()
     {
         // Check resolucion with 1 avance.
         Resolucion resolucion = doResolucionModifiedWithNewAvance(doResolucion(doAvances("new_avance")), USER_ADM);
@@ -34,7 +34,7 @@ public class ResolucionTest {
         resolucion = doResolucionModifiedWithNewAvance(doResolucion(null), USER_ADM);
         assertThat(resolucion.getAvances().size(), is(0));
         // Check resolucionn with empty avances list.
-        resolucion = doResolucionModifiedWithNewAvance(doResolucion(new ArrayList<Avance>(0)), USER_ADM);
+        resolucion = doResolucionModifiedWithNewAvance(doResolucion(new ArrayList<>(0)), USER_ADM);
         assertThat(resolucion.getAvances().size(), is(0));
         // Check avance without descripcion.
         resolucion = doResolucionModifiedWithNewAvance(doResolucion(doAvances("")), USER_ADM);
@@ -42,7 +42,7 @@ public class ResolucionTest {
     }
 
     @Test
-    public void test_DoResolucionModifiedWithNewAvance_2() throws Exception
+    public void test_DoResolucionModifiedWithNewAvance_2()
     {
         List<Avance> avances = doAvances("avance_1");
         avances.add(new Avance.AvanceBuilder()
@@ -53,7 +53,7 @@ public class ResolucionTest {
             doResolucionModifiedWithNewAvance(doResolucion(avances), USER_ADM);
             fail();
         } catch (IllegalArgumentException ie) {
-            assertThat(ie.getMessage(), is(RESOLUCION_WRONG_INIT.toString()));
+            assertThat(ie.getMessage(), is(error_message_bean_building + Resolucion.class.getName()));
         }
     }
 

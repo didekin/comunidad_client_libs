@@ -1,7 +1,5 @@
 package com.didekinlib.model.common.dominio;
 
-import com.didekinlib.model.common.dominio.ValidDataPatterns;
-
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -15,7 +13,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ValidDataPatternsTest {
 
     @Test
-    public void testAliasPattern() throws Exception
+    public void testAliasPattern()
     {
         assertThat(ValidDataPatterns.ALIAS.isPatternOk("pedro nevado"), is(true));
         assertThat(ValidDataPatterns.ALIAS.isPatternOk("pedro nevado raja"), is(true));

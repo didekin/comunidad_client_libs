@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class ComunidadTest {
 
     @Test
-    public void testCompareTo_1() throws Exception
+    public void testCompareTo_1()
     {
         Municipio municipio_1 = new Municipio((short) 23, new Provincia((short) 11));
         Municipio municipio_2 = new Municipio((short) 2, new Provincia((short) 21));
@@ -58,16 +58,14 @@ public class ComunidadTest {
                 .numero((short) 2)
                 .municipio(municipio_1).build();
 
-        // Sufijo null en comunidad2.
-        assertThat(comunidad_1.compareTo(comunidad_2), is(1));
-        assertThat(comunidad_2.compareTo(comunidad_1), is(-1));
         // Sufijo null en ambas comunidades.
         assertThat(comunidad_2.compareTo(comunidad_2B), is(0));
-
-        assertThat(comunidad_1.compareTo(comunidad_3), is(-1));
-        assertThat(comunidad_1.compareTo(comunidad_4), is(-1));
-        assertThat(comunidad_1.compareTo(comunidad_4), is(-1));
-        assertThat(comunidad_1.compareTo(comunidad_5), is(-1));
-        assertThat(comunidad_1.compareTo(comunidad_6), is(-1));
+        // Sufijo null en comunidad2.
+        assertThat(comunidad_1.compareTo(comunidad_2), is(1));
+        assertThat(comunidad_2.compareTo(comunidad_1) < 0, is(true));
+        assertThat(comunidad_1.compareTo(comunidad_3) < 0, is(true));
+        assertThat(comunidad_1.compareTo(comunidad_4) < 0, is(true));
+        assertThat(comunidad_1.compareTo(comunidad_5) < 0, is(true));
+        assertThat(comunidad_1.compareTo(comunidad_6) < 0, is(true));
     }
 }

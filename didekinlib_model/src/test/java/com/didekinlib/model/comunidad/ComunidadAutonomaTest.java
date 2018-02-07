@@ -13,7 +13,7 @@ import static org.junit.Assert.assertThat;
 public class ComunidadAutonomaTest {
 
     @Test
-    public void test_toString() throws Exception
+    public void test_toString()
     {
         ComunidadAutonoma comunidadAutonoma = new ComunidadAutonoma((short) 1, "comunidad_1");
         assertThat(comunidadAutonoma.getNombre(), is(comunidadAutonoma.toString()));

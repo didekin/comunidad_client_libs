@@ -103,11 +103,11 @@ public final class Municipio implements Comparable<Municipio>, Serializable {
     @Override
     public int compareTo(Municipio o)
     {
-        int result;
-
-        if ( (result = provincia != null ? provincia.compareTo(o.getProvincia()) : 0) != 0) {
+        int result = provincia != null ? provincia.compareTo(o.getProvincia()) : 0;
+        if (result != 0) {
             return result;
         }
+
         return compare(codInProvincia, o.getCodInProvincia());
     }
 

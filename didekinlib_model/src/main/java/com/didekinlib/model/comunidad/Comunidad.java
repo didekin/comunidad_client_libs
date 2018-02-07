@@ -176,17 +176,21 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
             throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         }
 
-        int result;
+        int result = municipio.compareTo(comunidadIn.getMunicipio());
+        if (result != 0) {
+            return result;
+        }
 
-        if ((result = municipio.compareTo(comunidadIn.getMunicipio())) != 0) {
+        result = nombreVia.compareToIgnoreCase(comunidadIn.getNombreVia());
+        if (result!= 0) {
             return result;
         }
-        if ((result = nombreVia.compareToIgnoreCase(comunidadIn.getNombreVia())) != 0) {
+
+        result = tipoVia.compareToIgnoreCase(comunidadIn.getTipoVia());
+        if (result != 0) {
             return result;
         }
-        if ((result = tipoVia.compareToIgnoreCase(comunidadIn.getTipoVia())) != 0) {
-            return result;
-        }
+
         if (numero != comunidadIn.getNumero()) {
             return numero < comunidadIn.getNumero() ? -1 : 1;
         }
