@@ -1,7 +1,7 @@
-package com.didekinlib.model.usuario;
+package com.didekinlib.http.usuario;
 
-import com.didekinlib.model.exception.ExceptionMsg;
-import com.didekinlib.model.exception.ExceptionMsgIf;
+import com.didekinlib.http.exception.ExceptionMsg;
+import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
  * User: pedro@didekin
@@ -12,7 +12,12 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
     // user
+    BAD_REQUEST(new ExceptionMsg("Bad Request", 400)),
     PASSWORD_NOT_SENT(new ExceptionMsg("password_not_sent", 500)),
+    TOKEN_NOT_DELETED(new ExceptionMsg(null, 417)),
+    TOKEN_NULL(new ExceptionMsg(null, 400)),
+    UNAUTHORIZED(new ExceptionMsg("Unauthorized", 401)),
+    UNAUTHORIZED_TX_TO_USER(new ExceptionMsg(null, 401)),
     USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 409)),
     USER_DATA_NOT_INSERTED(new ExceptionMsg(null, 409)),
     USER_NOT_COMPARABLE(new ExceptionMsg(null, 412)),

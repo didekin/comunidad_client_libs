@@ -126,11 +126,11 @@ public final class IncidImportancia implements Serializable {
         {
             IncidImportancia incidImportancia = new IncidImportancia(this);
             if (incidImportancia.incidencia == null) {
-                throw new IllegalStateException(IncidenciaExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             if (incidImportancia.userComu != null
                     && (! incidImportancia.userComu.getComunidad().equals(incidImportancia.incidencia.getComunidad()))){
-                throw new IllegalStateException(IncidenciaExceptionMsg.INCID_IMPORTANCIA_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return incidImportancia;
         }

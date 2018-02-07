@@ -6,5 +6,8 @@ package com.didekinlib.model.common.dominio;
  * Time: 13:09
  */
 public interface BeanBuilder<T> {
+
+    String error_message_bean_building = "Wrong initialization values in Builder: ";
+
     T build();
 }

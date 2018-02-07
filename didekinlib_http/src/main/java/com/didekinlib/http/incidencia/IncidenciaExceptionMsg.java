@@ -1,7 +1,7 @@
-package com.didekinlib.model.incidencia.dominio;
+package com.didekinlib.http.incidencia;
 
-import com.didekinlib.model.exception.ExceptionMsg;
-import com.didekinlib.model.exception.ExceptionMsgIf;
+import com.didekinlib.http.exception.ExceptionMsg;
+import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
  * User: pedro@didekin

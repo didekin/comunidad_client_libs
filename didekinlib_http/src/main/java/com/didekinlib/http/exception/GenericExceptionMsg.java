@@ -1,7 +1,4 @@
-package com.didekinlib.http;
-
-import com.didekinlib.model.exception.ExceptionMsg;
-import com.didekinlib.model.exception.ExceptionMsgIf;
+package com.didekinlib.http.exception;
 
 /**
  * User: pedro@didekin
@@ -11,13 +8,8 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum GenericExceptionMsg implements ExceptionMsgIf {
 
-    BAD_REQUEST(new ExceptionMsg("Bad Request", 400)),
     GENERIC_INTERNAL_ERROR(new ExceptionMsg("Internal Server Error", 500)),
-    NOT_FOUND(new ExceptionMsg("Not Found", 404)),
-    TOKEN_NOT_DELETED(new ExceptionMsg(null, 417)),
-    TOKEN_NULL(new ExceptionMsg(null, 400)),
-    UNAUTHORIZED(new ExceptionMsg("Unauthorized", 401)),
-    UNAUTHORIZED_TX_TO_USER(new ExceptionMsg(null, 401)),;
+    NOT_FOUND(new ExceptionMsg("Not Found", 404)),;
 
     private final ExceptionMsgIf msg;
 
@@ -25,7 +17,6 @@ public enum GenericExceptionMsg implements ExceptionMsgIf {
     {
         this.msg = msg;
     }
-
 
     public String getHttpMessage()
     {

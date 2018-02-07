@@ -4,7 +4,6 @@ package com.didekinlib.model.usuariocomunidad;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.didekinlib.model.comunidad.Comunidad;
 import com.didekinlib.model.usuario.Usuario;
-import com.didekinlib.model.usuario.UsuarioExceptionMsg;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -252,7 +251,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
         {
             UsuarioComunidad userComu = new UsuarioComunidad(this);
             if (userComu.getComunidad() == null) {
-                throw new IllegalStateException(UsuarioExceptionMsg.USERCOMU_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return userComu;
         }

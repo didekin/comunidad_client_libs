@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.INCIDENCIA_COMMENT_WRONG_INIT;
 import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INCID_COMMENT;
 
 /**
@@ -147,7 +146,7 @@ public final class IncidComment {
             IncidComment comment = new IncidComment(this);
             if (comment.commentId <= 0) {
                 if (comment.descripcion == null || comment.incidencia == null) {
-                    throw new IllegalStateException(INCIDENCIA_COMMENT_WRONG_INIT.toString());
+                    throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
                 }
             }
             return comment;

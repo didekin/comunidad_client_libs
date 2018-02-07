@@ -1,7 +1,6 @@
 package com.didekinlib.http;
 
-import com.didekinlib.http.ErrorBean;
-import com.didekinlib.http.JksInClient;
+import com.didekinlib.http.exception.ErrorBean;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,6 +1,6 @@
 package com.didekinlib.gcm.model.common;
 
-import com.didekinlib.model.exception.ExceptionMsgIf;
+import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
  * User: pedro

@@ -1,6 +1,6 @@
 package com.didekinlib.http.auth;
 
-import com.didekinlib.http.ErrorBean;
+import com.didekinlib.http.exception.ErrorBean;
 import com.didekinlib.http.usuario.UsuarioServConstant;
 
 import retrofit2.Call;

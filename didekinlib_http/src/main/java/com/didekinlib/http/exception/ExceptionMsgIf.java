@@ -1,4 +1,4 @@
-package com.didekinlib.model.exception;
+package com.didekinlib.http.exception;
 
 /**
  * User: pedro@didekin

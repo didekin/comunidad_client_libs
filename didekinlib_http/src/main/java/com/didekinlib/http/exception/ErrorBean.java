@@ -1,6 +1,6 @@
-package com.didekinlib.http;
+package com.didekinlib.http.exception;
 
-import com.didekinlib.model.exception.ExceptionMsgIf;
+import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
  * User: pedro

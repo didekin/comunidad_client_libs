@@ -8,6 +8,8 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+
 
 /**
  * User: pedro
@@ -156,7 +158,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
         }
 
         if (tipoVia == null || nombreVia == null || municipio == null) {
-            throw new UnsupportedOperationException(ComunidadExceptionMsg.COMUNIDAD_NOT_HASHABLE.toString());
+            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         }
 
         int hash = tipoVia.hashCode();
@@ -171,7 +173,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
     public int compareTo(Comunidad comunidadIn)
     {
         if (municipio == null || nombreVia == null || tipoVia == null) {
-            throw new UnsupportedOperationException(ComunidadExceptionMsg.COMUNIDAD_NOT_COMPARABLE.toString());
+            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         }
 
         int result;
@@ -298,7 +300,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
 
             if (comunidad.c_Id <= 0 && (comunidad.tipoVia == null || comunidad.nombreVia == null || comunidad
                     .municipio == null)) {
-                throw new IllegalStateException(ComunidadExceptionMsg.COMUNIDAD_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return comunidad;
         }

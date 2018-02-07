@@ -6,6 +6,8 @@ import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
+import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+
 /**
  * User: pedro
  * Date: 29/03/15
@@ -93,7 +95,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             if (uId > 0 && usuario.getuId() > 0) {
                 return uId == usuario.uId;
             }
-            throw new UnsupportedOperationException(UsuarioExceptionMsg.USER_NOT_EQUAL_ABLE.toString());
+            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         }
     }
 
@@ -103,7 +105,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         int hash;
 
         if (userName == null && uId <= 0L) {
-            throw new UnsupportedOperationException(UsuarioExceptionMsg.USER_NOT_HASHABLE.toString());
+            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         } else {
             if (uId > 0 && userName != null) {
                 hash = ((int) (uId ^ (uId >>> 32))) * 31 + userName.hashCode();
@@ -121,7 +123,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
     public int compareTo(Usuario o)
     {
         if (userName == null || o == null || o.getUserName() == null) {
-            throw new UnsupportedOperationException(UsuarioExceptionMsg.USER_NOT_COMPARABLE.toString());
+            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         }
 
         return userName.compareToIgnoreCase(o.getUserName());
@@ -179,7 +181,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             Usuario usuario = new Usuario(this);
 
             if (usuario.uId == 0 && usuario.userName == null) {
-                throw new IllegalStateException(UsuarioExceptionMsg.USER_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return usuario;
         }

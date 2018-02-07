@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.AVANCE_WRONG_INIT;
 import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INCID_RESOLUCION_AVANCE;
 
 /**
@@ -144,7 +143,7 @@ public final class Avance implements Serializable {
         {
             Avance avance = new Avance(this);
             if (avanceId <= 0L && avance.avanceDesc == null) {
-                throw new IllegalStateException(AVANCE_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return avance;
         }

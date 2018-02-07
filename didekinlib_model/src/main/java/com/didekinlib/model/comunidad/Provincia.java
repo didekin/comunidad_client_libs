@@ -3,6 +3,8 @@ package com.didekinlib.model.comunidad;
 
 import java.io.Serializable;
 
+import static java.lang.Short.compare;
+
 /**
  * User: pedro@didekin
  * Date: 10/06/15
@@ -79,13 +81,7 @@ public final class Provincia implements Comparable<Provincia>, Serializable{
     @Override
     public int compareTo(Provincia o)
     {
-        if (provinciaId < o.getProvinciaId()){
-            return -1;
-        } else if(provinciaId > o.getProvinciaId()){
-            return 1;
-        } else {
-            return 0;
-        }
+        return compare(provinciaId, o.getProvinciaId());
     }
 
     @Override

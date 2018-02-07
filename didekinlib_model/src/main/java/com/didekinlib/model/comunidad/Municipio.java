@@ -3,6 +3,8 @@ package com.didekinlib.model.comunidad;
 
 import java.io.Serializable;
 
+import static java.lang.Short.compare;
+
 /**
  * User: pedro
  * Date: 30/03/15
@@ -106,13 +108,7 @@ public final class Municipio implements Comparable<Municipio>, Serializable {
         if ( (result = provincia != null ? provincia.compareTo(o.getProvincia()) : 0) != 0) {
             return result;
         }
-        if (codInProvincia < o.getCodInProvincia()){
-            return -1;
-        }
-        if (codInProvincia > o.getCodInProvincia()){
-            return 1;
-        }
-        return 0;
+        return compare(codInProvincia, o.getCodInProvincia());
     }
 
     @Override

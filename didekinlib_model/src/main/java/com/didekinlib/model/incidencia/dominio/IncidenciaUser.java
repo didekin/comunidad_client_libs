@@ -8,7 +8,6 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.INCIDENCIA_USER_WRONG_INIT;
 
 /**
  * User: pedro@didekin
@@ -121,10 +120,10 @@ public final class IncidenciaUser implements Serializable {
             IncidenciaUser incidenciaUser = new IncidenciaUser(this);
 
             if (incidenciaUser.incidencia == null || incidenciaUser.incidencia.getUserName() == null){
-                throw new IllegalStateException(INCIDENCIA_USER_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             if (!incidenciaUser.incidencia.getUserName().equals(incidenciaUser.usuario.getUserName())) {
-                throw new IllegalStateException(INCIDENCIA_USER_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return incidenciaUser;
         }

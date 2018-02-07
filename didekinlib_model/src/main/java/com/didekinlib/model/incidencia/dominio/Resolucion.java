@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.RESOLUCION_WRONG_INIT;
+import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;
 
@@ -222,7 +222,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
                     || resolucion.descripcion == null
                     || resolucion.fechaPrev == null
                     ) {
-                throw new IllegalStateException(RESOLUCION_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return resolucion;
         }
@@ -231,7 +231,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         {
             Resolucion resolucion = new Resolucion(this);
             if (resolucion.incidencia == null || resolucion.incidencia.getIncidenciaId() <= 0) {
-                throw new IllegalStateException(RESOLUCION_WRONG_INIT.toString());
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return resolucion;
         }
@@ -320,7 +320,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
     {
         // Check for valid states of resolucion.avances in the instance to be persisted.
         if (resolucion.getAvances() != null && resolucion.getAvances().size() > 1) {
-            throw new IllegalArgumentException(RESOLUCION_WRONG_INIT.toString());
+            throw new IllegalArgumentException(error_message_bean_building + Resolucion.class.getName());
         }
 
         List<Avance> avances = null;

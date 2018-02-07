@@ -9,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.incidencia.dominio.IncidenciaExceptionMsg.INCIDENCIA_WRONG_INIT;
 import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INCIDENCIA;
 
 /**
@@ -205,7 +204,7 @@ public final class Incidencia implements Serializable, GcmToComunidadHelper {
             Incidencia incidencia = new Incidencia(this);
             if (incidencia.getIncidenciaId() <= 0) {
                 if (incidencia.getComunidad() == null || incidencia.getDescripcion() == null || incidencia.getAmbitoIncidencia() == null) {
-                    throw new IllegalStateException(INCIDENCIA_WRONG_INIT.toString());
+                    throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
                 }
             }
             return incidencia;
