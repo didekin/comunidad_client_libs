@@ -1,6 +1,8 @@
 package com.didekinlib.gcm.model.common;
 
 
+import com.didekinlib.http.exception.ErrorBean;
+
 /**
  * User: pedro@didekin
  * Date: 31/05/16
