@@ -11,6 +11,7 @@ import com.didekinlib.model.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
+    // user
     PASSWORD_NOT_SENT(new ExceptionMsg("password_not_sent", 500)),
     USER_DATA_NOT_MODIFIED(new ExceptionMsg(null, 409)),
     USER_DATA_NOT_INSERTED(new ExceptionMsg(null, 409)),
@@ -19,7 +20,12 @@ public enum UsuarioExceptionMsg implements ExceptionMsgIf {
     USER_NAME_NOT_FOUND(new ExceptionMsg(null, 404)),
     USER_NAME_DUPLICATE(new ExceptionMsg(null, 409)),
     USER_NOT_HASHABLE(new ExceptionMsg(null, 412)),
-    USER_WRONG_INIT(new ExceptionMsg(null, 412)),;
+    USER_WRONG_INIT(new ExceptionMsg(null, 412)),
+    // userComu
+    ROLES_NOT_FOUND(new ExceptionMsg(null, 401)),
+    USERCOMU_WRONG_INIT(new ExceptionMsg(null, 412)),
+    USER_COMU_NOT_FOUND(new ExceptionMsg(null, 404)),
+    ;
 
     private final ExceptionMsgIf msg;
 

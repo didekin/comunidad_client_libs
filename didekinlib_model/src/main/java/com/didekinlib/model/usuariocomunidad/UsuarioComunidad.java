@@ -4,6 +4,7 @@ package com.didekinlib.model.usuariocomunidad;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.didekinlib.model.comunidad.Comunidad;
 import com.didekinlib.model.usuario.Usuario;
+import com.didekinlib.model.usuario.UsuarioExceptionMsg;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -111,7 +112,8 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
      * of the roles variable in the database: SET('adm', 'pre', 'pro', 'inq').
      * The roles 'adm' and 'pre' are hierarchically equivalent.
      */
-    public String getHighestRolFunction(){
+    public String getHighestRolFunction()
+    {
         return Pattern.compile(",").split(roles)[0];
     }
 
@@ -250,7 +252,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
         {
             UsuarioComunidad userComu = new UsuarioComunidad(this);
             if (userComu.getComunidad() == null) {
-                throw new IllegalStateException(UsuarioComunidadExceptionMsg.USERCOMU_WRONG_INIT.toString());
+                throw new IllegalStateException(UsuarioExceptionMsg.USERCOMU_WRONG_INIT.toString());
             }
             return userComu;
         }
