@@ -1,7 +1,5 @@
 package com.didekinlib.http.exception;
 
-import com.didekinlib.http.exception.ExceptionMsgIf;
-
 /**
  * User: pedro
  * Date: 20/07/15

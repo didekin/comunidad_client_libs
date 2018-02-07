@@ -15,6 +15,7 @@ compileJava {
 
 dependencies {
     compile project(':didekinlib_model')
+    compile project(':didekinlib_http')
     compile rootProject.ext.retrofit2
     testCompile rootProject.ext.mock_server
 }
