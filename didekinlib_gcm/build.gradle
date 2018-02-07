@@ -14,9 +14,10 @@ compileJava {
 }
 
 dependencies {
-    compile project(':didekinlib_http')
-    compile rootProject.ext.retrofit2
-    testCompile rootProject.ext.mock_server
+    implementation project(':didekinlib_model')
+    implementation project(':didekinlib_http')
+    implementation rootProject.ext.retrofit2
+    testImplementation rootProject.ext.mock_server
 }
 
 //noinspection GroovyMissingReturnStatement
