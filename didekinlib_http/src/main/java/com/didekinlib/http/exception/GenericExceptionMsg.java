@@ -8,24 +8,25 @@ package com.didekinlib.http.exception;
 @SuppressWarnings("unused")
 public enum GenericExceptionMsg implements ExceptionMsgIf {
 
-    GENERIC_INTERNAL_ERROR(new ExceptionMsg("Internal Server Error", 500)),
-    NOT_FOUND(new ExceptionMsg("Not Found", 404)),;
+    GENERIC_INTERNAL_ERROR("Internal Server Error", 500),
+    NOT_FOUND("Not Found", 404),;private final String httpMsg;
+    private final int httpStatus;
 
-    private final ExceptionMsgIf msg;
-
-    GenericExceptionMsg(ExceptionMsgIf msg)
+    GenericExceptionMsg(String httpMsg, int httpStatus)
     {
-        this.msg = msg;
+        this.httpMsg = httpMsg;
+        this.httpStatus = httpStatus;
     }
 
+    @Override
     public String getHttpMessage()
     {
-        return msg.getHttpMessage() == null ? name() : msg.getHttpMessage();
+        return httpMsg == null ? name() : httpMsg;
     }
 
     @Override
     public int getHttpStatus()
     {
-        return msg.getHttpStatus();
+        return httpStatus;
     }
 }
