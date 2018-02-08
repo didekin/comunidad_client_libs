@@ -1,6 +1,5 @@
 package com.didekinlib.http.comunidad;
 
-import com.didekinlib.http.exception.ExceptionMsg;
 import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
@@ -11,24 +10,27 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum ComunidadExceptionMsg implements ExceptionMsgIf {
 
-    COMUNIDAD_DUPLICATE(new ExceptionMsg(null, 409)),
-    COMUNIDAD_NOT_FOUND(new ExceptionMsg(null, 404)),;
+    COMUNIDAD_DUPLICATE(null, 409),
+    COMUNIDAD_NOT_FOUND(null, 404),;
 
-    private final ExceptionMsgIf msg;
+    private final String httpMsg;
+    private final int httpStatus;
 
-    ComunidadExceptionMsg(ExceptionMsgIf msg)
+    ComunidadExceptionMsg(String httpMsg, int httpStatus)
     {
-        this.msg = msg;
+        this.httpMsg = httpMsg;
+        this.httpStatus = httpStatus;
     }
 
+    @Override
     public String getHttpMessage()
     {
-        return msg.getHttpMessage() == null ? name() : msg.getHttpMessage();
+        return httpMsg == null ? name() : httpMsg;
     }
 
     @Override
     public int getHttpStatus()
     {
-        return msg.getHttpStatus();
+        return httpStatus;
     }
 }

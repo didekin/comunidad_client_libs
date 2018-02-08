@@ -6,6 +6,7 @@ package com.didekinlib.http.exception;
  * Time: 11:04
  */
 public interface ExceptionMsgIf {
+
     String getHttpMessage();
     int getHttpStatus();
 }

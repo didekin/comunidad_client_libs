@@ -1,6 +1,5 @@
 package com.didekinlib.http.incidencia;
 
-import com.didekinlib.http.exception.ExceptionMsg;
 import com.didekinlib.http.exception.ExceptionMsgIf;
 
 /**
@@ -11,28 +10,31 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
 @SuppressWarnings("unused")
 public enum IncidenciaExceptionMsg implements ExceptionMsgIf {
 
-    INCIDENCIA_NOT_FOUND(new ExceptionMsg(null, 404)),
-    INCIDENCIA_NOT_REGISTERED(new ExceptionMsg(null, 409)),
-    INCIDENCIA_USER_WRONG_INIT(new ExceptionMsg(null, 412)),
-    INCID_IMPORTANCIA_NOT_FOUND(new ExceptionMsg(null, 404)),
-    RESOLUCION_DUPLICATE(new ExceptionMsg(null, 409)), // There exists a resolucion for the same incidencia.
-    RESOLUCION_NOT_FOUND(new ExceptionMsg(null, 404)),;
+    INCIDENCIA_NOT_FOUND(null, 404),
+    INCIDENCIA_NOT_REGISTERED(null, 409),
+    INCIDENCIA_USER_WRONG_INIT(null, 412),
+    INCID_IMPORTANCIA_NOT_FOUND(null, 404),
+    RESOLUCION_DUPLICATE(null, 409), // There exists a resolucion for the same incidencia.
+    RESOLUCION_NOT_FOUND(null, 404),;
 
-    private final ExceptionMsgIf msg;
+    private final String httpMsg;
+    private final int httpStatus;
 
-    IncidenciaExceptionMsg(ExceptionMsgIf msg)
+    IncidenciaExceptionMsg(String httpMsg, int httpStatus)
     {
-        this.msg = msg;
+        this.httpMsg = httpMsg;
+        this.httpStatus = httpStatus;
     }
 
+    @Override
     public String getHttpMessage()
     {
-        return msg.getHttpMessage() == null ? name() : msg.getHttpMessage();
+        return httpMsg == null ? name() : httpMsg;
     }
 
     @Override
     public int getHttpStatus()
     {
-        return msg.getHttpStatus();
+        return httpStatus;
     }
 }
