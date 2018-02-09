@@ -2,9 +2,7 @@ package com.didekinlib.http;
 
 import com.didekinlib.http.exception.ErrorBean;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.annotation.Annotation;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
@@ -136,32 +134,6 @@ public class HttpHandler {
             return sslContext.getSocketFactory();
         } catch (NoSuchAlgorithmException | KeyManagementException e) {
             throw new RuntimeException("SSLSocketFactory not initialized");
-        }
-    }
-
-    public final static class JksInAppClient implements JksInClient {
-        /**
-         * File path.
-         */
-        String jksUri;
-        String jksPswd;
-
-        public JksInAppClient(String jksUri, String jksPswd)
-        {
-            this.jksUri = jksUri;
-            this.jksPswd = jksPswd;
-        }
-
-        @Override
-        public InputStream getInputStream() throws IOException
-        {
-            return new FileInputStream(jksUri);
-        }
-
-        @Override
-        public String getJksPswd()
-        {
-            return jksPswd;
         }
     }
 }
