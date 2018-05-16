@@ -33,7 +33,7 @@ import static org.jose4j.jwx.HeaderParameterNames.KEY_ID;
  * -- "k" (key value) is the base64url encoding of the octet sequence containing the key value in symmetric keys.
  * -- "kid" as key parameter is not necessary. When used with JWS or JWE, the "kid" value is used to match a JWS or JWE "kid" header parameter value.
  */
-enum TkParamNames {
+public enum TkParamNames {
 
     // CLAIMS
     appId("appId"),

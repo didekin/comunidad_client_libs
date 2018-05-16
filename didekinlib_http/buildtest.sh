@@ -34,7 +34,7 @@ if [ ${ENV} = "$LOCAL_ENV" ] ; then
 else
     ./gradlew -Pversionjar=${VERSION_SUFFIX} didekinlib_http:build
 fi
-echo "gradle didekinlib_http build exit code = $?"
+echo "================= ¡¡¡ gradle didekinlib_http build exit code = $?"
 
 git push ${GITREMOTE} ${ENV}
 
