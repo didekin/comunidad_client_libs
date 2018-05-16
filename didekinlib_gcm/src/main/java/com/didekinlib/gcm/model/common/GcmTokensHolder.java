@@ -5,7 +5,7 @@ package com.didekinlib.gcm.model.common;
  * Date: 04/12/15
  * Time: 14:53
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class GcmTokensHolder {
 
     private final String originalGcmTk;

@@ -7,7 +7,7 @@ import com.didekin.usuario.dominio.Municipio;
  * Date: 13/11/15
  * Time: 19:55
  */
-@SuppressWarnings("WeakerAccess")
+
 public final class Address {
 
     private final String tipoVia;

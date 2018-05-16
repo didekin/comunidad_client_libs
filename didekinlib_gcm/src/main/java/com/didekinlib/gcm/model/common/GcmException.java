@@ -8,7 +8,7 @@ import com.didekinlib.http.exception.ErrorBean;
  * Date: 31/05/16
  * Time: 15:18
  */
-@SuppressWarnings("unused")
+
 public class GcmException extends Exception {
 
     private final ErrorBean errorBean;

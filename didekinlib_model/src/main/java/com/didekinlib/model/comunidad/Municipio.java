@@ -10,7 +10,7 @@ import static java.lang.Short.compare;
  * Date: 30/03/15
  * Time: 15:14
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public final class Municipio implements Comparable<Municipio>, Serializable {
 
     private static final long serialVersionUID = ComunidadSerialNumber.MUNICIPIO.number;

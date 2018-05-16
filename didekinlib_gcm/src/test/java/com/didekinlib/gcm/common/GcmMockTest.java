@@ -25,6 +25,7 @@ import okhttp3.mockwebserver.MockWebServer;
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.InvalidRegistration;
 import static com.didekinlib.gcm.model.common.GcmErrorMessage.NotRegistered;
 import static com.didekinlib.gcm.model.common.GcmServConstant.IDENTITY;
+import static com.didekinlib.http.GsonUtil.objectToJsonStr;
 import static com.didekinlib.model.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
@@ -56,7 +57,7 @@ public class GcmMockTest {
     @Rule
     public ExternalResource resource = new ExternalResource() {
         @Override
-        protected void before() throws Throwable
+        protected void before()
         {
             server = new MockWebServer();
         }
@@ -73,7 +74,7 @@ public class GcmMockTest {
     };
 
     @Before
-    public void setUp() throws Exception
+    public void setUp()
     {
         GcmRetrofitHandler retrofitHandler = new GcmRetrofitHandler(server.url("/mock/").toString(), 60);
         endPointImp = new GcmEndPointImp(retrofitHandler);
@@ -88,7 +89,7 @@ public class GcmMockTest {
         // Mock response.
         Result result1 = new Result(null, MSG_ID_1, REGISTRATION_ID_1_B);
         GcmResponse gcmResponseIn = new GcmResponse(1, 1001L, 1, 0, new Result[]{result1});
-        String jsonResponse = new Gson().toJson(gcmResponseIn);
+        String jsonResponse = objectToJsonStr(gcmResponseIn);
         server.enqueue(new MockResponse().setBody(jsonResponse));
         server.enqueue(new MockResponse().setBody(jsonResponse));
 
@@ -117,8 +118,7 @@ public class GcmMockTest {
         Result result2 = new Result(null, MSG_ID_3, REGISTRATION_ID_3_B);
         Result result3 = new Result(NotRegistered.httpMessage, null, null);
         GcmResponse gcmResponseIn = new GcmResponse(2, 2002, 2, 2, new Result[]{result0, result1, result2, result3});
-        String jsonResponse = new Gson().toJson(gcmResponseIn);
-        server.enqueue(new MockResponse().setBody(jsonResponse));
+        server.enqueue(new MockResponse().setBody(objectToJsonStr(gcmResponseIn)));
 
         gcmTokens.add(REGISTRATION_ID_2_A);
         gcmTokens.add(REGISTRATION_ID_1_A);

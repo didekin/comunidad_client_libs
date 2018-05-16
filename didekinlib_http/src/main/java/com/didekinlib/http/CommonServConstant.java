@@ -5,7 +5,7 @@ package com.didekinlib.http;
  * Date: 30/05/16
  * Time: 16:59
  */
-@SuppressWarnings("unused")
+
 public final class CommonServConstant {
 
     // Http headers.

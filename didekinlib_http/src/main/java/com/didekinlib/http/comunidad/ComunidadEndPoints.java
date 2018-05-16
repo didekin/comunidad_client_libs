@@ -16,7 +16,7 @@ import retrofit2.http.Path;
  * Date: 20/11/16
  * Time: 13:33
  */
-@SuppressWarnings("unused")
+
 public interface ComunidadEndPoints {
 
     @GET(ComunidadServConstant.COMUNIDAD_READ + "/{comunidadId}")

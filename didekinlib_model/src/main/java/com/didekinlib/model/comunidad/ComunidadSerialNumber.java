@@ -8,10 +8,10 @@ package com.didekinlib.model.comunidad;
 public enum ComunidadSerialNumber {
 
 
-    COMUNIDAD(21L),
-    COMUNIDAD_AUTONOMA(3L),
-    MUNICIPIO(5L),
-    PROVINCIA(6L),
+    COMUNIDAD(111L),
+    COMUNIDAD_AUTONOMA(112L),
+    MUNICIPIO(113L),
+    PROVINCIA(114L),
     ;
 
     public final long number;

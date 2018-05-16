@@ -35,7 +35,6 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOK
  * Date: 07/06/15
  * Time: 14:13
  */
-@SuppressWarnings("unused")
 public interface UsuarioEndPoints {
 
     @DELETE(ACCESS_TOKEN_DELETE + "/{oldTk}")

@@ -5,7 +5,7 @@ package com.didekinlib.gcm.model.common;
  * Date: 10/01/17
  * Time: 15:18
  */
-@SuppressWarnings("unused")
+
 public enum GcmErrorMessage {
 
     /**

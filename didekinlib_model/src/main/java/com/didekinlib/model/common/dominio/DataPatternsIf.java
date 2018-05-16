@@ -5,7 +5,7 @@ package com.didekinlib.model.common.dominio;
  * Date: 17/11/15
  * Time: 19:24
  */
-@SuppressWarnings("unused")
+
 public interface DataPatternsIf {
 
     boolean isPatternOk(String fieldToCheck);

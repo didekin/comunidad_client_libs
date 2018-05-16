@@ -5,7 +5,7 @@ package com.didekinlib.http.exception;
  * Date: 20/07/15
  * Time: 16:26
  */
-@SuppressWarnings("unused")
+
 public class ErrorBean {
 
     private final String message;

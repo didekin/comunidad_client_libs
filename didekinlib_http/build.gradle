@@ -1,6 +1,3 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-
 //noinspection GroovyMissingReturnStatement
 jar {
     baseName = 'didekinlib_http'
@@ -15,6 +12,7 @@ compileJava {
 
 dependencies {
     implementation project(':didekinlib_model')
-    implementation rootProject.ext.retrofit2
-    testImplementation rootProject.ext.mock_server
+    implementation rootProject.retrofit2
+    implementation rootProject.json_4_j
+    testImplementation rootProject.mock_server
 }

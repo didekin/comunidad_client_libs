@@ -1,4 +1,4 @@
-package com.didekinlib.model.incidencia.dominio;
+package com.didekinlib.http.auth;
 
 import com.didekinlib.model.common.dominio.DataPatternsIf;
 
@@ -10,22 +10,21 @@ import static java.util.regex.Pattern.compile;
 
 /**
  * User: pedro@didekin
- * Date: 17/11/15
- * Time: 19:26
+ * Date: 10/06/15
+ * Time: 10:13
  */
 
-public enum IncidDataPatterns implements DataPatternsIf {
+public enum TkValidaPatterns implements DataPatternsIf {
 
-    INCID_DESC("[\\w_ñÑáéíóúüÜÁÉÍÓÚ%&ºª@#,:;¿\\?¡\\!\\(\\)\\.\\-\\s]{2,300}"),
-    INCID_COMMENT_DESC("[\\w_ñÑáéíóúüÜÁÉÍÓÚ%&ºª@#,:;¿\\?¡\\!\\(\\)\\.\\-\\s]{2,250}"),
-    INCID_RESOLUCION_DESC(INCID_DESC.regexp),
-    INCID_RES_AVANCE_DESC("[\\w_ñÑáéíóúüÜÁÉÍÓÚ%&ºª@#,:;¿\\?¡\\!\\(\\)\\.\\-\\s]{0,300}"),
-    ;
+    /** Pattern: <header>.<encrypted key>.<initialization vector>.<ciphertext>.<authentication tag>, where encrypted key
+    *   is the empty String when the key management algorithm is DIRECT.
+    */
+    tkEncrypted_direct_symmetricKey_REGEX(".+\\.{2}.+\\..+"),;
 
     private final Pattern pattern;
     private final String regexp;
 
-    IncidDataPatterns(String patternString)
+    TkValidaPatterns(String patternString)
     {
         pattern = compile(patternString, UNICODE_CASE | CASE_INSENSITIVE);
         regexp = patternString;

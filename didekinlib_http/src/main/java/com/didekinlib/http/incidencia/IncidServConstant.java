@@ -5,7 +5,7 @@ package com.didekinlib.http.incidencia;
  * Date: 12/11/15
  * Time: 17:06
  */
-@SuppressWarnings("WeakerAccess")
+
 public final class IncidServConstant {
 
     public static final String INCID_PATH = "/incidencia";

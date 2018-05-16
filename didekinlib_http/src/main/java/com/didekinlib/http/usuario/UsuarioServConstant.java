@@ -5,7 +5,6 @@ package com.didekinlib.http.usuario;
  * Date: 30/05/16
  * Time: 16:59
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
 public final class UsuarioServConstant {
 
     // Code constants.
@@ -14,6 +13,7 @@ public final class UsuarioServConstant {
     public static final String USER_PARAM = "username";
     public static final String PSWD_PARAM = "password";
     public static final String GCM_TOKEN_PARAM = "gcmtoken";
+    public static final String JWT_PARAM = "jwtoken";
     //Paths used by the resource server.
     public static final String OPEN = "/open";
     public static final String LOGIN = OPEN + "/login";

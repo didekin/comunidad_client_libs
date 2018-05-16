@@ -1,6 +1,3 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-
 //noinspection GroovyMissingReturnStatement
 jar {
     baseName = 'didekinlib_model'

@@ -50,7 +50,7 @@ public final class Provincia implements Comparable<Provincia>, Serializable{
         return nombre;
     }
 
-    @SuppressWarnings("unused")
+
     public ComunidadAutonoma getComunidadAutonoma()
     {
         return comunidadAutonoma;

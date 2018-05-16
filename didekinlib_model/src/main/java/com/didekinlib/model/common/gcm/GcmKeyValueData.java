@@ -5,7 +5,7 @@ package com.didekinlib.model.common.gcm;
  * Date: 26/01/17
  * Time: 16:21
  */
-@SuppressWarnings("unused")
+
 public final class GcmKeyValueData {
 
     /**

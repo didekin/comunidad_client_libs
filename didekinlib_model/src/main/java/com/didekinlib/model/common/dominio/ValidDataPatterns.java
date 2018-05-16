@@ -11,7 +11,7 @@ import static java.util.regex.Pattern.compile;
  * Date: 10/06/15
  * Time: 10:13
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public enum ValidDataPatterns implements DataPatternsIf {
 
     MUNICIPIO_DESC("[0-9a-zA-ZñÑáéíóúüÜ,[\\s]]{2,100}"),
@@ -26,7 +26,7 @@ public enum ValidDataPatterns implements DataPatternsIf {
     NOMBRE_COMUNIDAD("[0-9a-zA-ZñÑáéíóúüÜºª,[\\s]]{4,100}"),
 
     /* USUARIO */
-    EMAIL("[\\w\\._\\-]{1,48}@[\\w\\-_]{1,40}\\.[\\w&&[^0-9]]{1,10}"),
+    EMAIL("[\\w\\._\\-@+]{1,64}@[\\w\\-_]{1,255}\\.[\\w&&[^0-9]]{1,10}"),
     PASSWORD("[0-9a-zA-Z_ñÑáéíóúüÜ]{6,60}"),
     ALIAS("[0-9a-zA-Z_ñÑáéíóúüÜ ]{6,30}"),
 

@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Date: 27/03/16
  * Time: 15:34
  */
-@SuppressWarnings("unused")
+
 public class ImportanciaUser implements Serializable {
     private final String userAlias;
     private final short importancia;

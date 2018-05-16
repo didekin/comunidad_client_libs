@@ -1,6 +1,3 @@
-apply plugin: 'java'
-apply plugin: 'idea'
-
 //noinspection GroovyAssignabilityCheck,GroovyMissingReturnStatement
 jar {
     baseName = 'didekinlib_gcm'
@@ -20,7 +17,6 @@ dependencies {
     testImplementation rootProject.ext.mock_server
 }
 
-//noinspection GroovyMissingReturnStatement
 test {
     filter {
         //noinspection GrUnresolvedAccess

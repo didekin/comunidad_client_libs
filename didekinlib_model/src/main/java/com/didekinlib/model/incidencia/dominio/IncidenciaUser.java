@@ -84,7 +84,7 @@ public final class IncidenciaUser implements Serializable {
 
     //    ==================== BUILDER ====================
 
-    @SuppressWarnings({"unused", "WeakerAccess"})
+
     public final static class IncidenciaUserBuilder implements BeanBuilder<IncidenciaUser> {
 
         private Incidencia incidencia;
@@ -131,7 +131,7 @@ public final class IncidenciaUser implements Serializable {
 
     //    ================================== SERIALIZATION PROXY ==================================
 
-    @SuppressWarnings("WeakerAccess")
+
     private static class InnerSerial implements Serializable {
 
         private static final long serialVersionUID = IncidenciaSerialNumber.INCIDENCIA_USER.number;

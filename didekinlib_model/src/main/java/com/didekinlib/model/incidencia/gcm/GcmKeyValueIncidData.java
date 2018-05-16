@@ -5,7 +5,7 @@ package com.didekinlib.model.incidencia.gcm;
  * Date: 06/06/16
  * Time: 19:03
  */
-@SuppressWarnings("unused")
+
 public class GcmKeyValueIncidData {
     /**
      * The value associated to type_message_key for incidencia related messages.

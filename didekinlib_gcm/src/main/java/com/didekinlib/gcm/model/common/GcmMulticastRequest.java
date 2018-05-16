@@ -9,7 +9,7 @@ import java.util.List;
  * Date: 02/06/16
  * Time: 09:12
  */
-@SuppressWarnings("WeakerAccess")
+
 public final class GcmMulticastRequest {
 
     /**
@@ -46,7 +46,7 @@ public final class GcmMulticastRequest {
 
     //    ==================== BUILDER ====================
 
-    @SuppressWarnings("unused")
+
     public static class Builder implements BeanBuilder<GcmMulticastRequest> {
 
         private final String[] registration_ids;

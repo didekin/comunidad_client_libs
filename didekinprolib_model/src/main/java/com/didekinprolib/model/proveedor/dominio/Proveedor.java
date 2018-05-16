@@ -32,7 +32,7 @@ public final class Proveedor {
         fechaAlta = builder.fechaAlta;
     }
 
-    @SuppressWarnings("WeakerAccess")
+
     public static class ProveedorBuilder implements BeanBuilder<Proveedor> {
 
         private long proveedorId;

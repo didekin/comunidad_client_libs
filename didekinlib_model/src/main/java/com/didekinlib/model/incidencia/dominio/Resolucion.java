@@ -125,7 +125,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
 
     //    ===============================  BUILDER  ============================
 
-    @SuppressWarnings("WeakerAccess")
+
     public static final class ResolucionBuilder implements BeanBuilder<Resolucion> {
 
         private String userName;
@@ -253,7 +253,7 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         throw new InvalidObjectException("Use innerSerial to serialize");
     }
 
-    @SuppressWarnings("WeakerAccess")
+
     private static class InnerSerial implements Serializable {
 
         private static final long serialVersionUID = IncidenciaSerialNumber.INCID_RESOLUCION.number;

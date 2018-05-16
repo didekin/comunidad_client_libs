@@ -7,7 +7,7 @@ import com.didekinlib.http.usuario.UsuarioServConstant;
  * Date: 12/11/15
  * Time: 17:06
  */
-@SuppressWarnings("WeakerAccess")
+
 public final class ComunidadServConstant {
 
 

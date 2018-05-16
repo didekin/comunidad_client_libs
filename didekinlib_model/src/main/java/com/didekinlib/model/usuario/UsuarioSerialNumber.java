@@ -7,7 +7,7 @@ package com.didekinlib.model.usuario;
  */
 public enum UsuarioSerialNumber {
 
-    USUARIO(72L),
+    USUARIO(221L),
     ;
 
     public final long number;

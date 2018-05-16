@@ -7,7 +7,7 @@ import com.didekinlib.model.common.dominio.BeanBuilder;
  * Date: 02/06/16
  * Time: 12:44
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class GcmRequest {
 
     /**

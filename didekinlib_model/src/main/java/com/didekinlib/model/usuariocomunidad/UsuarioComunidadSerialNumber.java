@@ -7,7 +7,7 @@ package com.didekinlib.model.usuariocomunidad;
  */
 public enum UsuarioComunidadSerialNumber {
 
-    USUARIO_COMUNIDAD(71L),
+    USUARIO_COMUNIDAD(331L),
     ;
 
     public final long number;

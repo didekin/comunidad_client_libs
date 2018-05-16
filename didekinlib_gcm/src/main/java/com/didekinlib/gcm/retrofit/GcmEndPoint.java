@@ -1,9 +1,8 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.gcm.model.common.GcmServConstant;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
-import com.didekinlib.gcm.model.common.GcmSingleRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
+import com.didekinlib.gcm.model.common.GcmSingleRequest;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -11,6 +10,9 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
+import static com.didekinlib.gcm.model.common.GcmServConstant.ACCEPT_ENCODING;
+import static com.didekinlib.gcm.model.common.GcmServConstant.AUTHORIZATION;
+import static com.didekinlib.gcm.model.common.GcmServConstant.FCM_PATH_REQUEST;
 import static com.didekinlib.gcm.model.common.GcmServConstant.MIME_JSON;
 
 
@@ -24,16 +26,16 @@ public interface GcmEndPoint {
     @Headers({
             "Content-Type:" + MIME_JSON
     })
-    @POST(GcmServConstant.FCM_PATH_REQUEST)
-    Call<GcmResponse> sendGcmSingleRequest(@Header(GcmServConstant.ACCEPT_ENCODING) String acceptEncoding,
-                                           @Header(GcmServConstant.AUTHORIZATION) String authorizationKey,
+    @POST(FCM_PATH_REQUEST)
+    Call<GcmResponse> sendGcmSingleRequest(@Header(ACCEPT_ENCODING) String acceptEncoding,
+                                           @Header(AUTHORIZATION) String authorizationKey,
                                            @Body GcmSingleRequest singleRequest);
 
     @Headers({
             "Content-Type:" + MIME_JSON
     })
-    @POST(GcmServConstant.FCM_PATH_REQUEST)
-    Call<GcmResponse> sendGcmMulticastRequest(@Header(GcmServConstant.ACCEPT_ENCODING) String acceptEncoding,
-                                              @Header(GcmServConstant.AUTHORIZATION) String authorizationKey,
+    @POST(FCM_PATH_REQUEST)
+    Call<GcmResponse> sendGcmMulticastRequest(@Header(ACCEPT_ENCODING) String acceptEncoding,
+                                              @Header(AUTHORIZATION) String authorizationKey,
                                               @Body GcmMulticastRequest multicastRequest);
 }

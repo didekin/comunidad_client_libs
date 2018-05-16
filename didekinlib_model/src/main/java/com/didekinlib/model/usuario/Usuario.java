@@ -13,7 +13,6 @@ import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean
  * Date: 29/03/15
  * Time: 12:02
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Usuario implements Comparable<Usuario>, Serializable {
 
     private final long uId;
@@ -199,7 +198,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
 
 //    ============================= SERIALIZATION PROXY ==================================
 
-    @SuppressWarnings("WeakerAccess")
+
     private static class InnerSerial implements Serializable {
 
         private static final long serialVersionUID = UsuarioSerialNumber.USUARIO.number;

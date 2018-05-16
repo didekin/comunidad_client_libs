@@ -1,36 +1,34 @@
 package com.didekinlib.http.auth;
 
-import com.didekinlib.http.exception.ErrorBean;
-import com.didekinlib.http.usuario.UsuarioServConstant;
+import org.jose4j.jwk.RsaJsonWebKey;
+import org.jose4j.lang.JoseException;
+
+import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.POST;
+
+import static com.didekinlib.http.auth.AuthConstant.PK_TOKEN_PATH;
+import static com.didekinlib.http.auth.AuthConstant.TOKEN_PATH;
+import static com.didekinlib.http.usuario.UsuarioServConstant.PSWD_PARAM;
+import static com.didekinlib.http.usuario.UsuarioServConstant.USER_PARAM;
+import static org.jose4j.jwk.JsonWebKey.Factory.newJwk;
 
 /**
  * User: pedro@didekin
  * Date: 04/09/15
  * Time: 13:40
  */
-@SuppressWarnings("unused")
 public interface AuthEndPoints {
 
-    @FormUrlEncoded
-    @POST(AuthConstant.TOKEN_PATH)
-    Call<SpringOauthToken> getPasswordUserToken(@Header("Authorization") String authClient
-            , @Field(UsuarioServConstant.USER_PARAM) String username
-            , @Field(UsuarioServConstant.PSWD_PARAM) String password
-            , @Field(AuthConstant.GRANT_TYPE_PARAM) String grantType);
+    @GET(PK_TOKEN_PATH)
+    Call<String> getPublicKey();
 
     @FormUrlEncoded
-    @POST(AuthConstant.TOKEN_PATH)
-    Call<SpringOauthToken> getRefreshUserToken(@Header("Authorization") String authClient
-            , @Field(AuthConstant.REFRESH_TK_PARAM) String refreshToken
-            , @Field(AuthConstant.GRANT_TYPE_PARAM) String grantType);
-
-    @GET("/open/not_found")
-    Call<ErrorBean> getNotFoundMsg();
+    @POST(TOKEN_PATH)
+    Call<String> getPasswordUserToken(@Field(USER_PARAM) String username,
+                                      @Field(PSWD_PARAM) String password);
 }

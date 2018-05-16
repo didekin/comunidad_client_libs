@@ -16,7 +16,6 @@ import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean
  * Date: 29/03/15
  * Time: 12:02
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
 public final class Comunidad implements Comparable<Comunidad>, Serializable {
 
     private final long c_Id;
@@ -182,7 +181,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
         }
 
         result = nombreVia.compareToIgnoreCase(comunidadIn.getNombreVia());
-        if (result!= 0) {
+        if (result != 0) {
             return result;
         }
 
@@ -283,14 +282,14 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
             return this;
         }
 
-        @SuppressWarnings("unused")
+
         public ComunidadBuilder fechaAlta(Timestamp initValue)
         {
             fechaAlta = new Timestamp(initValue.getTime());
             return this;
         }
 
-        @SuppressWarnings("unused")
+
         public ComunidadBuilder fechaModificacion(Timestamp initValue)
         {
             fechaMod = new Timestamp(initValue.getTime());

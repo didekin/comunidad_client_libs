@@ -181,7 +181,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     //    ==================== BUILDER ====================
 
-    @SuppressWarnings("WeakerAccess")
+
     public static class UserComuBuilder implements BeanBuilder<UsuarioComunidad> {
 
         private String portal;
@@ -203,7 +203,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
             this.usuario = usuario;
         }
 
-        @SuppressWarnings("unused")
+
         public UserComuBuilder userComuRest(UsuarioComunidad initValue)
         {
             portal = initValue.getPortal();

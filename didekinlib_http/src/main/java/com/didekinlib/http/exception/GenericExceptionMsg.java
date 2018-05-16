@@ -5,7 +5,7 @@ package com.didekinlib.http.exception;
  * Date: 07/11/15
  * Time: 13:58
  */
-@SuppressWarnings("unused")
+
 public enum GenericExceptionMsg implements ExceptionMsgIf {
 
     GENERIC_INTERNAL_ERROR("Internal Server Error", 500),

@@ -11,7 +11,7 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE;
  * Date: 30/05/16
  * Time: 16:59
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public final class UsuarioComunidadServConstant {
 
     public static final String COMUNIDAD_WRITE = COMUNIDAD_PATH + "/write";

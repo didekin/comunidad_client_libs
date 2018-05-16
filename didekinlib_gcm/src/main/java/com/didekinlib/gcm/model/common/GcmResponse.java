@@ -9,7 +9,7 @@ import java.util.List;
  * Date: 30/11/15
  * Time: 18:43
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class GcmResponse {
 
     /**

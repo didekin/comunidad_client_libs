@@ -7,7 +7,7 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
  * Date: 07/11/15
  * Time: 13:58
  */
-@SuppressWarnings("unused")
+
 public enum IncidenciaExceptionMsg implements ExceptionMsgIf {
 
     INCIDENCIA_NOT_FOUND(null, 404),

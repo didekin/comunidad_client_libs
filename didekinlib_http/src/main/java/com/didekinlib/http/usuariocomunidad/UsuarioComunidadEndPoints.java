@@ -34,7 +34,7 @@ import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.
  * Date: 20/11/16
  * Time: 13:33
  */
-@SuppressWarnings("unused")
+
 public interface UsuarioComunidadEndPoints {
 
     @DELETE(USERCOMU_DELETE + "/{comunidadId}")

@@ -17,7 +17,7 @@ import retrofit2.Response;
  * Date: 31/05/16
  * Time: 17:47
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
+
 public class GcmEndPointImp implements GcmEndPoint {
 
     private final GcmRetrofitHandler retrofitHandler;

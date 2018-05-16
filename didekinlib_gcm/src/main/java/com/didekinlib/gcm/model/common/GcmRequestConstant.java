@@ -5,7 +5,7 @@ package com.didekinlib.gcm.model.common;
  * Date: 11/01/17
  * Time: 18:00
  */
-@SuppressWarnings("WeakerAccess")
+
 public final class GcmRequestConstant {
 
     // OPTIONS in request messages.

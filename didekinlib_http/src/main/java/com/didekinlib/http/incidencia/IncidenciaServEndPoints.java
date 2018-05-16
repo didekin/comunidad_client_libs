@@ -37,7 +37,7 @@ import static com.didekinlib.http.incidencia.IncidServConstant.SEE_USERCOMUS_IMP
  * Date: 12/11/15
  * Time: 17:05
  */
-@SuppressWarnings("unused")
+
 public interface IncidenciaServEndPoints {
 
     @PUT(CLOSE_INCIDENCIA)

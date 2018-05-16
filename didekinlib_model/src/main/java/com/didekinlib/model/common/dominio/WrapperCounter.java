@@ -8,7 +8,7 @@ package com.didekinlib.model.common.dominio;
  * This class is used as a convenience object wrapper whose internal counter can be modified in different methods, without
  * passing and returning it explicitly.
  */
-@SuppressWarnings("unused")
+
 public class WrapperCounter {
 
     private long counter;
