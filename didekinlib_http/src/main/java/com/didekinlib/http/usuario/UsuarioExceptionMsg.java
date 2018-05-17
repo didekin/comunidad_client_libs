@@ -12,9 +12,6 @@ public enum UsuarioExceptionMsg implements ExceptionMsgIf {
     // user
     BAD_REQUEST("Bad Request", 400),
     PASSWORD_NOT_SENT("password_not_sent", 500),
-    TOKEN_NOT_DELETED(null, 417),
-    TOKEN_NULL(null, 400),
-    UNAUTHORIZED("Unauthorized", 401),
     UNAUTHORIZED_TX_TO_USER(null, 401),
     USER_DATA_NOT_MODIFIED(null, 409),
     USER_DATA_NOT_INSERTED(null, 409),

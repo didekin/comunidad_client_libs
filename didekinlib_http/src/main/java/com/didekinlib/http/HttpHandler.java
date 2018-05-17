@@ -84,7 +84,7 @@ public class HttpHandler implements HttpHandlerIf{
          */
         public HttpHandlerBuilder(String hostPortIn)
         {
-            retrofitBuilder = new Retrofit.Builder();
+            this();
             retrofitBuilder.baseUrl(hostPortIn);
             retrofitBuilder.addConverterFactory(getGsonConverterTokenKey());
             retrofitBuilder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
