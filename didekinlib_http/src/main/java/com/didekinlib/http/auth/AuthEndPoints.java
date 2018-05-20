@@ -6,6 +6,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
 import static com.didekinlib.http.auth.AuthConstant.TOKEN_PATH;
+import static com.didekinlib.http.usuario.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PSWD_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_PARAM;
 
@@ -20,5 +21,5 @@ public interface AuthEndPoints {
     @POST(TOKEN_PATH)
     Single<String> getPasswordUserToken(@Field(USER_PARAM) String username,
                                         @Field(PSWD_PARAM) String password,
-                                        @Field(PSWD_PARAM) String appID);
+                                        @Field(APP_ID_PARAM) String appID);
 }

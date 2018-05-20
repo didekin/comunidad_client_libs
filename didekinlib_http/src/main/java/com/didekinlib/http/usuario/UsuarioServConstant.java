@@ -12,8 +12,7 @@ public final class UsuarioServConstant {
     // Params.
     public static final String USER_PARAM = "username";
     public static final String PSWD_PARAM = "password";
-    public static final String GCM_TOKEN_PARAM = "gcmtoken";
-    public static final String JWT_PARAM = "jwtoken";
+    public static final String APP_ID_PARAM = "appID"; // TODO: cambiar nombre desde GCM_TOKEN_PARAM.
     //Paths used by the resource server.
     public static final String OPEN = "/open";
     public static final String LOGIN = OPEN + "/login";

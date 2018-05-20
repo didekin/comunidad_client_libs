@@ -18,7 +18,7 @@ import retrofit2.http.Path;
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.CommonServConstant.MIME_JSON;
 import static com.didekinlib.http.usuario.UsuarioServConstant.ACCESS_TOKEN_DELETE;
-import static com.didekinlib.http.usuario.UsuarioServConstant.GCM_TOKEN_PARAM;
+import static com.didekinlib.http.usuario.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.LOGIN;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_MODIFY;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_SEND;
@@ -58,7 +58,7 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
-    Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(GCM_TOKEN_PARAM) String gcmToken);
+    Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(APP_ID_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
     Call<Integer> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
