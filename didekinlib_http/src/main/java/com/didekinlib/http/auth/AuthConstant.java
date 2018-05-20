@@ -9,7 +9,6 @@ package com.didekinlib.http.auth;
 public final class AuthConstant {
 
     public static final String TOKEN_PATH = "/auth/token";
-    public static final String PK_TOKEN_PATH = TOKEN_PATH + "/pk"; // TODO: delete?
     public static final String AUTH_HEADER = "Authorization";
 
     private AuthConstant()

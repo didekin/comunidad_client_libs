@@ -9,8 +9,7 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
  */
 public enum AuthExceptionMsg implements ExceptionMsgIf {
 
-    TOKEN_DECRYPTION_ERROR(null, 401),
-    TOKEN_ENCRYPTION_ERROR(null, 403),
+    TOKEN_ENCRYP_DECRYP_ERROR(null, 401),
     TOKEN_NOT_DELETED(null, 417),
     TOKEN_NULL(null, 400),
     UNAUTHORIZED("Unauthorized", 401),
