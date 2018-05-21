@@ -37,8 +37,9 @@ public enum ValidDataPatterns implements DataPatternsIf {
     PUERTA("[\\w_ñÑáéíóúüÜºª\\.\\-]{1,10}"),
 
     /* GENERIC */
-    LINE_BREAK("\n"),
-    ;
+    LINE_BREAK("\n"),;
+
+    public static final String error_userName = "Wrong initialization value in userName";
 
     private final Pattern pattern;
     private final String regexp;

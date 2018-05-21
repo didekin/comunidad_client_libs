@@ -1,4 +1,4 @@
-package com.didekinlib.http.auth;
+package com.didekinlib.http.usuario;
 
 import static org.jose4j.jwk.JsonWebKey.KEY_TYPE_PARAMETER;
 import static org.jose4j.jwk.OctetSequenceJsonWebKey.KEY_VALUE_MEMBER_NAME;

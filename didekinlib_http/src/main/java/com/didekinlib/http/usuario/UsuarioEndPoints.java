@@ -13,11 +13,9 @@ import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Path;
 
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.CommonServConstant.MIME_JSON;
-import static com.didekinlib.http.usuario.UsuarioServConstant.ACCESS_TOKEN_DELETE;
 import static com.didekinlib.http.usuario.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.LOGIN;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_MODIFY;
@@ -37,9 +35,6 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOK
  */
 public interface UsuarioEndPoints {
 
-    @DELETE(ACCESS_TOKEN_DELETE + "/{oldTk}")
-    Call<Boolean> deleteAccessToken(@Header("Authorization") String accessToken, @Path("oldTk") String oldAccessToken);
-
     @DELETE(USER_DELETE)
     Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
 
@@ -54,7 +49,9 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(LOGIN)
-    Call<Boolean> login(@Field(USER_PARAM) String userName, @Field(PSWD_PARAM) String password);
+    Call<Boolean> login(@Field(USER_PARAM) String userName,
+                        @Field(PSWD_PARAM) String password,
+                        @Field(APP_ID_PARAM) String appID);
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)

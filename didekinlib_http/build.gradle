@@ -15,4 +15,5 @@ dependencies {
     implementation rootProject.retrofit2
     implementation rootProject.json_4_j
     testImplementation rootProject.mock_server
+    testImplementation rootProject.hamcrest_lib
 }

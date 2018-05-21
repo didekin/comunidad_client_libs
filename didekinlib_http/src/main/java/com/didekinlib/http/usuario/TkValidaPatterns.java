@@ -1,9 +1,10 @@
-package com.didekinlib.http.auth;
+package com.didekinlib.http.usuario;
 
 import com.didekinlib.model.common.dominio.DataPatternsIf;
 
 import java.util.regex.Pattern;
 
+import static com.didekinlib.http.usuario.UsuarioServConstant.OPEN;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.regex.Pattern.UNICODE_CASE;
 import static java.util.regex.Pattern.compile;
@@ -16,10 +17,17 @@ import static java.util.regex.Pattern.compile;
 
 public enum TkValidaPatterns implements DataPatternsIf {
 
-    /** Pattern: <header>.<encrypted key>.<initialization vector>.<ciphertext>.<authentication tag>, where encrypted key
-    *   is the empty String when the key management algorithm is DIRECT.
-    */
-    tkEncrypted_direct_symmetricKey_REGEX(".+\\.{2}.+\\..+"),;
+    /**
+     * Pattern: <header>.<encrypted key>.<initialization vector>.<ciphertext>.<authentication tag>, where encrypted key
+     * is the empty String when the key management algorithm is DIRECT.
+     */
+    tkEncrypted_direct_symmetricKey_REGEX(".+\\.{2}.+\\..+"),
+    /**
+     * Pattern for paths which require token validation.
+     */
+    closed_paths_REGEX("^(?!" + OPEN + ").*$");
+
+    public static final String error_tokenInLocal = "Wrong initialization value in tokenInLocal";
 
     private final Pattern pattern;
     private final String regexp;

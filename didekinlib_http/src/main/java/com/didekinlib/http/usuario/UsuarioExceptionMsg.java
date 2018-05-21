@@ -9,8 +9,10 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
  */
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
-    // user
     BAD_REQUEST("Bad Request", 400),
+    // user
+    TOKEN_ENCRYP_DECRYP_ERROR(null, 401),
+    UNAUTHORIZED("Unauthorized", 401),
     PASSWORD_NOT_SENT("password_not_sent", 500),
     UNAUTHORIZED_TX_TO_USER(null, 401),
     USER_DATA_NOT_MODIFIED(null, 409),
