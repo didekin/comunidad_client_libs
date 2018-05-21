@@ -8,6 +8,7 @@ import org.jose4j.base64url.Base64Url;
 import static com.didekinlib.http.usuario.TkValidaPatterns.error_tokenInLocal;
 import static com.didekinlib.http.usuario.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.EMAIL;
+import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_appId;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_userName;
 import static org.jose4j.lang.StringUtil.UTF_8;
 
@@ -22,7 +23,7 @@ public class AuthHeader {
     private final String appID;
     private final String token;
 
-    public AuthHeader(AuthHeaderBuilder builder)
+    private AuthHeader(AuthHeaderBuilder builder)
     {
         userName = builder.userName;
         appID = builder.appID;
@@ -40,15 +41,7 @@ public class AuthHeader {
         return new Base64Url().base64UrlEncode(toString(), UTF_8);
     }
 
-    public AuthHeader getHeaderFromBase64Str(String base64HeaderIn)
-    {
-        return new Gson().fromJson(
-                new Base64Url().base64UrlDecodeToUtf8String(base64HeaderIn),
-                AuthHeader.class
-        );
-    }
-
-    public String  getUserName()
+    public String getUserName()
     {
         return userName;
     }
@@ -68,12 +61,30 @@ public class AuthHeader {
     public static class AuthHeaderBuilder implements BeanBuilder<AuthHeader> {
 
         private String userName;
-        private final String appID;
+        private String appID;
         private String tokenInLocal;
 
-        public AuthHeaderBuilder(String appIdIn)
+        public AuthHeaderBuilder()
         {
-            appID = appIdIn;
+        }
+
+        public AuthHeaderBuilder(String base64HeaderIn)
+        {
+            this();
+            AuthHeader header = new Gson().fromJson(
+                    new Base64Url().base64UrlDecodeToUtf8String(base64HeaderIn),
+                    AuthHeader.class
+            );
+            appId(header.getAppID()).userName(header.getUserName()).tokenInLocal(header.getToken());
+        }
+
+        AuthHeaderBuilder appId(String appIdIn)
+        {
+            if (appIdIn != null && !appIdIn.isEmpty()) {
+                appID = appIdIn;
+                return this;
+            }
+            throw new IllegalArgumentException(error_appId + this.getClass().getName());
         }
 
         AuthHeaderBuilder userName(String userNameIn)
@@ -104,5 +115,4 @@ public class AuthHeader {
             return header;
         }
     }
-
 }

@@ -32,7 +32,8 @@ public class AuthHeaderTest {
     @Before
     public void setUp()
     {
-        header = new AuthHeader.AuthHeaderBuilder(appId)
+        header = new AuthHeader.AuthHeaderBuilder()
+                .appId(appId)
                 .userName(userName)
                 .tokenInLocal(tokenInLocal)
                 .build();
@@ -59,14 +60,20 @@ public class AuthHeaderTest {
     }
 
     @Test
-    public void test_GetHeaderFromBase64Str()
+    public void test_HeaderFromBase64Str()
     {
-        AuthHeader headerPojo = header.getHeaderFromBase64Str(header.getBase64Str());
+        AuthHeader headerPojo = new AuthHeader.AuthHeaderBuilder(header.getBase64Str()).build();
         assertThat(headerPojo, allOf
                 (
-                        hasProperty("userName", equalTo(header.getUserName())),
-                        hasProperty("appID", equalTo(header.getAppID())),
-                        hasProperty("token", equalTo(header.getToken()))
+                        hasProperty("userName", allOf(
+                                equalTo(header.getUserName()),
+                                equalTo(userName))),
+                        hasProperty("appID", allOf(
+                                equalTo(header.getAppID()),
+                                equalTo(appId))),
+                        hasProperty("token", allOf(
+                                equalTo(header.getToken()),
+                                equalTo(tokenInLocal)))
                 )
         );
     }

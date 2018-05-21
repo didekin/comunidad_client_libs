@@ -40,6 +40,7 @@ public enum ValidDataPatterns implements DataPatternsIf {
     LINE_BREAK("\n"),;
 
     public static final String error_userName = "Wrong initialization value in userName";
+    public static final String error_appId = "Wrong initialization value in appID";
 
     private final Pattern pattern;
     private final String regexp;
