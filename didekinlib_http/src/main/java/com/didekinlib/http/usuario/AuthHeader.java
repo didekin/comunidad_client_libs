@@ -64,10 +64,16 @@ public class AuthHeader {
         private String appID;
         private String tokenInLocal;
 
+        /**
+         *  Constructor for producers of encoded headers, as client apps.
+         */
         public AuthHeaderBuilder()
         {
         }
 
+        /**
+         *  Constructor for consumers of encoded headers, as http server applications.
+         */
         public AuthHeaderBuilder(String base64HeaderIn)
         {
             this();
@@ -78,7 +84,7 @@ public class AuthHeader {
             appId(header.getAppID()).userName(header.getUserName()).tokenInLocal(header.getToken());
         }
 
-        AuthHeaderBuilder appId(String appIdIn)
+        public AuthHeaderBuilder appId(String appIdIn)
         {
             if (appIdIn != null && !appIdIn.isEmpty()) {
                 appID = appIdIn;
@@ -87,7 +93,7 @@ public class AuthHeader {
             throw new IllegalArgumentException(error_appId + this.getClass().getName());
         }
 
-        AuthHeaderBuilder userName(String userNameIn)
+        public AuthHeaderBuilder userName(String userNameIn)
         {
             if (EMAIL.isPatternOk(userNameIn)) {
                 userName = userNameIn;
@@ -96,7 +102,7 @@ public class AuthHeader {
             throw new IllegalArgumentException(error_userName + this.getClass().getName());
         }
 
-        AuthHeaderBuilder tokenInLocal(String tokenInLocalIn)
+        public AuthHeaderBuilder tokenInLocal(String tokenInLocalIn)
         {
             if (tkEncrypted_direct_symmetricKey_REGEX.isPatternOk(tokenInLocalIn)) {
                 tokenInLocal = tokenInLocalIn;
