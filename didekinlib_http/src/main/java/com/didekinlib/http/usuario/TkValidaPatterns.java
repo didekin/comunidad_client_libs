@@ -23,9 +23,9 @@ public enum TkValidaPatterns implements DataPatternsIf {
      */
     tkEncrypted_direct_symmetricKey_REGEX(".+\\.{2}.+\\..+"),
     /**
-     * Pattern for paths which require token validation.
+     * Pattern for paths which require token validation. It exclude the inital slash '/'.
      */
-    closed_paths_REGEX("^(?!" + OPEN + ").*$");
+    closed_paths_REGEX("^(?!" + OPEN.substring(1) + ").*$");
 
     public static final String error_tokenInLocal = "Wrong initialization value in tokenInLocal";
 

@@ -41,16 +41,16 @@ public class TkValidaPatternsTest {
     @Test
     public void test_open_paths()
     {
-        assertThat(closed_paths_REGEX.isPatternOk(OPEN), is(false));
-        assertThat(closed_paths_REGEX.isPatternOk(LOGIN), is(false));
-        assertThat(closed_paths_REGEX.isPatternOk(PASSWORD_SEND), is(false));
-        assertThat(closed_paths_REGEX.isPatternOk(REG_COMU_AND_USER_AND_USERCOMU), is(false));
-        assertThat(closed_paths_REGEX.isPatternOk(REG_USER_USERCOMU), is(false));
-        assertThat(closed_paths_REGEX.isPatternOk(USER_PATH), is(true));
-        assertThat(closed_paths_REGEX.isPatternOk(USER_READ), is(true));
-        assertThat(closed_paths_REGEX.isPatternOk(PASSWORD_MODIFY), is(true));
-        assertThat(closed_paths_REGEX.isPatternOk(USERCOMU_DELETE), is(true));
-        assertThat(closed_paths_REGEX.isPatternOk(SEE_INCIDS_OPEN_BY_COMU), is(true));
-        assertThat(closed_paths_REGEX.isPatternOk(MOD_RESOLUCION), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(OPEN.substring(1)), is(false));
+        assertThat(closed_paths_REGEX.isPatternOk(LOGIN.substring(1)), is(false));
+        assertThat(closed_paths_REGEX.isPatternOk(PASSWORD_SEND.substring(1)), is(false));
+        assertThat(closed_paths_REGEX.isPatternOk(REG_COMU_AND_USER_AND_USERCOMU.substring(1)), is(false));
+        assertThat(closed_paths_REGEX.isPatternOk(REG_USER_USERCOMU.substring(1)), is(false));
+        assertThat(closed_paths_REGEX.isPatternOk(USER_PATH.substring(1)), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(USER_READ.substring(1)), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(PASSWORD_MODIFY.substring(1)), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(USERCOMU_DELETE.substring(1)), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(SEE_INCIDS_OPEN_BY_COMU.substring(1)), is(true));
+        assertThat(closed_paths_REGEX.isPatternOk(MOD_RESOLUCION.substring(1)), is(true));
     }
 }
