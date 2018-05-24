@@ -3,6 +3,7 @@ package com.didekinlib.http.usuario;
 import com.didekinlib.model.usuario.GcmTokenWrapper;
 import com.didekinlib.model.usuario.Usuario;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -47,11 +48,14 @@ public interface UsuarioEndPoints {
     @GET(USER_READ)
     Call<Usuario> getUserData(@Header("Authorization") String accessToken);
 
+    /**
+     * @return token to be stored in local, with userName and appID (gcmToken).
+     */
     @FormUrlEncoded
     @POST(LOGIN)
-    Call<Boolean> login(@Field(USER_PARAM) String userName,
-                        @Field(PSWD_PARAM) String password,
-                        @Field(APP_ID_PARAM) String appID);
+    Single<String> login(@Field(USER_PARAM) String userName,
+                          @Field(PSWD_PARAM) String password,
+                          @Field(APP_ID_PARAM) String appID);
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
