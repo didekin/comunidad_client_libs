@@ -1,6 +1,5 @@
 package com.didekinlib.http.usuario;
 
-import com.didekinlib.model.usuario.GcmTokenWrapper;
 import com.didekinlib.model.usuario.Usuario;
 
 import io.reactivex.Single;
@@ -11,12 +10,10 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
-import static com.didekinlib.http.CommonServConstant.MIME_JSON;
 import static com.didekinlib.http.usuario.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.LOGIN;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_MODIFY;
@@ -25,7 +22,6 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.PSWD_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_DELETE;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ;
-import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ_GCM_TOKEN;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
 
@@ -39,13 +35,7 @@ public interface UsuarioEndPoints {
     @DELETE(USER_DELETE)
     Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
 
-    @Headers({
-            "Content-Type:" + MIME_JSON
-    })
-    @GET(USER_READ_GCM_TOKEN)
-    Call<GcmTokenWrapper> getGcmToken(@Header("Authorization") String accessToken);
-
-    @GET(USER_READ)
+    @GET(USER_READ) // Remember: to be used also for retrieving gcmToken.
     Call<Usuario> getUserData(@Header("Authorization") String accessToken);
 
     /**

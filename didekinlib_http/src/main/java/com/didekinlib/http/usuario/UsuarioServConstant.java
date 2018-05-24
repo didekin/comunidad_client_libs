@@ -21,7 +21,6 @@ public final class UsuarioServConstant {
     // CLOSED paths.
     public static final String USER_PATH = "/usuario";
     public static final String USER_READ = USER_PATH + "/read";
-    public static final String USER_READ_GCM_TOKEN = USER_READ + "/gcm_token";
     public static final String USER_WRITE = USER_PATH + "/write";
     public static final String USER_WRITE_GCM_TOKEN = USER_WRITE + "/gcm_token";
     public static final String USER_DELETE = USER_WRITE + "/delete";
