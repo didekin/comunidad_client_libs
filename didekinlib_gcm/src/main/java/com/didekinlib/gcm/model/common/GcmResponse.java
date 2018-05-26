@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static com.didekinlib.gcm.model.common.GcmErrorMessage.InvalidRegistration;
+import static com.didekinlib.gcm.model.common.GcmErrorMessage.NotRegistered;
+
 /**
  * User: pedro@didekin
  * Date: 30/11/15
@@ -86,7 +89,9 @@ public class GcmResponse {
      * Postconditions:
      * 1. A list of GcmTokenHolders is returned.
      * 2. If the GCM response result includes registration_id, both gcm tokens (old and new) are returned in the holder.
-     * 3. If the result includes the error NotRegistered, the original gcm token is returned with a null value in the new token field.
+     * 3. If the result includes the errors InvalidRegistration or NotRegistered, the original gcm token is returned with a null value in the new token field.
+     *
+     * Note: This method is used in GcmEndPoint implementation.
      */
     public void setTokensToProcess(String[] gcmTokens)
     {
@@ -96,7 +101,9 @@ public class GcmResponse {
                 if (results[i].getRegistration_id() != null) {
                     tokensToProcess.add(new GcmTokensHolder(results[i].getRegistration_id(), gcmTokens[i]));
                 } else {
-                    if (results[i].getError() != null && results[i].getError().equals(GcmErrorMessage.NotRegistered.httpMessage)) {
+                    if (results[i].getError() != null
+                            &&
+                            (results[i].getError().equals(NotRegistered.httpMessage) || results[i].getError().equals(InvalidRegistration.httpMessage))) {
                         tokensToProcess.add(new GcmTokensHolder(null, gcmTokens[i]));
                     }
                 }

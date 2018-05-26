@@ -136,17 +136,19 @@ public class GcmMockTest {
         assertThat(gcmResponse.getSuccess(), is(2));
         assertThat(gcmResponse.getFailure(), is(2));
 
-        // 1 success with new registration_id, to be updated in DB; 1 noRegistered failure, so the tokenId has to be deleted in DB.
         List<GcmTokensHolder> tokensHolders = gcmResponse.getTokensToProcess();
-        assertThat(tokensHolders.size(), is(2));
-        /* New tokenId:*/
-        assertThat(tokensHolders.size(), is(2));
-        assertThat(tokensHolders.get(0).getNewGcmTk(), is(REGISTRATION_ID_3_B));
-        assertThat(tokensHolders.get(0).getOriginalGcmTk(), is(REGISTRATION_ID_3_A));
+        assertThat(tokensHolders.size(), is(3));
+        /*  1 invalidRegistration failure: Token to be deleted. */
+        assertThat(tokensHolders.get(0).getOriginalGcmTk(), is(REGISTRATION_ID_2_A));
+        assertThat(tokensHolders.get(0).getNewGcmTk(), nullValue());
+        assertThat(gcmResponse.getResults()[0].getError(), is(InvalidRegistration.httpMessage));
+        /*  1 success with new registration_id, to be updated in DB. */
+        assertThat(tokensHolders.get(1).getNewGcmTk(), is(REGISTRATION_ID_3_B));
+        assertThat(tokensHolders.get(1).getOriginalGcmTk(), is(REGISTRATION_ID_3_A));
         assertThat(gcmResponse.getResults()[2].getError(), nullValue());
-        /* Token to be deleted*/
-        assertThat(tokensHolders.get(1).getOriginalGcmTk(), is(REGISTRATION_ID_4_A));
-        assertThat(tokensHolders.get(1).getNewGcmTk(), nullValue());
+        /*  1 noRegistered failure: Token to be deleted. */
+        assertThat(tokensHolders.get(2).getOriginalGcmTk(), is(REGISTRATION_ID_4_A));
+        assertThat(tokensHolders.get(2).getNewGcmTk(), nullValue());
         assertThat(gcmResponse.getResults()[3].getError(), is(NotRegistered.httpMessage));
     }
 }
