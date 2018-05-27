@@ -56,6 +56,11 @@ public class HttpHandler implements HttpHandlerIf{
         return retrofit.create(endPointInterface);
     }
 
+    /**
+     * There are three ways to construct your observable: Observable<BodyType>, Observable<Response<BodyType>>, or Observable<Result<BodyType>>.
+     * For the first version, there's nowhere to hang non-200 response information so it is included in the exception passed to onError.
+     * For the latter two, the data is encapsulated in the Response object and can be accessed by calling errorBody().
+     */
     @Override
     public ErrorBean getErrorBean(Response<?> response) throws IOException
     {

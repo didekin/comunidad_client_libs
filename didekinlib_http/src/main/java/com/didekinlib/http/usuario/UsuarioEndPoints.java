@@ -3,7 +3,9 @@ package com.didekinlib.http.usuario;
 import com.didekinlib.model.usuario.Usuario;
 
 import io.reactivex.Maybe;
+import io.reactivex.Single;
 import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
@@ -44,9 +46,9 @@ public interface UsuarioEndPoints {
      */
     @FormUrlEncoded
     @POST(LOGIN)
-    Maybe<String> login(@Field(USER_PARAM) String userName,
-                        @Field(PSWD_PARAM) String password,
-                        @Field(APP_ID_PARAM) String appID);
+    Single<Response<String>> login(@Field(USER_PARAM) String userName,
+                                   @Field(PSWD_PARAM) String password,
+                                   @Field(APP_ID_PARAM) String appID);
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
