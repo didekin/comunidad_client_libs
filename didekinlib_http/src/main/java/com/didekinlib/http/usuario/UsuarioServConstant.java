@@ -25,7 +25,8 @@ public final class UsuarioServConstant {
     public static final String USER_WRITE_GCM_TOKEN = USER_WRITE + "/gcm_token";
     public static final String USER_DELETE = USER_WRITE + "/delete";
     public static final String PASSWORD_MODIFY = USER_WRITE + "/pswd";
-
+    // MESSAGES
+    public static final String PASSWORD_WRONG = "The password is not associated to the user name";
 
 
     private UsuarioServConstant()
