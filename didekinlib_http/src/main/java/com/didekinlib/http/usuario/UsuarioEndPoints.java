@@ -2,7 +2,7 @@ package com.didekinlib.http.usuario;
 
 import com.didekinlib.model.usuario.Usuario;
 
-import io.reactivex.Single;
+import io.reactivex.Maybe;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -35,7 +35,8 @@ public interface UsuarioEndPoints {
     @DELETE(USER_DELETE)
     Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
 
-    @GET(USER_READ) // Remember: to be used also for retrieving gcmToken.
+    @GET(USER_READ)
+        // Remember: to be used also for retrieving gcmToken.
     Call<Usuario> getUserData(@Header("Authorization") String accessToken);
 
     /**
@@ -43,9 +44,9 @@ public interface UsuarioEndPoints {
      */
     @FormUrlEncoded
     @POST(LOGIN)
-    Single<String> login(@Field(USER_PARAM) String userName,
-                          @Field(PSWD_PARAM) String password,
-                          @Field(APP_ID_PARAM) String appID);
+    Maybe<String> login(@Field(USER_PARAM) String userName,
+                        @Field(PSWD_PARAM) String password,
+                        @Field(APP_ID_PARAM) String appID);
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
