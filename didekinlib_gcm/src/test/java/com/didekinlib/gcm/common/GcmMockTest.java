@@ -8,7 +8,6 @@ import com.didekinlib.gcm.model.common.GcmTokensHolder;
 import com.didekinlib.gcm.model.incidservice.GcmIncidRequestData;
 import com.didekinlib.gcm.retrofit.GcmEndPointImp;
 import com.didekinlib.gcm.retrofit.GcmRetrofitHandler;
-import com.google.gson.Gson;
 
 import org.junit.Before;
 import org.junit.Rule;
