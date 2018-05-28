@@ -20,6 +20,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
     private final String alias;
     private final String password;
     private final String gcmToken;
+    private final String tokenAuth;
 
     private Usuario(UsuarioBuilder builder)
     {
@@ -28,6 +29,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         alias = builder.alias;
         password = builder.password;
         gcmToken = builder.gcmToken;
+        tokenAuth = builder.tokenAuth;
     }
 
     public String getUserName()
@@ -53,6 +55,11 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
     public String getGcmToken()
     {
         return gcmToken;
+    }
+
+    public String getTokenAuth()
+    {
+        return tokenAuth;
     }
 
     // ............................ Serializable ...............................
@@ -139,6 +146,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         private String alias = null;
         private String password = null;
         private String gcmToken;
+        private String tokenAuth;
 
         public UsuarioBuilder()
         {
@@ -174,6 +182,11 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             return this;
         }
 
+        public UsuarioBuilder tokenAuth(String tokenAuthIn){
+            this.tokenAuth = tokenAuthIn;
+            return this;
+        }
+
         @Override
         public Usuario build()
         {
@@ -192,6 +205,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             userName = usuario.userName;
             alias = usuario.alias;
             gcmToken = usuario.gcmToken;
+            tokenAuth = usuario.tokenAuth;
             return this;
         }
     }
@@ -208,6 +222,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         private final String userAlias;
         private final String password;
         private final String gcmToken;
+        private final String tokenAuth;
 
         public InnerSerial(Usuario usuario)
         {
@@ -216,6 +231,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             userAlias = usuario.alias;
             password = usuario.password;
             gcmToken = usuario.gcmToken;
+            tokenAuth = usuario.tokenAuth;
         }
 
         private Object readResolve()
@@ -226,6 +242,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
                     .alias(userAlias)
                     .password(password)
                     .gcmToken(gcmToken)
+                    .tokenAuth(tokenAuth)
                     .build();
         }
     }
