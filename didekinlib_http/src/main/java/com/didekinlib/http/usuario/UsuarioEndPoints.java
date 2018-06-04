@@ -2,7 +2,6 @@ package com.didekinlib.http.usuario;
 
 import com.didekinlib.model.usuario.Usuario;
 
-import io.reactivex.Maybe;
 import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -52,7 +51,7 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
-    Call<Integer> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(APP_ID_PARAM) String gcmToken);
+    Single<Response<String>> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(APP_ID_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
     Call<Integer> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
@@ -61,7 +60,7 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(PASSWORD_MODIFY)
-    Call<Integer> passwordChange(@Header("Authorization") String accessToken, @Field(PSWD_PARAM) String password);
+    Single<Response<String>> passwordChange(@Header("Authorization") String accessToken, @Field(PSWD_PARAM) String password);
 
     @FormUrlEncoded
     @POST(PASSWORD_SEND)

@@ -12,14 +12,14 @@ public enum UsuarioExceptionMsg implements ExceptionMsgIf {
     BAD_REQUEST("Bad Request", 400),
     // user
     TOKEN_ENCRYP_DECRYP_ERROR(null, 401),
-    UNAUTHORIZED("Unauthorized", 401),
     PASSWORD_NOT_SENT("password_not_sent", 500),
     PASSWORD_WRONG("The password does not correspond to the user", 401),
+    UNAUTHORIZED("Unauthorized", 401),
     UNAUTHORIZED_TX_TO_USER(null, 401),
     USER_DATA_NOT_MODIFIED(null, 409),
     USER_DATA_NOT_INSERTED(null, 409),
-    USER_NAME_NOT_FOUND(null, 404),
-    USER_NAME_DUPLICATE(null, 409),
+    USER_DUPLICATE(null, 409),
+    USER_NOT_FOUND(null, 404),
     USER_WRONG_INIT(null, 412),
     // userComu
     ROLES_NOT_FOUND(null, 401),
