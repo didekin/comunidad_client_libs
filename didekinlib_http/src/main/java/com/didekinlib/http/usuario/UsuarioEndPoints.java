@@ -60,7 +60,9 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(PASSWORD_MODIFY)
-    Single<Response<String>> passwordChange(@Header("Authorization") String accessToken, @Field(PSWD_PARAM) String password);
+    Single<Response<String>> passwordChange(@Header("Authorization") String accessToken,
+                                            @Field(PSWD_PARAM) String oldPassword,
+                                            @Field(PSWD_PARAM) String newPassword);
 
     @FormUrlEncoded
     @POST(PASSWORD_SEND)
