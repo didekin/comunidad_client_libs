@@ -17,6 +17,7 @@ import retrofit2.http.PUT;
 import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.http.usuario.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.LOGIN;
+import static com.didekinlib.http.usuario.UsuarioServConstant.OLD_PSWD_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_MODIFY;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PASSWORD_SEND;
 import static com.didekinlib.http.usuario.UsuarioServConstant.PSWD_PARAM;
@@ -61,7 +62,7 @@ public interface UsuarioEndPoints {
     @FormUrlEncoded
     @POST(PASSWORD_MODIFY)
     Single<Response<String>> passwordChange(@Header("Authorization") String accessToken,
-                                            @Field(PSWD_PARAM) String oldPassword,
+                                            @Field(OLD_PSWD_PARAM) String oldPassword,
                                             @Field(PSWD_PARAM) String newPassword);
 
     @FormUrlEncoded

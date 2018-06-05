@@ -13,6 +13,7 @@ public final class UsuarioServConstant {
     public static final String AUTH_HEADER = "Authorization";
     public static final String USER_PARAM = "username";
     public static final String PSWD_PARAM = "password";
+    public static final String OLD_PSWD_PARAM = "oldPassword";
     public static final String APP_ID_PARAM = "appID"; // TODO: cambiar nombre desde GCM_TOKEN_PARAM.
     // OPEN paths.
     public static final String OPEN = "/open";
