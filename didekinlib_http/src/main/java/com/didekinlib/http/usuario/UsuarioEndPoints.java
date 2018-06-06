@@ -3,7 +3,6 @@ package com.didekinlib.http.usuario;
 import com.didekinlib.model.usuario.Usuario;
 
 import io.reactivex.Single;
-import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
@@ -35,11 +34,11 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOK
 public interface UsuarioEndPoints {
 
     @DELETE(USER_DELETE)
-    Single<Response<Boolean>> deleteUser(@Header("Authorization") String accessToken);
+    Single<Response<Boolean>> deleteUser(@Header("Authorization") String authHeader);
 
     @GET(USER_READ)
         // Remember: to be used also for retrieving gcmToken.
-    Single<Response<Usuario>> getUserData(@Header("Authorization") String accessToken);
+    Single<Response<Usuario>> getUserData(@Header("Authorization") String authHeader);
 
     /**
      * @return token to be stored in local, with userName and appID (gcmToken).
@@ -52,16 +51,16 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(USER_WRITE_GCM_TOKEN)
-    Single<Response<String>> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(APP_ID_PARAM) String gcmToken);
+    Single<Response<String>> modifyGcmToken(@Header("Authorization") String authHeader, @Field(APP_ID_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
     Single<Response<Integer>> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
-                             @Header("Authorization") String accessToken,
-                             @Body Usuario usuario);
+                                         @Header("Authorization") String authHeader,
+                                         @Body Usuario usuario);
 
     @FormUrlEncoded
     @POST(PASSWORD_MODIFY)
-    Single<Response<String>> passwordChange(@Header("Authorization") String accessToken,
+    Single<Response<String>> passwordChange(@Header("Authorization") String authHeader,
                                             @Field(OLD_PSWD_PARAM) String oldPassword,
                                             @Field(PSWD_PARAM) String newPassword);
 
