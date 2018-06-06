@@ -35,11 +35,11 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOK
 public interface UsuarioEndPoints {
 
     @DELETE(USER_DELETE)
-    Call<Boolean> deleteUser(@Header("Authorization") String accessToken);
+    Single<Response<Boolean>> deleteUser(@Header("Authorization") String accessToken);
 
     @GET(USER_READ)
         // Remember: to be used also for retrieving gcmToken.
-    Call<Usuario> getUserData(@Header("Authorization") String accessToken);
+    Single<Response<Usuario>> getUserData(@Header("Authorization") String accessToken);
 
     /**
      * @return token to be stored in local, with userName and appID (gcmToken).
@@ -55,7 +55,7 @@ public interface UsuarioEndPoints {
     Single<Response<String>> modifyUserGcmToken(@Header("Authorization") String accessToken, @Field(APP_ID_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
-    Call<Integer> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
+    Single<Response<Integer>> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
                              @Header("Authorization") String accessToken,
                              @Body Usuario usuario);
 
@@ -67,5 +67,5 @@ public interface UsuarioEndPoints {
 
     @FormUrlEncoded
     @POST(PASSWORD_SEND)
-    Call<Boolean> passwordSend(@Header(ACCEPT_LANGUAGE) String localeToStr, @Field(USER_PARAM) String userName);
+    Single<Response<Boolean>> passwordSend(@Header(ACCEPT_LANGUAGE) String localeToStr, @Field(USER_PARAM) String userName);
 }
