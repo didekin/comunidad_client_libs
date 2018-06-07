@@ -38,10 +38,10 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
  * User: pedro@didekin
  * Date: 05/08/15
  * Time: 20:07
- *
+ * <p>
  * Retrofit implementation of a HttpHandlerIf.
  */
-public class HttpHandler implements HttpHandlerIf{
+public class HttpHandler implements HttpHandlerIf {
 
     private final Retrofit retrofit;
 
@@ -78,42 +78,40 @@ public class HttpHandler implements HttpHandlerIf{
     public static class HttpHandlerBuilder implements BeanBuilder<HttpHandler> {
 
         private Retrofit.Builder retrofitBuilder;
-
-        public HttpHandlerBuilder()
-        {
-            retrofitBuilder = new Retrofit.Builder();
-        }
+        private OkHttpClient.Builder okhttpClBuilder;
 
         /**
          * @param hostPortIn: host concatenated with listening port.
          */
         public HttpHandlerBuilder(String hostPortIn)
         {
-            this();
+            retrofitBuilder = new Retrofit.Builder();
+            okhttpClBuilder = new OkHttpClient.Builder();
+            retrofitBuilder
+                    .addConverterFactory(getGsonConverterTokenKey())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
+            okhttpClBuilder
+                    .addNetworkInterceptor(doLoggingInterceptor());
             retrofitBuilder.baseUrl(hostPortIn);
-            retrofitBuilder.addConverterFactory(getGsonConverterTokenKey());
-            retrofitBuilder.addCallAdapterFactory(RxJava2CallAdapterFactory.create());
         }
 
-        public HttpHandlerBuilder hostPort(String hostPortIn)
+        public HttpHandlerBuilder timeOutSec(int timeOutSeconds)
         {
-            retrofitBuilder.baseUrl(hostPortIn);
+            okhttpClBuilder
+                    .connectTimeout(timeOutSeconds, SECONDS)
+                    .readTimeout(timeOutSeconds * 2, SECONDS);
             return this;
         }
 
-        public HttpHandlerBuilder okHttpClient(int timeOutSeconds)
-        {
-            OkHttpClient.Builder builder = getSimpleOkhttpCl(timeOutSeconds);
-            retrofitBuilder.client(builder.build());
+        public HttpHandlerBuilder clientInterceptor(Interceptor interceptorIn){
+            okhttpClBuilder.addInterceptor(interceptorIn);
             return this;
         }
 
-        public HttpHandlerBuilder okHttpClient(int timeOutSeconds, JksInClient jksInAppClient)
+        public HttpHandlerBuilder keyStoreClient(JksInClient keyStoreInClient)
         {
-            OkHttpClient.Builder builder = getSimpleOkhttpCl(timeOutSeconds);
-            X509TrustManager trustManager = getTrustManager(jksInAppClient);
-            builder.sslSocketFactory(getSslSocketFactory(trustManager), trustManager);
-            retrofitBuilder.client(builder.build());
+            X509TrustManager trustManager = getTrustManager(keyStoreInClient);
+            okhttpClBuilder.sslSocketFactory(getSslSocketFactory(trustManager), trustManager);
             return this;
         }
 
@@ -132,6 +130,7 @@ public class HttpHandler implements HttpHandlerIf{
         @Override
         public HttpHandler build()
         {
+            retrofitBuilder.client(okhttpClBuilder.build());
             HttpHandler httpHandler = new HttpHandler(this);
             if (httpHandler.retrofit.baseUrl() == null) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
@@ -148,15 +147,7 @@ public class HttpHandler implements HttpHandlerIf{
             return loggingInterceptor;
         }
 
-        private OkHttpClient.Builder getSimpleOkhttpCl(int timeOutSeconds)
-        {
-            return new OkHttpClient.Builder()
-                    .addNetworkInterceptor(doLoggingInterceptor())
-                    .connectTimeout(timeOutSeconds, SECONDS)
-                    .readTimeout(timeOutSeconds * 2, SECONDS);
-        }
-
-        private X509TrustManager getTrustManager(JksInClient jksInAppClient)
+        private X509TrustManager getTrustManager(JksInClient keyStoreClient)
         {
             KeyStore keyStore;
             TrustManagerFactory tmf;
@@ -165,7 +156,7 @@ public class HttpHandler implements HttpHandlerIf{
                 // Configuración cliente.
                 String keyStoreType = KeyStore.getDefaultType();
                 keyStore = KeyStore.getInstance(keyStoreType);
-                keyStore.load(jksInAppClient.getInputStream(), jksInAppClient.getJksPswd().toCharArray());
+                keyStore.load(keyStoreClient.getInputStream(), keyStoreClient.getJksPswd().toCharArray());
                 // Create a TrustManager that trusts the CAs in our JksInAppClient
                 tmf = getInstance(getDefaultAlgorithm());
                 tmf.init(keyStore);
