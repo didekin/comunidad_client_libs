@@ -31,7 +31,7 @@ public final class GsonUtil {
         return GsonConverterFactory.create(
                 new GsonBuilder()
                         .setLenient()
-                        .registerTypeAdapter(JsonWebKey.class, new JwkDeserializer())
+//                        .registerTypeAdapter(JsonWebKey.class, new JwkDeserializer())
                         .create());
     }
 

@@ -13,8 +13,8 @@ compileJava {
 dependencies {
     implementation project(':didekinlib_model')
     implementation project(':didekinlib_http')
-    implementation rootProject.ext.retrofit2
-    testImplementation rootProject.ext.mock_server
+    implementation rootProject.retrofit2
+    testImplementation rootProject.mock_server
 }
 
 test {

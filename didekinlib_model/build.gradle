@@ -11,7 +11,7 @@ compileJava {
 }
 
 dependencies {
-    testImplementation rootProject.ext.junit
+    testImplementation rootProject.junit
 }
 
 
