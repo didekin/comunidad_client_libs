@@ -88,7 +88,7 @@ public class HttpHandler implements HttpHandlerIf {
             retrofitBuilder = new Retrofit.Builder();
             okhttpClBuilder = new OkHttpClient.Builder();
             retrofitBuilder
-                    .addConverterFactory(getGsonConverterTokenKey())
+//                    .addConverterFactory(getGsonConverterTokenKey())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
             okhttpClBuilder
                     .addNetworkInterceptor(doLoggingInterceptor());

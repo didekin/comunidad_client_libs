@@ -14,7 +14,7 @@ dependencies {
     implementation project(':didekinlib_model')
     implementation rootProject.retrofit2
     implementation rootProject.json_4_j
-    implementation rootProject.ext.rxjava
+    implementation rootProject.rxjava
     testImplementation rootProject.mock_server
     testImplementation rootProject.hamcrest_lib
 }
