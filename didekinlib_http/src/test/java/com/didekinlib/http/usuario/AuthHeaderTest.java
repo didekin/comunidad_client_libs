@@ -1,9 +1,11 @@
 package com.didekinlib.http.usuario;
 
-import org.jose4j.base64url.Base64Url;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Arrays;
+
+import static java.util.Base64.getDecoder;
 import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -56,7 +58,7 @@ public class AuthHeaderTest {
     {
         String headerBase64 = header.getBase64Str();
         System.out.printf("%s%n", headerBase64);
-        assertThat(new Base64Url().base64UrlDecodeToUtf8String(headerBase64), is(header.toString()));
+        assertThat(Arrays.toString(getDecoder().decode(headerBase64)), is(header.toString()));
     }
 
     @Test
