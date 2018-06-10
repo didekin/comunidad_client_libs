@@ -3,8 +3,6 @@ package com.didekinlib.http.usuario;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.google.gson.Gson;
 
-import java.util.Arrays;
-
 import static com.didekinlib.http.usuario.TkValidaPatterns.error_tokenInLocal;
 import static com.didekinlib.http.usuario.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.EMAIL;
@@ -79,7 +77,7 @@ public class AuthHeader {
         {
             this();
             AuthHeader header = new Gson().fromJson(
-                    Arrays.toString(getUrlDecoder().decode(base64HeaderIn)),
+                    new String(getUrlDecoder().decode(base64HeaderIn)),
                     AuthHeader.class
             );
             appId(header.getAppID()).userName(header.getUserName()).tokenInLocal(header.getToken());
