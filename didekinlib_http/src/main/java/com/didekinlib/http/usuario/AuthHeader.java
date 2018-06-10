@@ -16,7 +16,7 @@ import static java.util.Base64.getUrlEncoder;
  * Date: 21/05/2018
  * Time: 11:42
  */
-public class AuthHeader {
+public class AuthHeader implements AuthHeaderIf {
 
     private final String userName;
     private final String appID;
@@ -35,21 +35,25 @@ public class AuthHeader {
         return new Gson().toJson(this);
     }
 
+    @Override
     public String getBase64Str()
     {
         return getUrlEncoder().encodeToString(toString().getBytes());
     }
 
+    @Override
     public String getUserName()
     {
         return userName;
     }
 
+    @Override
     public String getAppID()
     {
         return appID;
     }
 
+    @Override
     public String getToken()
     {
         return token;
@@ -57,7 +61,7 @@ public class AuthHeader {
 
     //    ==================== BUILDER ====================
 
-    public static class AuthHeaderBuilder implements BeanBuilder<AuthHeader> {
+    public static class AuthHeaderBuilder implements BeanBuilder<AuthHeaderIf> {
 
         private String userName;
         private String appID;
@@ -76,7 +80,7 @@ public class AuthHeader {
         public AuthHeaderBuilder(String base64HeaderIn)
         {
             this();
-            AuthHeader header = new Gson().fromJson(
+            AuthHeaderIf header = new Gson().fromJson(
                     new String(getUrlDecoder().decode(base64HeaderIn)),
                     AuthHeader.class
             );
@@ -111,7 +115,7 @@ public class AuthHeader {
         }
 
         @Override
-        public AuthHeader build()
+        public AuthHeaderIf build()
         {
             AuthHeader header = new AuthHeader(this);
             if (header.userName == null || header.appID == null || header.token == null) {

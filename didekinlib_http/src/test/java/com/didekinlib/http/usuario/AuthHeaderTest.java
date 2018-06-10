@@ -27,7 +27,7 @@ public class AuthHeaderTest {
     private static final String userName = "pedro@didekin.com";
     private static final String appId = "cVNOLEOgBQrOQVJmVL-9Ke9KRSw..uq:7MmVcA2EB_0xRBr";
 
-    private AuthHeader header;
+    private AuthHeaderIf header;
 
     @Before
     public void setUp()
@@ -62,7 +62,7 @@ public class AuthHeaderTest {
     @Test
     public void test_HeaderFromBase64Str()
     {
-        AuthHeader headerPojo = new AuthHeader.AuthHeaderBuilder(header.getBase64Str()).build();
+        AuthHeaderIf headerPojo = new AuthHeader.AuthHeaderBuilder(header.getBase64Str()).build();
         assertThat(headerPojo, allOf
                 (
                         hasProperty("userName", allOf(
