@@ -13,7 +13,7 @@ compileJava {
 dependencies {
     implementation project(':didekinlib_model')
     implementation rootProject.retrofit2
-    implementation rootProject.json_4_j
+//    implementation rootProject.json_4_j
     implementation rootProject.rxjava
     testImplementation rootProject.mock_server
     testImplementation rootProject.hamcrest_lib
