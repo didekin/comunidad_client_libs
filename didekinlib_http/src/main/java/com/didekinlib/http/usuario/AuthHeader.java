@@ -3,14 +3,15 @@ package com.didekinlib.http.usuario;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 import com.google.gson.Gson;
 
-import org.jose4j.base64url.Base64Url;
+import java.util.Arrays;
 
 import static com.didekinlib.http.usuario.TkValidaPatterns.error_tokenInLocal;
 import static com.didekinlib.http.usuario.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.EMAIL;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_appId;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_userName;
-import static org.jose4j.lang.StringUtil.UTF_8;
+import static java.util.Base64.getUrlDecoder;
+import static java.util.Base64.getUrlEncoder;
 
 /**
  * User: pedro@didekin
@@ -38,7 +39,7 @@ public class AuthHeader {
 
     public String getBase64Str()
     {
-        return new Base64Url().base64UrlEncode(toString(), UTF_8);
+        return getUrlEncoder().encodeToString(toString().getBytes());
     }
 
     public String getUserName()
@@ -65,20 +66,20 @@ public class AuthHeader {
         private String tokenInLocal;
 
         /**
-         *  Constructor for producers of encoded headers, as client apps.
+         * Constructor for producers of encoded headers, as client apps.
          */
         public AuthHeaderBuilder()
         {
         }
 
         /**
-         *  Constructor for consumers of encoded headers, as http server applications.
+         * Constructor for consumers of encoded headers, as http server applications.
          */
         public AuthHeaderBuilder(String base64HeaderIn)
         {
             this();
             AuthHeader header = new Gson().fromJson(
-                    new Base64Url().base64UrlDecodeToUtf8String(base64HeaderIn),
+                    Arrays.toString(getUrlDecoder().decode(base64HeaderIn)),
                     AuthHeader.class
             );
             appId(header.getAppID()).userName(header.getUserName()).tokenInLocal(header.getToken());
