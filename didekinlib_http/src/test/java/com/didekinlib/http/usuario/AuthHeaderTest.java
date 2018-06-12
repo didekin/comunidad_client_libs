@@ -52,7 +52,7 @@ public class AuthHeaderTest {
     }
 
     @Test
-    public void test_GetBase64Str()
+    public void test_GetBase64Str_1()
     {
         String headerBase64 = header.getBase64Str();
         System.out.printf("%s%n", headerBase64);

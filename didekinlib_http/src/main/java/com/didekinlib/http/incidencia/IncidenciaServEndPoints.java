@@ -9,7 +9,8 @@ import com.didekinlib.model.incidencia.dominio.Resolucion;
 
 import java.util.List;
 
-import retrofit2.Call;
+import io.reactivex.Single;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -41,50 +42,50 @@ import static com.didekinlib.http.incidencia.IncidServConstant.SEE_USERCOMUS_IMP
 public interface IncidenciaServEndPoints {
 
     @PUT(CLOSE_INCIDENCIA)
-    Call<Integer> closeIncidencia(@Header("Authorization") String accessToken,
-                                  @Body Resolucion resolucion);
+    Single<Response<Integer>> closeIncidencia(@Header("Authorization") String accessToken,
+                                              @Body Resolucion resolucion);
 
     @DELETE(DELETE_INCID + "/{incidenciaId}")
-    Call<Integer> deleteIncidencia(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
+    Single<Response<Integer>> deleteIncidencia(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
 
     @PUT(MOD_INCID_IMPORTANCIA)
-    Call<Integer> modifyIncidImportancia(@Header("Authorization") String accessToken,
-                                         @Body IncidImportancia incidImportancia);
+    Single<Response<Integer>> modifyIncidImportancia(@Header("Authorization") String accessToken,
+                                                     @Body IncidImportancia incidImportancia);
 
     @PUT(MOD_RESOLUCION)
-    Call<Integer> modifyResolucion(@Header("Authorization") String accessToken,
-                                   @Body Resolucion resolucion);
+    Single<Response<Integer>> modifyResolucion(@Header("Authorization") String accessToken,
+                                               @Body Resolucion resolucion);
 
     @POST(REG_INCID_COMMENT)
-    Call<Integer> regIncidComment(@Header("Authorization") String accessToken,
-                                  @Body IncidComment comment);
+    Single<Response<Integer>> regIncidComment(@Header("Authorization") String accessToken,
+                                              @Body IncidComment comment);
 
     @POST(REG_INCID_IMPORTANCIA)
-    Call<Integer> regIncidImportancia(@Header("Authorization") String accessToken,
-                                      @Body IncidImportancia incidImportancia);
+    Single<Response<Integer>> regIncidImportancia(@Header("Authorization") String accessToken,
+                                                  @Body IncidImportancia incidImportancia);
 
     @POST(REG_RESOLUCION)
-    Call<Integer> regResolucion(@Header("Authorization") String accessToken,
-                                @Body Resolucion resolucion);
+    Single<Response<Integer>> regResolucion(@Header("Authorization") String accessToken,
+                                            @Body Resolucion resolucion);
 
     @GET(SEE_INCID_IMPORTANCIA + "/{incidenciaId}")
-    Call<IncidAndResolBundle> seeIncidImportancia(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
+    Single<Response<IncidAndResolBundle>> seeIncidImportancia(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
 
     @GET(SEE_INCID_COMMENTS + "/{incidenciaId}")
-    Call<List<IncidComment>> seeCommentsByIncid(@Header("Authorization") String accessToken,
-                                                @Path("incidenciaId") long incidenciaId);
+    Single<Response<List<IncidComment>>> seeCommentsByIncid(@Header("Authorization") String accessToken,
+                                                            @Path("incidenciaId") long incidenciaId);
 
     @GET(SEE_INCIDS_CLOSED_BY_COMU + "/{comunidadId}")
-    Call<List<IncidenciaUser>> seeIncidsClosedByComu(@Header("Authorization") String accessToken,
-                                                     @Path("comunidadId") long comunidadId);
+    Single<Response<List<IncidenciaUser>>> seeIncidsClosedByComu(@Header("Authorization") String accessToken,
+                                                                 @Path("comunidadId") long comunidadId);
 
     @GET(SEE_INCIDS_OPEN_BY_COMU + "/{comunidadId}")
-    Call<List<IncidenciaUser>> seeIncidsOpenByComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
+    Single<Response<List<IncidenciaUser>>> seeIncidsOpenByComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
     @GET(SEE_RESOLUCION + "/{incidenciaId}")
-    Call<Resolucion> seeResolucion(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
+    Single<Response<Resolucion>> seeResolucion(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
 
     @GET(SEE_USERCOMUS_IMPORTANCIA + "/{incidenciaId}")
-    Call<List<ImportanciaUser>> seeUserComusImportancia(@Header("Authorization") String accessToken,
-                                                        @Path("incidenciaId") long incidenciaId);
+    Single<Response<List<ImportanciaUser>>> seeUserComusImportancia(@Header("Authorization") String accessToken,
+                                                                    @Path("incidenciaId") long incidenciaId);
 }

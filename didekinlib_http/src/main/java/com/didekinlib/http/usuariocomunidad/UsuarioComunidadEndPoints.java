@@ -6,7 +6,8 @@ import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
 
 import java.util.List;
 
-import retrofit2.Call;
+import io.reactivex.Single;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -38,40 +39,40 @@ import static com.didekinlib.http.usuariocomunidad.UsuarioComunidadServConstant.
 public interface UsuarioComunidadEndPoints {
 
     @DELETE(USERCOMU_DELETE + "/{comunidadId}")
-    Call<Integer> deleteUserComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
+    Single<Response<Integer>> deleteUserComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
 
     @GET(COMUS_BY_USER)
-    Call<List<Comunidad>> getComusByUser(@Header("Authorization") String accessToken);
+    Single<Response<List<Comunidad>>> getComusByUser(@Header("Authorization") String authHeader);
 
     @GET(USERCOMU_READ + "/{comunidadId}")
-    Call<UsuarioComunidad> getUserComuByUserAndComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
+    Single<Response<UsuarioComunidad>> getUserComuByUserAndComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
 
     @GET(COMUNIDAD_OLDEST_USER + "/{comunidadId}")
-    Call<Boolean> isOldestOrAdmonUserComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
+    Single<Response<Boolean>> isOldestOrAdmonUserComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
 
     @PUT(COMUNIDAD_WRITE)
-    Call<Integer> modifyComuData(@Header("Authorization") String accessToken, @Body Comunidad comunidad);
+    Single<Response<Integer>> modifyComuData(@Header("Authorization") String authHeader, @Body Comunidad comunidad);
 
     @PUT(USERCOMU_MODIFY)
-    Call<Integer> modifyUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
+    Single<Response<Integer>> modifyUserComu(@Header("Authorization") String authHeader, @Body UsuarioComunidad usuarioComunidad);
 
     @POST(REG_COMU_AND_USER_AND_USERCOMU)
-    Call<Boolean> regComuAndUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad usuarioCom);
+    Single<Response<Boolean>> regComuAndUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad usuarioCom);
 
     @POST(REG_COMU_USERCOMU)
-    Call<Boolean> regComuAndUserComu(@Header("Authorization") String accessToken,
-                                     @Body UsuarioComunidad usuarioCom);
+    Single<Response<Boolean>> regComuAndUserComu(@Header("Authorization") String authHeader,
+                                                 @Body UsuarioComunidad usuarioCom);
 
     @POST(REG_USER_USERCOMU)
-    Call<Boolean> regUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad userCom);
+    Single<Response<Boolean>> regUserAndUserComu(@Header(ACCEPT_LANGUAGE) String localeToStr, @Body UsuarioComunidad userCom);
 
     @POST(REG_USERCOMU)
-    Call<Integer> regUserComu(@Header("Authorization") String accessToken, @Body UsuarioComunidad usuarioComunidad);
+    Single<Response<Integer>> regUserComu(@Header("Authorization") String authHeader, @Body UsuarioComunidad usuarioComunidad);
 
     @GET(USERCOMUS_BY_COMU + "/{comunidadId}")
-    Call<List<UsuarioComunidad>> seeUserComusByComu(@Header("Authorization") String accessToken,
-                                                    @Path("comunidadId") long comunidadId);
+    Single<Response<List<UsuarioComunidad>>> seeUserComusByComu(@Header("Authorization") String authHeader,
+                                                                @Path("comunidadId") long comunidadId);
 
     @GET(USERCOMUS_BY_USER)
-    Call<List<UsuarioComunidad>> seeUserComusByUser(@Header("Authorization") String accessToken);
+    Single<Response<List<UsuarioComunidad>>> seeUserComusByUser(@Header("Authorization") String authHeader);
 }
