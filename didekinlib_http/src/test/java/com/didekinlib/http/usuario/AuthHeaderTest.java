@@ -24,7 +24,6 @@ public class AuthHeaderTest {
             ".UB1tHZZq0TYFTZKPVZXY83GRxHz770Aq7BuMCEbNnaSC5cVNOLEOgBQrOQVJmVL-9Ke9KRSwuq7MmVcA2EB_0xRBr_YbzmMWbpUcTQUFtE5OZOFiCsxL5Yn0gA_DDLZboivpoSqndQRP-44mWVkM1A" +
             ".RIvTWRrsyoJ1mpl8vUhQDQ";
 
-    private static final String userName = "pedro@didekin.com";
     private static final String appId = "cVNOLEOgBQrOQVJmVL-9Ke9KRSw..uq:7MmVcA2EB_0xRBr";
 
     private AuthHeaderIf header;
@@ -34,7 +33,6 @@ public class AuthHeaderTest {
     {
         header = new AuthHeader.AuthHeaderBuilder()
                 .appId(appId)
-                .userName(userName)
                 .tokenInLocal(tokenInLocal)
                 .build();
     }
@@ -43,7 +41,6 @@ public class AuthHeaderTest {
     public void test_ToString()
     {
         assertThat(header.toString(), allOf(
-                containsString("\"userName\"" + ":" + "\"" + userName + "\""),
                 containsString("\"appID\"" + ":" + "\"" + appId + "\""),
                 containsString("\"token\"" + ":" + "\"" + tokenInLocal + "\""),
                 containsString("{"),
@@ -65,9 +62,6 @@ public class AuthHeaderTest {
         AuthHeaderIf headerPojo = new AuthHeader.AuthHeaderBuilder(header.getBase64Str()).build();
         assertThat(headerPojo, allOf
                 (
-                        hasProperty("userName", allOf(
-                                equalTo(header.getUserName()),
-                                equalTo(userName))),
                         hasProperty("appID", allOf(
                                 equalTo(header.getAppID()),
                                 equalTo(appId))),
