@@ -5,9 +5,7 @@ import com.google.gson.Gson;
 
 import static com.didekinlib.http.usuario.TkValidaPatterns.error_tokenInLocal;
 import static com.didekinlib.http.usuario.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
-import static com.didekinlib.model.common.dominio.ValidDataPatterns.EMAIL;
 import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_appId;
-import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_userName;
 import static java.util.Base64.getUrlDecoder;
 import static java.util.Base64.getUrlEncoder;
 
@@ -18,13 +16,11 @@ import static java.util.Base64.getUrlEncoder;
  */
 public class AuthHeader implements AuthHeaderIf {
 
-    private final String userName;
     private final String appID;
     private final String token;
 
     private AuthHeader(AuthHeaderBuilder builder)
     {
-        userName = builder.userName;
         appID = builder.appID;
         token = builder.tokenInLocal;
     }
@@ -39,12 +35,6 @@ public class AuthHeader implements AuthHeaderIf {
     public String getBase64Str()
     {
         return getUrlEncoder().encodeToString(toString().getBytes());
-    }
-
-    @Override
-    public String getUserName()
-    {
-        return userName;
     }
 
     @Override
@@ -63,7 +53,6 @@ public class AuthHeader implements AuthHeaderIf {
 
     public static class AuthHeaderBuilder implements BeanBuilder<AuthHeaderIf> {
 
-        private String userName;
         private String appID;
         private String tokenInLocal;
 
@@ -84,7 +73,7 @@ public class AuthHeader implements AuthHeaderIf {
                     new String(getUrlDecoder().decode(base64HeaderIn)),
                     AuthHeader.class
             );
-            appId(header.getAppID()).userName(header.getUserName()).tokenInLocal(header.getToken());
+            appId(header.getAppID()).tokenInLocal(header.getToken());
         }
 
         public AuthHeaderBuilder appId(String appIdIn)
@@ -94,15 +83,6 @@ public class AuthHeader implements AuthHeaderIf {
                 return this;
             }
             throw new IllegalArgumentException(error_appId + this.getClass().getName());
-        }
-
-        public AuthHeaderBuilder userName(String userNameIn)
-        {
-            if (EMAIL.isPatternOk(userNameIn)) {
-                userName = userNameIn;
-                return this;
-            }
-            throw new IllegalArgumentException(error_userName + this.getClass().getName());
         }
 
         public AuthHeaderBuilder tokenInLocal(String tokenInLocalIn)
@@ -118,7 +98,7 @@ public class AuthHeader implements AuthHeaderIf {
         public AuthHeaderIf build()
         {
             AuthHeader header = new AuthHeader(this);
-            if (header.userName == null || header.appID == null || header.token == null) {
+            if (header.appID == null || header.token == null) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return header;
