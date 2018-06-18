@@ -6,6 +6,7 @@ import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
 
 import java.util.List;
 
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.http.Body;
@@ -45,7 +46,7 @@ public interface UsuarioComunidadEndPoints {
     Single<Response<List<Comunidad>>> getComusByUser(@Header("Authorization") String authHeader);
 
     @GET(USERCOMU_READ + "/{comunidadId}")
-    Single<Response<UsuarioComunidad>> getUserComuByUserAndComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
+    Maybe<Response<UsuarioComunidad>> getUserComuByUserAndComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
 
     @GET(COMUNIDAD_OLDEST_USER + "/{comunidadId}")
     Single<Response<Boolean>> isOldestOrAdmonUserComu(@Header("Authorization") String authHeader, @Path("comunidadId") long comunidadId);
