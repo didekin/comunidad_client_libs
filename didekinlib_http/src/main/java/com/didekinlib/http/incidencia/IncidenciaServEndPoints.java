@@ -9,6 +9,7 @@ import com.didekinlib.model.incidencia.dominio.Resolucion;
 
 import java.util.List;
 
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 import retrofit2.Response;
 import retrofit2.http.Body;
@@ -83,7 +84,7 @@ public interface IncidenciaServEndPoints {
     Single<Response<List<IncidenciaUser>>> seeIncidsOpenByComu(@Header("Authorization") String accessToken, @Path("comunidadId") long comunidadId);
 
     @GET(SEE_RESOLUCION + "/{incidenciaId}")
-    Single<Response<Resolucion>> seeResolucion(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
+    Maybe<Response<Resolucion>> seeResolucion(@Header("Authorization") String accessToken, @Path("incidenciaId") long incidenciaId);
 
     @GET(SEE_USERCOMUS_IMPORTANCIA + "/{incidenciaId}")
     Single<Response<List<ImportanciaUser>>> seeUserComusImportancia(@Header("Authorization") String accessToken,
