@@ -9,7 +9,10 @@ package com.didekinlib.http.exception;
 public enum GenericExceptionMsg implements ExceptionMsgIf {
 
     GENERIC_INTERNAL_ERROR("Internal Server Error", 500),
-    NOT_FOUND("Not Found", 404),;private final String httpMsg;
+    DATABASE_ERROR("Data base server Error", 500),
+    NOT_FOUND("Not Found", 404),;
+
+    private final String httpMsg;
     private final int httpStatus;
 
     GenericExceptionMsg(String httpMsg, int httpStatus)
