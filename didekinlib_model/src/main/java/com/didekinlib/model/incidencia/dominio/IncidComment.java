@@ -15,8 +15,7 @@ import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INC
  * Date: 03/02/16
  * Time: 10:40
  */
-@SuppressWarnings("unused, WeakerAccess")
-public final class IncidComment {
+public final class IncidComment implements Serializable {
 
     private final long commentId;
     private final String descripcion;
