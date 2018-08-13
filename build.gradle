@@ -5,7 +5,7 @@ buildscript {
     }
 }
 
-apply from: '../didekinweb.gradle'
+apply from: 'didekinweb.gradle'
 
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"

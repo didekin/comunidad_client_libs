@@ -1,5 +1,5 @@
 # Idea files
-/**/*.iml
+/didekinlibs.iml
 /**/*.ipr
 /**/*.iws
 .idea/

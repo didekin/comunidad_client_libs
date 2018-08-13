@@ -36,6 +36,7 @@ else
 fi
 echo "================= ¡¡¡ gradle didekinlib_model build exit code = $?"
 
+/usr/bin/ssh-add -K
 git push ${GITREMOTE} ${ENV}
 
 rm didekinlib_model/releases/${ENV}/*
