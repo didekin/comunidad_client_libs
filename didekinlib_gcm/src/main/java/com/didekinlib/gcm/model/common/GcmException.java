@@ -9,7 +9,7 @@ import com.didekinlib.http.exception.ErrorBean;
  * Time: 15:18
  */
 
-public class GcmException extends Exception {
+public class GcmException extends RuntimeException {
 
     private final ErrorBean errorBean;
 
