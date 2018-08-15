@@ -5,7 +5,6 @@ package com.didekinlib.gcm.model.common;
  * Date: 10/01/17
  * Time: 15:23
  */
-@SuppressWarnings({"WeakerAccess", "unused"})
 public final class GcmServConstant {
 
     // Mime types.
@@ -21,6 +20,9 @@ public final class GcmServConstant {
     // Http header parameter values.
     public static final String IDENTITY = "identity";
     public static final String GZIP = "gzip";
+
+    // Internal Error Code
+    public static final int GCM_ERROR_CODE = -11;
 
     private GcmServConstant()
     {

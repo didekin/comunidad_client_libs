@@ -83,7 +83,7 @@ public class GcmMockTest {
      * Multicast with only one token.
      */
     @Test
-    public void testMulticast_1() throws Exception
+    public void testMulticast_1()
     {
         // Mock response.
         Result result1 = new Result(null, MSG_ID_1, REGISTRATION_ID_1_B);
@@ -109,7 +109,7 @@ public class GcmMockTest {
      * Multicast with 4 tokens.
      */
     @Test
-    public void testMulticast_2() throws Exception
+    public void testMulticast_2()
     {
         // Mock responses.
         Result result0 = new Result(InvalidRegistration.httpMessage, null, null);

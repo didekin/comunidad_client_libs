@@ -22,4 +22,10 @@ public class GcmException extends RuntimeException {
     {
         return errorBean;
     }
+
+    @Override
+    public String getMessage()
+    {
+        return errorBean.getMessage();
+    }
 }

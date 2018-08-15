@@ -1,6 +1,5 @@
 package com.didekinlib.gcm.retrofit;
 
-import com.didekinlib.gcm.model.common.GcmErrorMessage;
 import com.didekinlib.gcm.model.common.GcmException;
 import com.didekinlib.gcm.model.common.GcmMulticastRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
@@ -11,6 +10,9 @@ import java.io.IOException;
 
 import retrofit2.Call;
 import retrofit2.Response;
+
+import static com.didekinlib.gcm.model.common.GcmErrorMessage.InternalServerError;
+import static java.util.Objects.requireNonNull;
 
 /**
  * User: pedro@didekin
@@ -51,9 +53,9 @@ public class GcmEndPointImp implements GcmEndPoint {
                 throw new GcmException(retrofitHandler.getErrorBean(response));
             }
             gcmResponse = response.body();
-            gcmResponse.setTokensToProcess(multicastRequest.getRegistration_ids());
+            requireNonNull(gcmResponse).setTokensToProcess(multicastRequest.getRegistration_ids());
         } catch (IOException e) {
-            throw new GcmException(new ErrorBean(e.getMessage(), GcmErrorMessage.InternalServerError.httpStatusCode));
+            throw new GcmException(new ErrorBean(e.getMessage(), InternalServerError.httpStatusCode));
         }
         return gcmResponse;
     }
