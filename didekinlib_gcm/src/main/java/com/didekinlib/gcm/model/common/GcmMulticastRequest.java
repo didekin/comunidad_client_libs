@@ -1,5 +1,6 @@
 package com.didekinlib.gcm.model.common;
 
+import com.didekinlib.gcm.model.incidservice.GcmRequestData;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 
 import java.util.List;
@@ -60,7 +61,7 @@ public final class GcmMulticastRequest {
 
         public Builder(List<String> registration_ids, GcmRequest request)
         {
-            this.registration_ids = registration_ids.toArray(new String[registration_ids.size()]);
+            this.registration_ids = registration_ids.toArray(new String[0]);
             gcmRequest = request;
         }
     }

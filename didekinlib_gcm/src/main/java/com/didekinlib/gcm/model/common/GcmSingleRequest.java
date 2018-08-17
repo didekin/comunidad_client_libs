@@ -1,5 +1,6 @@
 package com.didekinlib.gcm.model.common;
 
+import com.didekinlib.gcm.model.incidservice.GcmRequestData;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 
 /**

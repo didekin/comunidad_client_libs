@@ -1,7 +1,6 @@
 package com.didekinlib.model.incidencia.dominio;
 
 import com.didekinlib.model.common.dominio.BeanBuilder;
-import com.didekinlib.model.common.gcm.GcmToComunidadHelper;
 import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;
@@ -20,9 +19,7 @@ import static java.util.Collections.unmodifiableList;
  * Date: 12/11/15
  * Time: 18:30
  */
-
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "unused", "WeakerAccess"})
-public final class Resolucion implements Serializable, GcmToComunidadHelper {
+public final class Resolucion implements Serializable {
 
     private final String userName;
     private final String descripcion;
@@ -117,7 +114,6 @@ public final class Resolucion implements Serializable, GcmToComunidadHelper {
         return avances;
     }
 
-    @Override
     public long getComunidadId()
     {
         return incidencia.getComunidad().getC_Id();

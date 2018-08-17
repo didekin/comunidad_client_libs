@@ -5,7 +5,7 @@ import com.didekinlib.gcm.model.common.GcmRequest;
 import com.didekinlib.gcm.model.common.GcmResponse;
 import com.didekinlib.gcm.model.common.GcmResponse.Result;
 import com.didekinlib.gcm.model.common.GcmTokensHolder;
-import com.didekinlib.gcm.model.incidservice.GcmIncidRequestData;
+import com.didekinlib.gcm.model.incidservice.GcmRequestData;
 import com.didekinlib.gcm.retrofit.GcmEndPointImp;
 import com.didekinlib.gcm.retrofit.GcmRetrofitHandler;
 
@@ -94,7 +94,7 @@ public class GcmMockTest {
 
         gcmTokens.add(REGISTRATION_ID_1_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), didekin_package).build())
+                new GcmRequest.Builder(new GcmRequestData(incidencia_open_type, 999L), didekin_package).build())
                 .build();
 
         GcmResponse gcmResponse = endPointImp.sendMulticastGzip("apiKey_1", request);
@@ -125,7 +125,7 @@ public class GcmMockTest {
         gcmTokens.add(REGISTRATION_ID_4_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(
                 gcmTokens,
-                new GcmRequest.Builder(new GcmIncidRequestData(incidencia_open_type, 999L), didekin_package)
+                new GcmRequest.Builder(new GcmRequestData(incidencia_open_type, 999L), didekin_package)
                         .build())
                 .build();
 

@@ -1,7 +1,6 @@
 package com.didekinlib.model.incidencia.dominio;
 
 import com.didekinlib.model.common.dominio.BeanBuilder;
-import com.didekinlib.model.common.gcm.GcmToComunidadHelper;
 import com.didekinlib.model.comunidad.Comunidad;
 
 import java.io.InvalidObjectException;
@@ -16,8 +15,7 @@ import static com.didekinlib.model.incidencia.dominio.IncidenciaSerialNumber.INC
  * Date: 12/11/15
  * Time: 17:07
  */
-@SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess", "unused"})
-public final class Incidencia implements Serializable, GcmToComunidadHelper {
+public final class Incidencia implements Serializable {
 
     private final long incidenciaId;
     private final Comunidad comunidad;
@@ -80,7 +78,6 @@ public final class Incidencia implements Serializable, GcmToComunidadHelper {
         return importanciaAvg;
     }
 
-    @Override
     public long getComunidadId()
     {
         return comunidad.getC_Id();

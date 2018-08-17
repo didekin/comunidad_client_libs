@@ -1,18 +1,22 @@
 package com.didekinlib.gcm.model.incidservice;
 
-import com.didekinlib.gcm.model.common.GcmRequestData;
-
 /**
  * This class is used for 'data' JSON payload in FCM incidencia messages.
  */
-public class GcmIncidRequestData extends GcmRequestData {
+public class GcmRequestData {
 
     private final long comunidadId;
+    private final String typeMsg;
 
-    public GcmIncidRequestData(String typeMsg, long comunidadId)
+    public GcmRequestData(String typeMsg, long comunidadId)
     {
-        super(typeMsg);
         this.comunidadId = comunidadId;
+        this.typeMsg = typeMsg;
+    }
+
+    public String getTypeMsg()
+    {
+        return typeMsg;
     }
 
     public long getComunidadId()
