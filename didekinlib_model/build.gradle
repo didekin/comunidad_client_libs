@@ -11,6 +11,7 @@ compileJava {
 }
 
 dependencies {
+    implementation rootProject.javax_annotation
     testImplementation rootProject.junit
 }
 

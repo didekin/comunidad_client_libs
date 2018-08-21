@@ -1,5 +1,6 @@
 package com.didekinlib.http;
 
+import com.didekinlib.http.GsonUtil.NullOnEmptyConverterFactory;
 import com.didekinlib.http.exception.ErrorBean;
 import com.didekinlib.model.common.dominio.BeanBuilder;
 
@@ -88,6 +89,7 @@ public class HttpHandler implements HttpHandlerIf {
             retrofitBuilder = new Retrofit.Builder();
             okhttpClBuilder = new OkHttpClient.Builder();
             retrofitBuilder
+                    .addConverterFactory(new NullOnEmptyConverterFactory())
                     .addConverterFactory(getGsonConverterTokenKey())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
             okhttpClBuilder
