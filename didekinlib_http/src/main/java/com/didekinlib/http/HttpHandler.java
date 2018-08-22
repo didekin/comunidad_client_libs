@@ -12,6 +12,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
+import java.util.List;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -29,7 +30,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import static com.didekinlib.http.GsonUtil.getGsonConverterTokenKey;
+import static com.didekinlib.http.GsonUtil.NullOnEmptyConverterFactory.getNullConverter;
+import static com.didekinlib.http.GsonUtil.getGsonConverterForJwk;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static javax.net.ssl.TrustManagerFactory.getDefaultAlgorithm;
 import static javax.net.ssl.TrustManagerFactory.getInstance;
@@ -44,7 +46,7 @@ import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
  */
 public class HttpHandler implements HttpHandlerIf {
 
-    private final Retrofit retrofit;
+    final Retrofit retrofit;
 
     private HttpHandler(HttpHandlerBuilder builder)
     {
@@ -57,15 +59,13 @@ public class HttpHandler implements HttpHandlerIf {
         return retrofit.create(endPointInterface);
     }
 
-    /**
-     * There are three ways to construct your observable: Observable<BodyType>, Observable<Response<BodyType>>, or Observable<Result<BodyType>>.
-     * For the first version, there's nowhere to hang non-200 response information so it is included in the exception passed to onError.
-     * For the latter two, the data is encapsulated in the Response object and can be accessed by calling errorBody().
-     */
+    @SuppressWarnings("OptionalGetWithoutIsPresent")
     @Override
     public ErrorBean getErrorBean(Response<?> response) throws IOException
     {
-        Converter<ResponseBody, ErrorBean> converter = retrofit.responseBodyConverter(ErrorBean.class, new Annotation[0]);
+        List<Converter.Factory> converters = retrofit.converterFactories();
+        Converter<ResponseBody, ErrorBean> converter =
+                retrofit.nextResponseBodyConverter(getNullConverter(retrofit).get(),ErrorBean.class, new Annotation[0]);
         ErrorBean errorBean = converter.convert(response.errorBody());
         if (errorBean == null || errorBean.getMessage() == null) {
             okhttp3.Response okhttpResponse = response.raw();
@@ -90,7 +90,7 @@ public class HttpHandler implements HttpHandlerIf {
             okhttpClBuilder = new OkHttpClient.Builder();
             retrofitBuilder
                     .addConverterFactory(new NullOnEmptyConverterFactory())
-                    .addConverterFactory(getGsonConverterTokenKey())
+                    .addConverterFactory(getGsonConverterForJwk())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
             okhttpClBuilder
                     .addNetworkInterceptor(doLoggingInterceptor());

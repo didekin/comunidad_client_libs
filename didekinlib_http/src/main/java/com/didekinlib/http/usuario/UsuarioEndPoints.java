@@ -30,6 +30,11 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOK
  * User: pedro@didekin
  * Date: 07/06/15
  * Time: 14:13
+ *
+ * Note:
+ * There are three ways to construct your observable: Observable<BodyType>, Observable<Response<BodyType>>, or Observable<Result<BodyType>>.
+ * For the first version, there's nowhere to hang non-200 response information so it is included in the exception passed to onError.
+ * For the latter two, the data is encapsulated in the Response object and can be accessed by calling errorBody().
  */
 public interface UsuarioEndPoints {
 

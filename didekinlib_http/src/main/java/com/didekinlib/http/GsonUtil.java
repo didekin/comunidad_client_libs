@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
+import java.util.Optional;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
@@ -22,7 +23,7 @@ public final class GsonUtil {
     {
     }
 
-    public static GsonConverterFactory getGsonConverterTokenKey()
+    public static GsonConverterFactory getGsonConverterForJwk()
     {
         return GsonConverterFactory.create(
                 new GsonBuilder()
@@ -49,6 +50,13 @@ public final class GsonUtil {
                 }
                 return delegate.convert(body);
             };
+        }
+
+        public static Optional<Converter.Factory> getNullConverter(Retrofit retrofit)
+        {
+            return retrofit.converterFactories().stream()
+                    .filter(NullOnEmptyConverterFactory.class::isInstance)
+                    .findFirst();
         }
     }
 }
