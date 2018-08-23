@@ -59,13 +59,12 @@ public class HttpHandler implements HttpHandlerIf {
         return retrofit.create(endPointInterface);
     }
 
-    @SuppressWarnings("OptionalGetWithoutIsPresent")
     @Override
     public ErrorBean getErrorBean(Response<?> response) throws IOException
     {
         List<Converter.Factory> converters = retrofit.converterFactories();
         Converter<ResponseBody, ErrorBean> converter =
-                retrofit.nextResponseBodyConverter(getNullConverter(retrofit).get(),ErrorBean.class, new Annotation[0]);
+                retrofit.nextResponseBodyConverter(getNullConverter(retrofit), ErrorBean.class, new Annotation[0]);
         ErrorBean errorBean = converter.convert(response.errorBody());
         if (errorBean == null || errorBean.getMessage() == null) {
             okhttp3.Response okhttpResponse = response.raw();
@@ -105,7 +104,8 @@ public class HttpHandler implements HttpHandlerIf {
             return this;
         }
 
-        public HttpHandlerBuilder clientInterceptor(Interceptor interceptorIn){
+        public HttpHandlerBuilder clientInterceptor(Interceptor interceptorIn)
+        {
             okhttpClBuilder.addInterceptor(interceptorIn);
             return this;
         }

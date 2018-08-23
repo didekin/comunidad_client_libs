@@ -13,6 +13,7 @@ import retrofit2.Retrofit;
 
 import static com.didekinlib.http.GsonUtil.NullOnEmptyConverterFactory.getNullConverter;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static retrofit2.converter.gson.GsonConverterFactory.create;
 
@@ -28,9 +29,12 @@ public class GsonUtilTest {
     {
         HttpHandler httpHandler = new HttpHandler.HttpHandlerBuilder("http://www.didekin.es").build();
         Retrofit myRetrofit = httpHandler.retrofit;
-        assertThat(getNullConverter(myRetrofit).isPresent(), is(true));
-        Converter<ResponseBody, ErrorBean> converter = myRetrofit.nextResponseBodyConverter(getNullConverter(myRetrofit).get(), ErrorBean.class, new Annotation[0]);
-        assertThat(create(new Gson()).responseBodyConverter(ErrorBean.class, new Annotation[0], myRetrofit).getClass().isInstance(converter),
+        assertThat(getNullConverter(myRetrofit), notNullValue());
+
+        Converter<ResponseBody, ErrorBean> converter =
+                myRetrofit.nextResponseBodyConverter(getNullConverter(myRetrofit), ErrorBean.class, new Annotation[0]);
+        assertThat(
+                create(new Gson()).responseBodyConverter(ErrorBean.class, new Annotation[0], myRetrofit).getClass().isInstance(converter),
                 is(true));
     }
 }

@@ -5,7 +5,7 @@ import com.google.gson.GsonBuilder;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
-import java.util.Optional;
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
@@ -52,11 +52,15 @@ public final class GsonUtil {
             };
         }
 
-        public static Optional<Converter.Factory> getNullConverter(Retrofit retrofit)
+        public static Converter.Factory getNullConverter(Retrofit retrofit)
         {
-            return retrofit.converterFactories().stream()
-                    .filter(NullOnEmptyConverterFactory.class::isInstance)
-                    .findFirst();
+            List<Converter.Factory> factories = retrofit.converterFactories();
+            for (Converter.Factory factory : factories) {
+                if (factory instanceof NullOnEmptyConverterFactory) {
+                    return factory;
+                }
+            }
+            return null;
         }
     }
 }
