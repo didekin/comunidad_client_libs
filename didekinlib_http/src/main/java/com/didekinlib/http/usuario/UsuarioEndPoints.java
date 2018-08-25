@@ -24,7 +24,6 @@ import static com.didekinlib.http.usuario.UsuarioServConstant.USER_DELETE;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_PARAM;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_READ;
 import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE;
-import static com.didekinlib.http.usuario.UsuarioServConstant.USER_WRITE_GCM_TOKEN;
 
 /**
  * User: pedro@didekin
@@ -53,10 +52,6 @@ public interface UsuarioEndPoints {
     Single<Response<String>> login(@Field(USER_PARAM) String userName,
                                    @Field(PSWD_PARAM) String password,
                                    @Field(APP_ID_PARAM) String appID);
-
-    @FormUrlEncoded
-    @POST(USER_WRITE_GCM_TOKEN)
-    Single<Response<String>> modifyGcmToken(@Header("Authorization") String authHeader, @Field(APP_ID_PARAM) String gcmToken);
 
     @PUT(USER_WRITE)
     Single<Response<Integer>> modifyUser(@Header(ACCEPT_LANGUAGE) String localeToStr,
