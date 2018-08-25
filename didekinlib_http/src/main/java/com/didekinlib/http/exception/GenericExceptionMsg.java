@@ -10,7 +10,6 @@ public enum GenericExceptionMsg implements ExceptionMsgIf {
 
     GENERIC_INTERNAL_ERROR("Internal Server Error", 500),
     DATABASE_ERROR("Data base server Error", 500),
-    FIREBASE_SERVICE_NOT_AVAILABLE("Firebase service not available", 500),
     NOT_FOUND("Not Found", 404),
     ;
 

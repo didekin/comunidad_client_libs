@@ -10,6 +10,7 @@ import com.didekinlib.http.exception.ExceptionMsgIf;
 public enum UsuarioExceptionMsg implements ExceptionMsgIf {
 
     BAD_REQUEST("Bad Request", 400),
+    FIREBASE_SERVICE_NOT_AVAILABLE("Firebase service not available", 500),
     // user
     TOKEN_ENCRYP_DECRYP_ERROR(null, 401),
     PASSWORD_NOT_SENT("password_not_sent", 500),
