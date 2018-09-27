@@ -170,7 +170,7 @@ public final class IncidComment implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = INCID_COMMENT.number;
+        private static final long serialVersionUID = INCID_COMMENT.serial();
 
         private final long commentId;
         private final String descripcion;

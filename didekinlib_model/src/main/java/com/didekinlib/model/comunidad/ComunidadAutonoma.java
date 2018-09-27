@@ -2,6 +2,8 @@ package com.didekinlib.model.comunidad;
 
 import java.io.Serializable;
 
+import static com.didekinlib.model.comunidad.ComunidadSerialNumber.COMUNIDAD_AUTONOMA;
+
 /**
  * User: pedro@didekin
  * Date: 16/06/15
@@ -10,7 +12,7 @@ import java.io.Serializable;
 
 public class ComunidadAutonoma implements Serializable {
 
-    private static final long serialVersionUID = ComunidadSerialNumber.COMUNIDAD_AUTONOMA.number;
+    private static final long serialVersionUID = COMUNIDAD_AUTONOMA.serial();
 
     private final short cuId;
     private final String nombre;

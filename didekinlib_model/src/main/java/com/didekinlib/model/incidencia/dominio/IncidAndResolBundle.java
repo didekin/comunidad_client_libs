@@ -73,7 +73,7 @@ public final class IncidAndResolBundle implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = INCID_RESOLUCION_BUNDLE.number;
+        private static final long serialVersionUID = INCID_RESOLUCION_BUNDLE.serial();
 
         private final IncidImportancia incidImportancia;
         private final boolean hasResolucion;

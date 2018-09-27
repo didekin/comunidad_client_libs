@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+import static com.didekinlib.model.usuario.UsuarioSerialNumber.USUARIO;
 
 /**
  * User: pedro
@@ -113,12 +114,12 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         if (userName == null && uId <= 0L) {
             throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
         } else {
-            if (uId > 0 && userName != null) {
-                hash = ((int) (uId ^ (uId >>> 32))) * 31 + userName.hashCode();
-            } else if (uId > 0 && userName == null) {
+            if (uId > 0) {
                 hash = ((int) (uId ^ (uId >>> 32))) * 31;
+                if (userName != null) {
+                    hash += userName.hashCode();
+                }
             } else {
-                //noinspection ConstantConditions
                 hash = userName.hashCode();
             }
         }
@@ -182,7 +183,8 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
             return this;
         }
 
-        public UsuarioBuilder tokenAuth(String tokenAuthIn){
+        public UsuarioBuilder tokenAuth(String tokenAuthIn)
+        {
             this.tokenAuth = tokenAuthIn;
             return this;
         }
@@ -215,7 +217,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = UsuarioSerialNumber.USUARIO.number;
+        private static final long serialVersionUID = USUARIO.serial();
 
         private final long usuarioId;
         private final String userName;

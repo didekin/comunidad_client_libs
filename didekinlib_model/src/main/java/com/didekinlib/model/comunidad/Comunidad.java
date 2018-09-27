@@ -313,7 +313,7 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable {
 
     private static class ComunidadSerial implements Serializable {
 
-        private static final long serialVersionUID = ComunidadSerialNumber.COMUNIDAD.number;
+        private static final long serialVersionUID = ComunidadSerialNumber.COMUNIDAD.serial();
 
         private final long c_Id;
         private final String tipoVia;

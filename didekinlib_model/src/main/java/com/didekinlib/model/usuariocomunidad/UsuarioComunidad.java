@@ -260,7 +260,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = USUARIO_COMUNIDAD.number;
+        private static final long serialVersionUID = USUARIO_COMUNIDAD.serial();
 
         private final Comunidad comunidad;
         private final Usuario usuario;

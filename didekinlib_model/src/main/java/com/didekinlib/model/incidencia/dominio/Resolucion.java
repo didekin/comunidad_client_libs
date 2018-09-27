@@ -252,7 +252,7 @@ public final class Resolucion implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = IncidenciaSerialNumber.INCID_RESOLUCION.number;
+        private static final long serialVersionUID = IncidenciaSerialNumber.INCID_RESOLUCION.serial();
 
         private final String userName;
         private final String descripcion;

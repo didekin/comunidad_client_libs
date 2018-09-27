@@ -1,0 +1,19 @@
+//noinspection GroovyMissingReturnStatement
+jar {
+    baseName = 'didekinlib_utilities'
+    if(project.hasProperty('versionjar')) {
+        version = versionjar
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    implementation project(':didekinlib_model')
+    implementation rootProject.retrofit2
+    implementation rootProject.rxjava
+    testImplementation rootProject.mock_server
+    testImplementation rootProject.hamcrest_lib
+}

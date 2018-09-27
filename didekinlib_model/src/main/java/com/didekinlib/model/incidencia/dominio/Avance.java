@@ -167,7 +167,7 @@ public final class Avance implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = INCID_RESOLUCION_AVANCE.number;
+        private static final long serialVersionUID = INCID_RESOLUCION_AVANCE.serial();
 
         private final long avanceId;
         private final String avanceDesc;

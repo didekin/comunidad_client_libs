@@ -10,7 +10,7 @@ import java.io.Serializable;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class AmbitoIncidencia implements Serializable {
 
-    private static final long serialVersionUID = IncidenciaSerialNumber.AMBITO_INCIDENCIA.number;
+    private static final long serialVersionUID = IncidenciaSerialNumber.AMBITO_INCIDENCIA.serial();
 
     private final short ambitoId;
 

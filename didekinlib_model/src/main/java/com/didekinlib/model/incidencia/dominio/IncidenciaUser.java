@@ -134,7 +134,7 @@ public final class IncidenciaUser implements Serializable {
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = IncidenciaSerialNumber.INCIDENCIA_USER.number;
+        private static final long serialVersionUID = IncidenciaSerialNumber.INCIDENCIA_USER.serial();
 
         private final Incidencia incidencia;
         private final Usuario usuario;

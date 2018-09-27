@@ -214,7 +214,7 @@ public final class Incidencia implements Serializable {
     @SuppressWarnings({"PrivateMemberAccessBetweenOuterAndInnerClass", "WeakerAccess"})
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = INCIDENCIA.number;
+        private static final long serialVersionUID = INCIDENCIA.serial();
 
         private final long incidenciaId;
         private final Comunidad comunidad;
