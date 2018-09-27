@@ -23,17 +23,14 @@ git checkout ${ENV}
 if [ ${ENV} = "$LOCAL_ENV" ] ; then
     git add .
     git commit -m  "version $VERSION"
+    ./gradlew -Pversionjar=${VERSION_SUFFIX}-${ENV} didekinlib_model:build
 fi
 
 if [ ${ENV} = "$PRO_ENV" ] ; then
     git merge "$LOCAL_ENV"  -m "version $VERSION"
-fi
-
-if [ ${ENV} = "$LOCAL_ENV" ] ; then
-    ./gradlew -Pversionjar=${VERSION_SUFFIX}-${ENV} didekinlib_model:build
-else
     ./gradlew -Pversionjar=${VERSION_SUFFIX} didekinlib_model:build
 fi
+
 echo "================= ¡¡¡ gradle didekinlib_model build exit code = $?"
 
 /usr/bin/ssh-add -K
