@@ -1,9 +1,9 @@
 package com.didekinlib.http.retrofit;
 
+import com.didekinlib.BeanBuilder;
 import com.didekinlib.http.JksInClient;
-import com.didekinlib.http.retrofit.GsonUtil.NullOnEmptyConverterFactory;
 import com.didekinlib.http.exception.ErrorBean;
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.http.retrofit.GsonUtil.NullOnEmptyConverterFactory;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -72,6 +72,11 @@ public class HttpHandler implements HttpHandlerIf {
             errorBean = new ErrorBean(okhttpResponse.message(), okhttpResponse.code());
         }
         return errorBean;
+    }
+
+    public Retrofit getRetrofit()
+    {
+        return retrofit;
     }
 
     //  ============================== BUILDER ====================================

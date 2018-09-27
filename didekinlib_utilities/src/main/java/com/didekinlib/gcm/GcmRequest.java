@@ -1,6 +1,7 @@
 package com.didekinlib.gcm;
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+
+import com.didekinlib.BeanBuilder;
 
 /**
  * User: pedro@didekin

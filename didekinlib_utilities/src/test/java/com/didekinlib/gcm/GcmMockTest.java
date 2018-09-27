@@ -20,7 +20,6 @@ import static com.didekinlib.gcm.GcmErrorMessage.InvalidRegistration;
 import static com.didekinlib.gcm.GcmErrorMessage.NotRegistered;
 import static com.didekinlib.gcm.GcmServConstant.IDENTITY;
 import static com.didekinlib.http.retrofit.GsonUtil.objectToJsonStr;
-import static com.didekinlib.model.incidencia.gcm.GcmKeyValueIncidData.incidencia_open_type;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -89,7 +88,7 @@ public class GcmMockTest {
 
         gcmTokens.add(REGISTRATION_ID_1_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(gcmTokens,
-                new GcmRequest.Builder(new GcmRequestData(incidencia_open_type, 999L), didekin_package).build())
+                new GcmRequest.Builder(new GcmRequestData("incidencia_open_type", 999L), didekin_package).build())
                 .build();
 
         GcmResponse gcmResponse = endPointImp.sendMulticastGzip("apiKey_1", request);
@@ -120,7 +119,7 @@ public class GcmMockTest {
         gcmTokens.add(REGISTRATION_ID_4_A);
         GcmMulticastRequest request = new GcmMulticastRequest.Builder(
                 gcmTokens,
-                new GcmRequest.Builder(new GcmRequestData(incidencia_open_type, 999L), didekin_package)
+                new GcmRequest.Builder(new GcmRequestData("incidencia_open_type", 999L), didekin_package)
                         .build())
                 .build();
 

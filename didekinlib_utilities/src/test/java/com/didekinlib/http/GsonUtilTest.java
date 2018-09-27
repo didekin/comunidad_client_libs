@@ -29,7 +29,7 @@ public class GsonUtilTest {
     public void test_GetGsonConverterForJwk()
     {
         HttpHandler httpHandler = new HttpHandler.HttpHandlerBuilder("http://www.didekin.es").build();
-        Retrofit myRetrofit = httpHandler.retrofit;
+        Retrofit myRetrofit = httpHandler.getRetrofit();
         assertThat(getNullConverter(myRetrofit), notNullValue());
 
         Converter<ResponseBody, ErrorBean> converter =

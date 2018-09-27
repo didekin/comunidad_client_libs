@@ -1,6 +1,6 @@
 package com.didekinlib.model.usuario.http;
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.BeanBuilder;
 import com.google.gson.Gson;
 
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.error_tokenInLocal;

@@ -2,7 +2,7 @@ package com.didekinlib.model.usuariocomunidad.http;
 
 import static com.didekinlib.model.comunidad.http.ComunidadServConstant.COMUNIDAD_PATH;
 import static com.didekinlib.model.comunidad.http.ComunidadServConstant.COMUNIDAD_READ;
-import static com.didekinlib.model.usuario.http.UsuarioServConstant.OPEN;
+import static com.didekinlib.http.CommonServConstant.OPEN;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_READ;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_WRITE;
 

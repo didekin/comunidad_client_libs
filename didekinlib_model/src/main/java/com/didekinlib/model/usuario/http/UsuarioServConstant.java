@@ -1,5 +1,7 @@
 package com.didekinlib.model.usuario.http;
 
+import static com.didekinlib.http.CommonServConstant.OPEN;
+
 /**
  * User: pedro@didekin
  * Date: 30/05/16
@@ -16,7 +18,6 @@ public final class UsuarioServConstant {
     public static final String OLD_PSWD_PARAM = "oldPassword";
     public static final String APP_ID_PARAM = "appID";
     // OPEN paths.
-    public static final String OPEN = "/open";
     public static final String LOGIN = OPEN + "/login";
     public static final String PASSWORD_SEND = OPEN + "/pswd_send";
     // CLOSED paths.

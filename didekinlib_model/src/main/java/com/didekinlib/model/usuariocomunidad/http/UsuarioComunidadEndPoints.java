@@ -1,6 +1,7 @@
 package com.didekinlib.model.usuariocomunidad.http;
 
 
+import com.didekinlib.http.CommonServConstant;
 import com.didekinlib.model.comunidad.Comunidad;
 import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
 
@@ -17,7 +18,6 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.COMUNIDAD_OLDEST_USER;
 import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.COMUNIDAD_WRITE;
 import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.COMUS_BY_USER;

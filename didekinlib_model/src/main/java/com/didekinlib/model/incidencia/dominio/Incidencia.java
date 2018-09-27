@@ -1,6 +1,6 @@
 package com.didekinlib.model.incidencia.dominio;
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.BeanBuilder;
 import com.didekinlib.model.comunidad.Comunidad;
 
 import java.io.InvalidObjectException;

@@ -4,7 +4,7 @@ import com.didekinlib.model.common.dominio.DataPatternsIf;
 
 import java.util.regex.Pattern;
 
-import static com.didekinlib.model.usuario.http.UsuarioServConstant.OPEN;
+import static com.didekinlib.http.CommonServConstant.OPEN;
 import static java.util.regex.Pattern.CASE_INSENSITIVE;
 import static java.util.regex.Pattern.UNICODE_CASE;
 import static java.util.regex.Pattern.compile;

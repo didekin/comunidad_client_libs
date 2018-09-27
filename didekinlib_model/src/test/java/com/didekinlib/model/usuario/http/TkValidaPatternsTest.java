@@ -7,7 +7,7 @@ import static com.didekinlib.model.incidencia.http.IncidServConstant.SEE_INCIDS_
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.closed_paths_REGEX;
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.LOGIN;
-import static com.didekinlib.model.usuario.http.UsuarioServConstant.OPEN;
+import static com.didekinlib.http.CommonServConstant.OPEN;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.PASSWORD_MODIFY;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.PASSWORD_SEND;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_PATH;

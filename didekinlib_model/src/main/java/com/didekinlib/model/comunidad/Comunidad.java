@@ -1,14 +1,14 @@
 package com.didekinlib.model.comunidad;
 
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.BeanBuilder;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+import static com.didekinlib.BeanBuilder.error_message_bean_building;
 
 
 /**

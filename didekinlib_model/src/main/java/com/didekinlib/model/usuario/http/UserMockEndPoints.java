@@ -14,7 +14,7 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
-import static com.didekinlib.model.usuario.http.UsuarioServConstant.OPEN;
+import static com.didekinlib.http.CommonServConstant.OPEN;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_PARAM;
 
 /**

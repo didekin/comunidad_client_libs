@@ -1,7 +1,8 @@
 package com.didekinlib.gcm;
 
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+
+import com.didekinlib.BeanBuilder;
 
 import java.util.List;
 

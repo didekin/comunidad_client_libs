@@ -15,6 +15,8 @@ public final class CommonServConstant {
     public static final String FORM_URLENCODED = "application/x-www-form-urlencoded";
     // Common paths out of the control of both authorization and resource servers.
     public static final String ERROR = "/error";
+    // OPEN paths.
+    public static final String OPEN = "/open";
 
     private CommonServConstant()
     {

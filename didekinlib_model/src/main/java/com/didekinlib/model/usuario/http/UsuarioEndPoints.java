@@ -1,5 +1,6 @@
 package com.didekinlib.model.usuario.http;
 
+import com.didekinlib.http.CommonServConstant;
 import com.didekinlib.model.usuario.Usuario;
 
 import io.reactivex.Single;
@@ -13,7 +14,6 @@ import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 
-import static com.didekinlib.http.CommonServConstant.ACCEPT_LANGUAGE;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.APP_ID_PARAM;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.LOGIN;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.OLD_PSWD_PARAM;
@@ -29,7 +29,7 @@ import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_WRITE;
  * User: pedro@didekin
  * Date: 07/06/15
  * Time: 14:13
- *
+ * <p>
  * Note:
  * There are three ways to construct your observable: Observable<BodyType>, Observable<Response<BodyType>>, or Observable<Result<BodyType>>.
  * For the first version, there's nowhere to hang non-200 response information so it is included in the exception passed to onError.

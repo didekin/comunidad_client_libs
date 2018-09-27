@@ -11,8 +11,12 @@ compileJava {
 }
 
 dependencies {
+    implementation project(':didekinlib_utilities')
     implementation rootProject.javax_annotation
+    implementation rootProject.retrofit2
+    implementation rootProject.rxjava
     testImplementation rootProject.junit
+    testImplementation rootProject.hamcrest_lib
 }
 
 

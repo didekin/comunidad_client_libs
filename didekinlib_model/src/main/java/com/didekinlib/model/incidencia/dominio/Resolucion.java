@@ -1,6 +1,6 @@
 package com.didekinlib.model.incidencia.dominio;
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.BeanBuilder;
 import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;
@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+import static com.didekinlib.BeanBuilder.error_message_bean_building;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.unmodifiableList;
 

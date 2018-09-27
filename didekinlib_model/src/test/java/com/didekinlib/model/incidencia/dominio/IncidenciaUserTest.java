@@ -6,7 +6,7 @@ import com.didekinlib.model.usuario.Usuario;
 
 import org.junit.Test;
 
-import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+import static com.didekinlib.BeanBuilder.error_message_bean_building;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;

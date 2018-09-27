@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static com.didekinlib.model.common.dominio.BeanBuilder.error_message_bean_building;
+import static com.didekinlib.BeanBuilder.error_message_bean_building;
 import static com.didekinlib.model.incidencia.dominio.Resolucion.doResolucionModifiedWithNewAvance;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;

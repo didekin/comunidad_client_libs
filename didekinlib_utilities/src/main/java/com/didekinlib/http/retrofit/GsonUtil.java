@@ -38,7 +38,7 @@ public final class GsonUtil {
 
     // =============================== HELPER CLASSES ===============================
 
-    static class NullOnEmptyConverterFactory extends Converter.Factory {
+    public static class NullOnEmptyConverterFactory extends Converter.Factory {
 
         @Override
         public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit)

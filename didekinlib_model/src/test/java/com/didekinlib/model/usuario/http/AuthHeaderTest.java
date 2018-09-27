@@ -1,9 +1,7 @@
 package com.didekinlib.model.usuario.http;
 
-import com.didekinlib.model.usuario.http.AuthHeader;
-import com.didekinlib.model.usuario.http.AuthHeaderIf;
-
 import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,7 +10,6 @@ import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.assertThat;
 
 /**

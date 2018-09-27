@@ -1,7 +1,7 @@
 package com.didekinlib.model.usuariocomunidad;
 
 
-import com.didekinlib.model.common.dominio.BeanBuilder;
+import com.didekinlib.BeanBuilder;
 import com.didekinlib.model.comunidad.Comunidad;
 import com.didekinlib.model.usuario.Usuario;
 
