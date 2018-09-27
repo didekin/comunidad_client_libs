@@ -9,7 +9,7 @@
 
 # Hay controlar si cada una de estas llamadas tiene éxito.
 source ./didekinlib_utilities/buildtest.sh
-source ./didekinlib_model/buildtest.sh $1 $2 $1
+#source ./didekinlib_model/buildtest.sh $1 $2 $1
 
 echo "================== FINAL!!!: build_libs finish, exit code = $? =============="
 
