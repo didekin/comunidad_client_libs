@@ -9,7 +9,7 @@ public interface AuthHeaderIf {
 
     String toJsonString();
 
-    String toBase64Str();
+    String toBase64FromJsonStr();
 
     String getToken();
 }

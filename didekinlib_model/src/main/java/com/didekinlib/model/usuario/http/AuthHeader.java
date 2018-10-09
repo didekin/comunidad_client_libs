@@ -3,7 +3,10 @@ package com.didekinlib.model.usuario.http;
 import com.didekinlib.BeanBuilder;
 import com.google.gson.Gson;
 
-import static com.didekinlib.model.usuario.http.TkValidaPatterns.error_tokenInLocal;
+import io.reactivex.functions.Function;
+
+import static com.didekinlib.model.usuario.http.TkValidaPatterns.error_tokenFromJsonBase64Header;
+import static com.didekinlib.model.usuario.http.TkValidaPatterns.error_tokenInDb;
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static java.util.Base64.getUrlDecoder;
 import static java.util.Base64.getUrlEncoder;
@@ -16,10 +19,12 @@ import static java.util.Base64.getUrlEncoder;
 public class AuthHeader implements AuthHeaderIf {
 
     private final String token;
+    private final Base64Supplier base64Supplier;
 
     private AuthHeader(AuthHeaderBuilder builder)
     {
         token = builder.authHeaderToken;
+        base64Supplier = builder.base64Supplier;
     }
 
     @Override
@@ -29,9 +34,13 @@ public class AuthHeader implements AuthHeaderIf {
     }
 
     @Override
-    public String toBase64Str()
+    public String toBase64FromJsonStr()
     {
-        return getUrlEncoder().encodeToString(toJsonString().getBytes());
+        try {
+            return base64Supplier.getEncoderFunction().apply(toJsonString());
+        } catch (Exception e) {
+            throw new IllegalStateException(e.getCause());
+        }
     }
 
     @Override
@@ -42,13 +51,32 @@ public class AuthHeader implements AuthHeaderIf {
 
     //    ==================== BUILDER ====================
 
+    public interface Base64Supplier {
+        default Function<String, String> getDecoderFunction()
+        {
+            return (String s) -> new String(getUrlDecoder().decode(s));
+        }
+
+        default Function<String, String> getEncoderFunction()
+        {
+            return (String s) -> getUrlEncoder().encodeToString(s.getBytes());
+        }
+    }
+
     public static class AuthHeaderBuilder implements BeanBuilder<AuthHeaderIf> {
 
         private String authHeaderToken;
-
+        private Base64Supplier base64Supplier;
 
         public AuthHeaderBuilder()
         {
+            base64Supplier = new Base64Supplier() {
+            };
+        }
+
+        public AuthHeaderBuilder(Base64Supplier base64SupplierIn)
+        {
+            base64Supplier = base64SupplierIn;
         }
 
         /**
@@ -56,8 +84,12 @@ public class AuthHeader implements AuthHeaderIf {
          */
         public AuthHeaderBuilder tokenFromJsonBase64Header(String jsonBase64Token)
         {
-            AuthHeaderIf header = new Gson().fromJson(new String(getUrlDecoder().decode(jsonBase64Token)), AuthHeader.class);
-            tokenInDb(header.getToken());
+            try {
+                AuthHeaderIf header = new Gson().fromJson(base64Supplier.getDecoderFunction().apply(jsonBase64Token), AuthHeader.class);
+                tokenInDb(header.getToken());
+            } catch (Exception e) {
+                throw new IllegalArgumentException(error_tokenFromJsonBase64Header + this.getClass().getName());
+            }
             return this;
         }
 
@@ -70,7 +102,7 @@ public class AuthHeader implements AuthHeaderIf {
                 authHeaderToken = tokenInDb;
                 return this;
             }
-            throw new IllegalArgumentException(error_tokenInLocal + this.getClass().getName());
+            throw new IllegalArgumentException(error_tokenInDb + this.getClass().getName());
         }
 
         @Override
