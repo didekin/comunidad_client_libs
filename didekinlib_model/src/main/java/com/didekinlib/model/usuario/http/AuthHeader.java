@@ -5,7 +5,6 @@ import com.google.gson.Gson;
 
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.error_tokenInLocal;
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
-import static com.didekinlib.model.common.dominio.ValidDataPatterns.error_appId;
 import static java.util.Base64.getUrlDecoder;
 import static java.util.Base64.getUrlEncoder;
 
@@ -16,12 +15,10 @@ import static java.util.Base64.getUrlEncoder;
  */
 public class AuthHeader implements AuthHeaderIf {
 
-    private final String appID;
     private final String token;
 
     private AuthHeader(AuthHeaderBuilder builder)
     {
-        appID = builder.appID;
         token = builder.tokenInLocal;
     }
 
@@ -38,12 +35,6 @@ public class AuthHeader implements AuthHeaderIf {
     }
 
     @Override
-    public String getAppID()
-    {
-        return appID;
-    }
-
-    @Override
     public String getToken()
     {
         return token;
@@ -53,7 +44,6 @@ public class AuthHeader implements AuthHeaderIf {
 
     public static class AuthHeaderBuilder implements BeanBuilder<AuthHeaderIf> {
 
-        private String appID;
         private String tokenInLocal;
 
         /**
@@ -73,21 +63,13 @@ public class AuthHeader implements AuthHeaderIf {
                     new String(getUrlDecoder().decode(base64HeaderIn)),
                     AuthHeader.class
             );
-            appId(header.getAppID()).tokenInLocal(header.getToken());
+            tokenInLocal(header.getToken());
         }
 
-        public AuthHeaderBuilder appId(String appIdIn)
-        {
-            if (appIdIn != null && !appIdIn.isEmpty()) {
-                appID = appIdIn;
-                return this;
-            }
-            throw new IllegalArgumentException(error_appId + this.getClass().getName());
-        }
-
+        @SuppressWarnings("UnusedReturnValue")
         public AuthHeaderBuilder tokenInLocal(String tokenInLocalIn)
         {
-            if (tkEncrypted_direct_symmetricKey_REGEX.isPatternOk(tokenInLocalIn)) {
+            if (tokenInLocalIn != null && tkEncrypted_direct_symmetricKey_REGEX.isPatternOk(tokenInLocalIn)) {
                 tokenInLocal = tokenInLocalIn;
                 return this;
             }
@@ -98,7 +80,7 @@ public class AuthHeader implements AuthHeaderIf {
         public AuthHeaderIf build()
         {
             AuthHeader header = new AuthHeader(this);
-            if (header.appID == null || header.token == null) {
+            if (header.token == null) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return header;

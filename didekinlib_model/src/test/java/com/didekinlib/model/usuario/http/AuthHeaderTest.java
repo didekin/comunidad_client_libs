@@ -1,7 +1,5 @@
 package com.didekinlib.model.usuario.http;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -10,6 +8,7 @@ import static org.hamcrest.CoreMatchers.allOf;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -25,15 +24,12 @@ public class AuthHeaderTest {
             ".UB1tHZZq0TYFTZKPVZXY83GRxHz770Aq7BuMCEbNnaSC5cVNOLEOgBQrOQVJmVL-9Ke9KRSwuq7MmVcA2EB_0xRBr_YbzmMWbpUcTQUFtE5OZOFiCsxL5Yn0gA_DDLZboivpoSqndQRP-44mWVkM1A" +
             ".RIvTWRrsyoJ1mpl8vUhQDQ";
 
-    private static final String appId = "cVNOLEOgBQrOQVJmVL-9Ke9KRSw..uq:7MmVcA2EB_0xRBr";
-
     private AuthHeaderIf header;
 
     @Before
     public void setUp()
     {
         header = new AuthHeader.AuthHeaderBuilder()
-                .appId(appId)
                 .tokenInLocal(tokenInLocal)
                 .build();
     }
@@ -42,7 +38,6 @@ public class AuthHeaderTest {
     public void test_ToString()
     {
         assertThat(header.toString(), allOf(
-                containsString("\"appID\"" + ":" + "\"" + appId + "\""),
                 containsString("\"token\"" + ":" + "\"" + tokenInLocal + "\""),
                 containsString("{"),
                 containsString("}")
@@ -61,15 +56,6 @@ public class AuthHeaderTest {
     public void test_HeaderFromBase64Str()
     {
         AuthHeaderIf headerPojo = new AuthHeader.AuthHeaderBuilder(header.getBase64Str()).build();
-        assertThat(headerPojo, CoreMatchers.allOf
-                (
-                        Matchers.hasProperty("appID", allOf(
-                                equalTo(header.getAppID()),
-                                equalTo(appId))),
-                        Matchers.hasProperty("token", allOf(
-                                equalTo(header.getToken()),
-                                equalTo(tokenInLocal)))
-                )
-        );
+        assertThat(headerPojo, hasProperty("token", allOf(equalTo(header.getToken()), equalTo(tokenInLocal))));
     }
 }

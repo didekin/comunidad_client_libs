@@ -11,7 +11,5 @@ public interface AuthHeaderIf {
 
     String getBase64Str();
 
-    String getAppID();
-
     String getToken();
 }
