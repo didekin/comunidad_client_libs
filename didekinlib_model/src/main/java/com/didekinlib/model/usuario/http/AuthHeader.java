@@ -19,19 +19,19 @@ public class AuthHeader implements AuthHeaderIf {
 
     private AuthHeader(AuthHeaderBuilder builder)
     {
-        token = builder.tokenInLocal;
+        token = builder.authHeaderToken;
     }
 
     @Override
-    public String toString()
+    public String toJsonString()
     {
         return new Gson().toJson(this);
     }
 
     @Override
-    public String getBase64Str()
+    public String toBase64Str()
     {
-        return getUrlEncoder().encodeToString(toString().getBytes());
+        return getUrlEncoder().encodeToString(toJsonString().getBytes());
     }
 
     @Override
@@ -44,33 +44,30 @@ public class AuthHeader implements AuthHeaderIf {
 
     public static class AuthHeaderBuilder implements BeanBuilder<AuthHeaderIf> {
 
-        private String tokenInLocal;
+        private String authHeaderToken;
 
-        /**
-         * Constructor for producers of encoded headers, as client apps.
-         */
+
         public AuthHeaderBuilder()
         {
         }
 
         /**
-         * Constructor for consumers of encoded headers, as http server applications.
+         * Initializer for consumers of tokens.
          */
-        public AuthHeaderBuilder(String base64HeaderIn)
+        public AuthHeaderBuilder tokenFromJsonBase64Header(String jsonBase64Token)
         {
-            this();
-            AuthHeaderIf header = new Gson().fromJson(
-                    new String(getUrlDecoder().decode(base64HeaderIn)),
-                    AuthHeader.class
-            );
-            tokenInLocal(header.getToken());
+            AuthHeaderIf header = new Gson().fromJson(new String(getUrlDecoder().decode(jsonBase64Token)), AuthHeader.class);
+            tokenInDb(header.getToken());
+            return this;
         }
 
-        @SuppressWarnings("UnusedReturnValue")
-        public AuthHeaderBuilder tokenInLocal(String tokenInLocalIn)
+        /**
+         * Initializer for producers of tokens.
+         */
+        public AuthHeaderBuilder tokenInDb(String tokenInDb)
         {
-            if (tokenInLocalIn != null && tkEncrypted_direct_symmetricKey_REGEX.isPatternOk(tokenInLocalIn)) {
-                tokenInLocal = tokenInLocalIn;
+            if (tokenInDb != null && tkEncrypted_direct_symmetricKey_REGEX.isPatternOk(tokenInDb)) {
+                authHeaderToken = tokenInDb;
                 return this;
             }
             throw new IllegalArgumentException(error_tokenInLocal + this.getClass().getName());

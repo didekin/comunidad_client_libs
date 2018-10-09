@@ -6,10 +6,10 @@ package com.didekinlib.model.usuario.http;
  * Time: 15:11
  */
 public interface AuthHeaderIf {
-    @Override
-    String toString();
 
-    String getBase64Str();
+    String toJsonString();
+
+    String toBase64Str();
 
     String getToken();
 }

@@ -27,7 +27,7 @@ public enum TkValidaPatterns implements DataPatternsIf {
      */
     closed_paths_REGEX("^(?!" + OPEN.substring(1) + ").*$");
 
-    public static final String error_tokenInLocal = "Wrong initialization value in tokenInLocal";
+    public static final String error_tokenInLocal = "Wrong initialization value in tokenInDb";
 
     private final Pattern pattern;
     private final String regexp;
