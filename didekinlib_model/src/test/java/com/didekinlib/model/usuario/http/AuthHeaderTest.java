@@ -47,7 +47,7 @@ public class AuthHeaderTest {
     @Test
     public void test_toBase64FromJsonStr()
     {
-        String headerBase64 = header.toBase64FromJsonStr();
+        String headerBase64 = header.toBase64JsonStr();
         System.out.printf("%s%n", headerBase64);
         assertThat(new String(getUrlDecoder().decode(headerBase64)), is(header.toJsonString()));
     }
@@ -55,7 +55,7 @@ public class AuthHeaderTest {
     @Test
     public void test_tokenFromJsonBase64Header()
     {
-        AuthHeaderIf headerPojo = new AuthHeader.AuthHeaderBuilder().tokenFromJsonBase64Header(header.toBase64FromJsonStr()).build();
+        AuthHeaderIf headerPojo = new AuthHeader.AuthHeaderBuilder().tokenFromJsonBase64Header(header.toBase64JsonStr()).build();
         assertThat(headerPojo, hasProperty("token", allOf(equalTo(header.getToken()), equalTo(tokenInLocal))));
     }
 }

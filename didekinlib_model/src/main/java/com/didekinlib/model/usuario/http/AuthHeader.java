@@ -30,11 +30,11 @@ public class AuthHeader implements AuthHeaderIf {
     @Override
     public String toJsonString()
     {
-        return new Gson().toJson(this);
+        return new Gson().toJson(token);
     }
 
     @Override
-    public String toBase64FromJsonStr()
+    public String toBase64JsonStr()
     {
         try {
             return base64Supplier.getEncoderFunction().apply(toJsonString());
