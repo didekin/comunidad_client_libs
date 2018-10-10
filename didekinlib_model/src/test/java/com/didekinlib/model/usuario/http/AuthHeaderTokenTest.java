@@ -22,7 +22,7 @@ public class AuthHeaderTokenTest {
     @Test
     public void test_getToken()
     {
-        AuthHeaderTokenIf header = new AuthHeaderToken(tokenInLocal);
+        AuthHeaderToken header = new AuthHeaderToken(tokenInLocal);
         assertThat(header.getToken(), is(tokenInLocal));
     }
 }

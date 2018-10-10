@@ -8,7 +8,7 @@ import static com.didekinlib.model.usuario.http.TkValidaPatterns.tkEncrypted_dir
  * Date: 21/05/2018
  * Time: 11:42
  */
-public class AuthHeaderToken implements AuthHeaderTokenIf {
+public final class AuthHeaderToken {
 
     private final String token;
 
@@ -20,7 +20,6 @@ public class AuthHeaderToken implements AuthHeaderTokenIf {
         token = tokenIn;
     }
 
-    @Override
     public String getToken()
     {
         return token;
