@@ -1,6 +1,6 @@
 package com.didekinlib.model.usuario.http;
 
-import com.didekinlib.model.common.dominio.DataPatternsIf;
+import com.didekinlib.model.common.DataPatternsIf;
 
 import java.util.regex.Pattern;
 

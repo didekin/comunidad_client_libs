@@ -1,4 +1,4 @@
-package com.didekinlib.model.comunidad.http;
+package com.didekinlib.model.entidad.comunidad.http;
 
 import com.didekinlib.http.exception.ExceptionMsgIf;
 

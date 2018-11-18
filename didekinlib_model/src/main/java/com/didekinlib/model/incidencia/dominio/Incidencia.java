@@ -1,7 +1,7 @@
 package com.didekinlib.model.incidencia.dominio;
 
 import com.didekinlib.BeanBuilder;
-import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -80,7 +80,7 @@ public final class Incidencia implements Serializable {
 
     public long getComunidadId()
     {
-        return comunidad.getC_Id();
+        return comunidad.getId();
     }
 
     // .................................... Serializable ...........................

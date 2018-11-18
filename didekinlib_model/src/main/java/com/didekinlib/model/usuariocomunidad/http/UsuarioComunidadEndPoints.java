@@ -2,7 +2,7 @@ package com.didekinlib.model.usuariocomunidad.http;
 
 
 import com.didekinlib.http.CommonServConstant;
-import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
 
 import java.util.List;

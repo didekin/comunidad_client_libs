@@ -1,12 +1,12 @@
 package com.didekinlib.model.usuariocomunidad;
 
-import com.didekinlib.model.comunidad.Comunidad;
-import com.didekinlib.model.comunidad.Municipio;
-import com.didekinlib.model.comunidad.Provincia;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 import com.didekinlib.model.usuario.Usuario;
 
 import org.junit.Test;
 
+import static com.didekinlib.model.common.DataUtil.domicilio_0;
+import static com.didekinlib.model.common.DataUtil.domicilio_1;
 import static com.didekinlib.model.usuariocomunidad.Rol.ADMINISTRADOR;
 import static com.didekinlib.model.usuariocomunidad.Rol.INQUILINO;
 import static com.didekinlib.model.usuariocomunidad.Rol.PRESIDENTE;
@@ -22,14 +22,14 @@ import static org.junit.Assert.assertThat;
 public class UsuarioComunidadTest {
 
     @Test
-    public void test_HasAdministradorAuthority() throws Exception
+    public void test_HasAdministradorAuthority()
     {
         assertThat(doUserComu("adm, inq").hasAdministradorAuthority(), is(true));
         assertThat(doUserComu("pro, inq").hasAdministradorAuthority(), is(false));
     }
 
     @Test
-    public void test_GetHighestRolFunction() throws Exception
+    public void test_GetHighestRolFunction()
     {
         assertThat(doUserComu("pre, inq").getHighestRolFunction(), is("pre"));
         assertThat(doUserComu("adm, pro").getHighestRolFunction(), is("adm"));
@@ -37,15 +37,10 @@ public class UsuarioComunidadTest {
     }
 
     @Test
-    public void testCompareTo() throws Exception
+    public void testCompareTo()
     {
         Usuario usuario = new Usuario.UsuarioBuilder().userName("username").build();
-        Municipio municipio_1 = new Municipio((short) 23, new Provincia((short) 11));
-        Comunidad comunidad = new Comunidad.ComunidadBuilder().tipoVia("tipo1")
-                .nombreVia("nombreA")
-                .numero((short) 2)
-                .sufijoNumero("A")
-                .municipio(municipio_1).build();
+        Comunidad comunidad = new Comunidad.ComunidadBuilder().domicilio(domicilio_1).build();
 
         UsuarioComunidad usuarioComunidad_1 = new UsuarioComunidad.UserComuBuilder(comunidad, usuario)
                 .portal("portalA")
@@ -84,12 +79,7 @@ public class UsuarioComunidadTest {
     public void testHasRoleAdministrador()
     {
         Usuario usuario = new Usuario.UsuarioBuilder().userName("username").build();
-        Municipio municipio_1 = new Municipio((short) 23, new Provincia((short) 11));
-        Comunidad comunidad = new Comunidad.ComunidadBuilder()
-                .tipoVia("tipo1")
-                .nombreVia("nombreA")
-                .numero((short) 2)
-                .municipio(municipio_1).build();
+        Comunidad comunidad = new Comunidad.ComunidadBuilder().domicilio(domicilio_0).build();
 
         UsuarioComunidad usuarioComunidad_1 = new UsuarioComunidad.UserComuBuilder(comunidad, usuario)
                 .portal("portalA")

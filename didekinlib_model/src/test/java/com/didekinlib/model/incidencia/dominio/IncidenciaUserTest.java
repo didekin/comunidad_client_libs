@@ -1,6 +1,6 @@
 package com.didekinlib.model.incidencia.dominio;
 
-import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 import com.didekinlib.model.incidencia.dominio.IncidenciaUser.IncidenciaUserBuilder;
 import com.didekinlib.model.usuario.Usuario;
 

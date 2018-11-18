@@ -3,7 +3,7 @@
 
 #!/bin/bash
 
-export FUNCTIONS_FILE=terminal/envfunctions
+export FUNCTIONS_FILE=../terminal/envfunctions
 
 if ! [ -f ${FUNCTIONS_FILE} ]
     then

@@ -1,4 +1,4 @@
-package com.didekinlib.model.comunidad;
+package com.didekinlib.model.entidad;
 
 
 import java.io.Serializable;
@@ -13,7 +13,7 @@ import static java.lang.Short.compare;
 
 public final class Municipio implements Comparable<Municipio>, Serializable {
 
-    private static final long serialVersionUID = ComunidadSerialNumber.MUNICIPIO.serial();
+    private static final long serialVersionUID = EntidadSerialNumber.MUNICIPIO.serial();
 
     private final int mId;  // PK auto-increment.
     private final  short codInProvincia;  // código intra-provincia de un municipio.

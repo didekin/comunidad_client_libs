@@ -1,9 +1,9 @@
-package com.didekinlib.model.comunidad;
+package com.didekinlib.model.entidad;
 
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 /**
  * User: pedro@didekin
@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  */
 public class ProvinciaTest {
     @Test
-    public void test_toString() throws Exception
+    public void test_toString()
     {
-        Provincia provincia = new Provincia((short)45, "provincia_45");
+        Provincia provincia = new Provincia((short) 45, "provincia_45");
         assertThat(provincia.getNombre(), is(provincia.toString()));
     }
 

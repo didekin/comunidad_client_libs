@@ -1,6 +1,6 @@
 package com.didekinlib.model.usuariocomunidad;
 
-import com.didekinlib.model.common.dominio.SerialNumber;
+import com.didekinlib.model.common.SerialNumber;
 
 /**
  * User: pedro@didekin

@@ -1,4 +1,6 @@
-package com.didekinlib.model.comunidad;
+package com.didekinlib.model.entidad;
+
+import com.didekinlib.model.entidad.ComunidadAutonoma;
 
 import org.junit.Test;
 

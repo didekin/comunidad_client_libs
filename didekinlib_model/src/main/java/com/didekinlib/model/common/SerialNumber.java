@@ -1,4 +1,4 @@
-package com.didekinlib.model.common.dominio;
+package com.didekinlib.model.common;
 
 /**
  * User: pedro@didekin

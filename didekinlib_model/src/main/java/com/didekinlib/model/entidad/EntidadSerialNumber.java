@@ -1,24 +1,26 @@
-package com.didekinlib.model.comunidad;
+package com.didekinlib.model.entidad;
 
-import com.didekinlib.model.common.dominio.SerialNumber;
+import com.didekinlib.model.common.SerialNumber;
 
 /**
  * User: pedro@didekin
  * Date: 09/11/15
  * Time: 16:25
  */
-public enum ComunidadSerialNumber implements SerialNumber {
+public enum EntidadSerialNumber implements SerialNumber {
 
 
-    COMUNIDAD(11000L),
+    COMUNIDAD(11001L),
     COMUNIDAD_AUTONOMA(12000L),
     MUNICIPIO(13000L),
+    PROVEEDOR(16000L),
     PROVINCIA(14000L),
+    DOMICILIO(15000L),
     ;
 
     private final long number;
 
-    ComunidadSerialNumber(long number)
+    EntidadSerialNumber(long number)
     {
         this.number = number;
     }

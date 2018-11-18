@@ -2,7 +2,7 @@ package com.didekinlib.model.usuariocomunidad;
 
 
 import com.didekinlib.BeanBuilder;
-import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;

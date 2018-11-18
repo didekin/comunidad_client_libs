@@ -1,6 +1,6 @@
-package com.didekinlib.model.comunidad.http;
+package com.didekinlib.model.entidad.comunidad.http;
 
-import com.didekinlib.model.comunidad.Comunidad;
+import com.didekinlib.model.entidad.comunidad.Comunidad;
 
 import java.util.List;
 

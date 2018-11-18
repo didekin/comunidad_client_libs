@@ -1,9 +1,8 @@
-package com.didekinlib.model.comunidad;
+package com.didekinlib.model.entidad;
 
 
 import java.io.Serializable;
 
-import static com.didekinlib.model.comunidad.ComunidadSerialNumber.PROVINCIA;
 import static java.lang.Short.compare;
 
 /**
@@ -14,7 +13,7 @@ import static java.lang.Short.compare;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class Provincia implements Comparable<Provincia>, Serializable{
 
-    private static final long serialVersionUID = PROVINCIA.serial();
+    private static final long serialVersionUID = EntidadSerialNumber.PROVINCIA.serial();
 
     private final short provinciaId; // Es una PK fija, no un campo auto-increment.
     private final String nombre;
