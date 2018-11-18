@@ -3,7 +3,7 @@
 
 #!/bin/bash
 
-export FUNCTIONS_FILE=../terminal/envfunctions
+export FUNCTIONS_FILE=terminal/envfunctions
 
 if ! [ -f ${FUNCTIONS_FILE} ]
     then
@@ -16,19 +16,19 @@ fi
 
 setArgsLibs "$1" "$2"
 
-.././gradlew clean
+./gradlew didekinlib_model:clean
 
 git checkout ${ENV}
 
 if [ ${ENV} = "$LOCAL_ENV" ] ; then
     git add .
     git commit -m  "version $VERSION"
-    .././gradlew -Pversionjar=${VERSION_SUFFIX}-${ENV} build
+    ./gradlew -Pversionjar=${VERSION_SUFFIX}-${ENV} didekinlib_model:build
 fi
 
 if [ ${ENV} = "$PRO_ENV" ] ; then
     git merge "$LOCAL_ENV"  -m "version $VERSION"
-    .././gradlew -Pversionjar=${VERSION_SUFFIX} build
+    ./gradlew -Pversionjar=${VERSION_SUFFIX} didekinlib_model:build
 fi
 
 echo "================= ¡¡¡ gradle didekinlib_model build exit code = $?"
@@ -36,8 +36,8 @@ echo "================= ¡¡¡ gradle didekinlib_model build exit code = $?"
 /usr/bin/ssh-add -K
 git push ${GITREMOTE} ${ENV}
 
-rm releases/${ENV}/*
-mv build/libs/*.jar releases/${ENV}/
+rm didekinlib_model/releases/${ENV}/*
+mv didekinlib_model/build/libs/*.jar didekinlib_model/releases/${ENV}/
 
 git checkout local
 
