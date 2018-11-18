@@ -16,7 +16,7 @@ fi
 
 setArgsLibs "$1" "$2"
 
-./gradlew didekinlib_model:clean
+.././gradlew didekinlib_model:clean
 
 git checkout ${ENV}
 
