@@ -54,11 +54,6 @@ public final class Comunidad implements Comparable<Comunidad>, Serializable, Ent
         return domicilio;
     }
 
-    //    public Timestamp getFechaAlta()
-//    {
-//        return fechaAlta != null ? new Timestamp(fechaAlta.getTime()) : null;
-//    }
-
     @Override
     public boolean equals(Object o)
     {

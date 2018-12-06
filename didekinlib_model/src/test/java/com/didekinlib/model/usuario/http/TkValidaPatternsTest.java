@@ -2,8 +2,8 @@ package com.didekinlib.model.usuario.http;
 
 import org.junit.Test;
 
-import static com.didekinlib.model.incidencia.http.IncidServConstant.MOD_RESOLUCION;
-import static com.didekinlib.model.incidencia.http.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
+import static com.didekinlib.model.relacion.incidencia.http.IncidServConstant.MOD_RESOLUCION;
+import static com.didekinlib.model.relacion.incidencia.http.IncidServConstant.SEE_INCIDS_OPEN_BY_COMU;
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.closed_paths_REGEX;
 import static com.didekinlib.model.usuario.http.TkValidaPatterns.tkEncrypted_direct_symmetricKey_REGEX;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.LOGIN;
@@ -12,9 +12,9 @@ import static com.didekinlib.model.usuario.http.UsuarioServConstant.PASSWORD_MOD
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.PASSWORD_SEND;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_PATH;
 import static com.didekinlib.model.usuario.http.UsuarioServConstant.USER_READ;
-import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU;
-import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.REG_USER_USERCOMU;
-import static com.didekinlib.model.usuariocomunidad.http.UsuarioComunidadServConstant.USERCOMU_DELETE;
+import static com.didekinlib.model.relacion.usuariocomunidad.http.UsuarioComunidadServConstant.REG_COMU_AND_USER_AND_USERCOMU;
+import static com.didekinlib.model.relacion.usuariocomunidad.http.UsuarioComunidadServConstant.REG_USER_USERCOMU;
+import static com.didekinlib.model.relacion.usuariocomunidad.http.UsuarioComunidadServConstant.USERCOMU_DELETE;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 

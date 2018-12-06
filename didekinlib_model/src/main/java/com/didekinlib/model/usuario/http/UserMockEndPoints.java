@@ -1,7 +1,7 @@
 package com.didekinlib.model.usuario.http;
 
 
-import com.didekinlib.model.usuariocomunidad.UsuarioComunidad;
+import com.didekinlib.model.relacion.usuariocomunidad.UsuarioComunidad;
 
 import io.reactivex.Single;
 import retrofit2.Call;
