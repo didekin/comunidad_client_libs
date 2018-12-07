@@ -230,6 +230,16 @@ public class Domicilio implements Comparable<Domicilio>, Serializable {
             }
             return domicilio;
         }
+
+        public Domicilio buildNoMunicipio()
+        {
+            Domicilio domicilio = new Domicilio(this);
+
+            if (domicilio.tipoVia == null || domicilio.nombreVia == null) {
+                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
+            }
+            return domicilio;
+        }
     }
 
     //    ================================== SERIALIZATION PROXY ==================================
