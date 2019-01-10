@@ -1,6 +1,7 @@
 package com.didekinlib.model.usuario;
 
 import com.didekinlib.BeanBuilder;
+import com.didekinlib.model.tx.TxState;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -14,14 +15,14 @@ import static com.didekinlib.model.usuario.UsuarioSerialNumber.USUARIO;
  * Date: 29/03/15
  * Time: 12:02
  */
-public final class Usuario implements Comparable<Usuario>, Serializable {
+public final class Usuario implements Comparable<Usuario>, Serializable, TxState {
 
-    private final long uId;
+    private final TxStateId uId;
     private final String userName;  //email of the user.
     private final String alias;
     private final String password;
-    private final String gcmToken;
     private final String tokenAuth;
+    private LifeCycleEnum lyfeStateCycle;
 
     private Usuario(UsuarioBuilder builder)
     {
@@ -48,7 +49,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         return password;
     }
 
-    public long getuId()
+    public TxStateId getuId()
     {
         return uId;
     }
@@ -61,6 +62,18 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
     public String getTokenAuth()
     {
         return tokenAuth;
+    }
+
+    @Override
+    public LifeCycleEnum getLifeCycle()
+    {
+        return lyfeStateCycle;
+    }
+
+    @Override
+    public TxStateId getTxStateId()
+    {
+        return uId;
     }
 
     // ............................ Serializable ...............................
@@ -92,38 +105,20 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         }
 
         Usuario usuario = (Usuario) o;
-
-        if (usuario.userName != null && userName != null) {
-            if (uId > 0 && usuario.getuId() > 0) {
-                return uId == usuario.uId && userName.equals(usuario.userName);
-            }
-            return userName.equals(usuario.userName);
+        if (uId != null && usuario.uId != null) {
+            return uId.equals(usuario.uId);
         } else {
-            if (uId > 0 && usuario.getuId() > 0) {
-                return uId == usuario.uId;
-            }
-            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
+            return false;
         }
     }
 
     @Override
     public int hashCode()
     {
-        int hash;
-
-        if (userName == null && uId <= 0L) {
-            throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
-        } else {
-            if (uId > 0) {
-                hash = ((int) (uId ^ (uId >>> 32))) * 31;
-                if (userName != null) {
-                    hash += userName.hashCode();
-                }
-            } else {
-                hash = userName.hashCode();
-            }
+        if(uId != null){
+            return uId.hashCode();
         }
-        return hash;
+        throw new UnsupportedOperationException(error_message_bean_building + this.getClass().getName());
     }
 
     @Override
@@ -142,7 +137,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
     public static class UsuarioBuilder implements BeanBuilder<Usuario> {
 
         //Parameters; all optional.
-        private long uId = 0L;
+        private TxStateId uId;
         private String userName = null;  //email of the user.
         private String alias = null;
         private String password = null;
@@ -153,7 +148,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         {
         }
 
-        public UsuarioBuilder uId(long uId)
+        public UsuarioBuilder uId(TxStateId uId)
         {
             this.uId = uId;
             return this;
@@ -194,7 +189,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
         {
             Usuario usuario = new Usuario(this);
 
-            if (usuario.uId == 0 && usuario.userName == null) {
+            if (usuario.uId == null && usuario.userName == null) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return usuario;
@@ -219,7 +214,7 @@ public final class Usuario implements Comparable<Usuario>, Serializable {
 
         private static final long serialVersionUID = USUARIO.serial();
 
-        private final long usuarioId;
+        private final TxStateId usuarioId;
         private final String userName;
         private final String userAlias;
         private final String password;

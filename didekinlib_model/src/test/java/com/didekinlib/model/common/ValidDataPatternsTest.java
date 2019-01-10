@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static com.didekinlib.model.common.ValidDataPatterns.ALIAS;
 import static com.didekinlib.model.common.ValidDataPatterns.CIF;
+import static com.didekinlib.model.common.ValidDataPatterns.CIF_COMUNIDAD;
 import static com.didekinlib.model.common.ValidDataPatterns.EMAIL;
 import static com.didekinlib.model.common.ValidDataPatterns.NIE;
 import static com.didekinlib.model.common.ValidDataPatterns.NIF;
@@ -70,21 +71,39 @@ public class ValidDataPatternsTest {
         assertThat(CIF.isPatternOk("O1234567A"), is(false));
         assertThat(CIF.isPatternOk("61234567A"), is(false));
         assertThat(CIF.isPatternOk("A1234567W"), is(false));
+
         assertThat(CIF.isPatternOk("Q7850003J"), is(true));
         assertThat(CIF.isPatternOk("N7850003J"), is(true));
         assertThat(CIF.isPatternOk("N78500030"), is(true));
         assertThat(CIF.isPatternOk("B85635910"), is(true));
+
         assertThat(CIF.isPatternOk("A58818501"), is(true));
         assertThat(CIF.isPatternOk("A5881850A"), is(false));
 
+        assertThat(CIF.isPatternOk("F5410279C"), is(true));
+        assertThat(CIF.isPatternOk("L8916088A"), is(true));
+        assertThat(CIF.isPatternOk("K8517292B"), is(true));
+        assertThat(CIF.isPatternOk("M2871106G"), is(true));
+
+
     }
 
-    @Test  // "[H[0-9]]{7}[0-9]"
+    @Test  // "H[0-9]{7}[0-9]"
     public void testCIF_COMUNIDAD_isPatternOk()
     {
         assertThat(CIF.isPatternOk("A1234567W"), is(false));
-        assertThat(CIF.isPatternOk("H1234567W"), is(false));
-        assertThat(CIF.isPatternOk("H00012674"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H1234567W"), is(false));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H00012674"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543214"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H86543212"), is(true));
+
+        assertThat(CIF_COMUNIDAD.isPatternOk("H96543210"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543297"), is(true));
+
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543289"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543271"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543263"), is(true));
+        assertThat(CIF_COMUNIDAD.isPatternOk("H76543511"), is(true));
     }
 
     @Test

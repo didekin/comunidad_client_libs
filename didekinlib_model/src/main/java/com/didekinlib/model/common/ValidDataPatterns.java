@@ -62,7 +62,7 @@ public enum ValidDataPatterns implements DataPatternsIf {
     /**
      * H. Comunidades de propietarios en régimen de propiedad horizontal.
      */
-    CIF_COMUNIDAD("[H[0-9]]{7}[0-9]"){
+    CIF_COMUNIDAD("H[0-9]{7}[0-9]"){
         @Override
         public boolean isPatternOk(String cifComunidad)
         {

@@ -13,12 +13,12 @@
 # Build and logs
 /**/build/
 /**/out/
-/**/libs/*.jar
 /**/*.bat
 
 # Releases
 /**/releases/
 
 # Credentials
-client_gcm_lib/firebase_credential
+didekinlib_utilities/firebase_credential
 
+design_blockchain/

@@ -5,6 +5,7 @@ import com.didekinlib.BeanBuilder;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.util.Objects;
 
 import static com.didekinlib.model.entidad.EntidadSerialNumber.DOMICILIO;
 
@@ -94,7 +95,7 @@ public class Domicilio implements Comparable<Domicilio>, Serializable {
         return tipoVia.equals(domicilio.tipoVia)
                 && nombreVia.equals(domicilio.nombreVia)
                 && numero == domicilio.numero
-                && (sufijoNumero != null ? sufijoNumero.equals(domicilio.sufijoNumero) : domicilio.sufijoNumero == null)
+                && (Objects.equals(sufijoNumero, domicilio.sufijoNumero))
                 && municipio.equals(domicilio.municipio);
     }
 

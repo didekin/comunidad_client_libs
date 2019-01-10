@@ -12,7 +12,7 @@ compileJava {
 
 dependencies {
     implementation rootProject.retrofit2
-    implementation rootProject.rxjava
-    testImplementation rootProject.mock_server
+    implementation rootProject.rxjava     
+    testImplementation rootProject.mock_server as Object
     testImplementation rootProject.hamcrest_lib
 }

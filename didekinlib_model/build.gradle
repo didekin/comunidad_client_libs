@@ -12,6 +12,7 @@ compileJava {
 
 dependencies {
     implementation project(':didekinlib_utilities')
+    implementation rootProject.moshi
     implementation rootProject.javax_annotation
     implementation rootProject.retrofit2
     implementation rootProject.rxjava
