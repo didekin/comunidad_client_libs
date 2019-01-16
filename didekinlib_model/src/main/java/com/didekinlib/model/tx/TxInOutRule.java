@@ -7,10 +7,11 @@ package com.didekinlib.model.tx;
  * <p>
  * Enum to classify the transactions, after the number of inputs and outputs in them.
  */
-enum TxTypeByInOut {
+enum TxInOutRule implements TxRuleVerification {
+
     zero_in_one_out(0, 1) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() == numberInputs)
                     && (tx.getOutputStates().size() == numberOutputs);
@@ -18,7 +19,7 @@ enum TxTypeByInOut {
     },
     zero_in_several_out(0, 2) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() == numberInputs)
                     && (tx.getOutputStates().size() >= numberOutputs);
@@ -26,7 +27,7 @@ enum TxTypeByInOut {
     },
     one_in_one_out(1, 1) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() == numberInputs)
                     && (tx.getOutputStates().size() == numberOutputs);
@@ -34,7 +35,7 @@ enum TxTypeByInOut {
     },
     one_in_several_out(1, 2) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() == numberInputs)
                     && (tx.getOutputStates().size() >= numberOutputs);
@@ -42,7 +43,7 @@ enum TxTypeByInOut {
     },
     several_in_one_out(2, 1) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() >= numberInputs)
                     && (tx.getOutputStates().size() == numberOutputs);
@@ -50,7 +51,7 @@ enum TxTypeByInOut {
     },
     several_in_several_out(2, 2) {
         @Override
-        boolean verifyInputOutput(Transaction tx)
+        public boolean verifyTx(Transaction tx)
         {
             return (tx.getInputStateIds().size() >= numberInputs)
                     && (tx.getOutputStates().size() >= numberOutputs);
@@ -60,7 +61,7 @@ enum TxTypeByInOut {
 
     final int numberInputs, numberOutputs;
 
-    TxTypeByInOut(int numIns, int numOuts)
+    TxInOutRule(int numIns, int numOuts)
     {
         numberInputs = numIns;
         numberOutputs = numOuts;
@@ -75,6 +76,4 @@ enum TxTypeByInOut {
     {
         return numberOutputs;
     }
-
-    abstract boolean verifyInputOutput(Transaction transaction);
 }

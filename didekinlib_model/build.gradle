@@ -12,10 +12,9 @@ compileJava {
 
 dependencies {
     implementation project(':didekinlib_utilities')
-    implementation rootProject.moshi
     implementation rootProject.javax_annotation
     implementation rootProject.retrofit2
-    implementation rootProject.rxjava
+    implementation rootProject.rxjava   // TODO: puede sobrar este dependencia cuando simpliquemos los endpoints.
     testImplementation rootProject.junit
     testImplementation rootProject.hamcrest_lib
 }

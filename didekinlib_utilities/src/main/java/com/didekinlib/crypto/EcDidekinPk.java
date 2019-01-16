@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.ECParameterSpec;
 import java.security.spec.ECPoint;
+import java.util.Arrays;
 
 import static com.didekinlib.crypto.EcDidekinKey.getKeyPair;
 import static java.util.Base64.getEncoder;
@@ -56,5 +57,24 @@ public class EcDidekinPk implements ECPublicKey, EcDidekinKey {
     public ECParameterSpec getParams()
     {
         return ((ECPublicKey) getKeyPair().getPublic()).getParams();
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        EcDidekinPk pk = (EcDidekinPk) obj;
+        return Arrays.equals(pk.getSha256Base64EcX(), sha_ecX);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Arrays.hashCode(sha_ecX);
     }
 }

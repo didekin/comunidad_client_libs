@@ -19,7 +19,7 @@ import okhttp3.mockwebserver.MockWebServer;
 import static com.didekinlib.gcm.GcmErrorMessage.InvalidRegistration;
 import static com.didekinlib.gcm.GcmErrorMessage.NotRegistered;
 import static com.didekinlib.gcm.GcmServConstant.IDENTITY;
-import static com.didekinlib.http.retrofit.GsonUtil.objectToJsonStr;
+import static com.didekinlib.json.MoshiUtil.toJsonStr;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.nullValue;
 import static org.junit.Assert.assertThat;
@@ -82,7 +82,7 @@ public class GcmMockTest {
         // Mock response.
         Result result1 = new Result(null, MSG_ID_1, REGISTRATION_ID_1_B);
         GcmResponse gcmResponseIn = new GcmResponse(1, 1001L, 1, 0, new Result[]{result1});
-        String jsonResponse = objectToJsonStr(gcmResponseIn);
+        String jsonResponse = toJsonStr(gcmResponseIn);
         server.enqueue(new MockResponse().setBody(jsonResponse));
         server.enqueue(new MockResponse().setBody(jsonResponse));
 
@@ -111,7 +111,7 @@ public class GcmMockTest {
         Result result2 = new Result(null, MSG_ID_3, REGISTRATION_ID_3_B);
         Result result3 = new Result(NotRegistered.httpMessage, null, null);
         GcmResponse gcmResponseIn = new GcmResponse(2, 2002, 2, 2, new Result[]{result0, result1, result2, result3});
-        server.enqueue(new MockResponse().setBody(objectToJsonStr(gcmResponseIn)));
+        server.enqueue(new MockResponse().setBody(toJsonStr(gcmResponseIn)));
 
         gcmTokens.add(REGISTRATION_ID_2_A);
         gcmTokens.add(REGISTRATION_ID_1_A);

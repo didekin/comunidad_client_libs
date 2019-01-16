@@ -9,7 +9,7 @@ import com.didekinlib.model.common.SerialNumber;
  */
 public enum UsuarioComunidadSerialNumber implements SerialNumber {
 
-    USUARIO_COMUNIDAD(31001L),
+    MIEMBRO_COMUNIDAD(31001L),
     ;
 
     private final long number;

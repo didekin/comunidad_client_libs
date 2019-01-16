@@ -3,7 +3,6 @@ package com.didekinlib.model.relacion.usuariocomunidad;
 
 import com.didekinlib.BeanBuilder;
 import com.didekinlib.model.entidad.comunidad.Comunidad;
-import com.didekinlib.model.relacion.RelEntidadUsuario;
 import com.didekinlib.model.usuario.Usuario;
 
 import java.io.InvalidObjectException;
@@ -11,40 +10,42 @@ import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
-import static com.didekinlib.model.relacion.usuariocomunidad.UsuarioComunidadSerialNumber.USUARIO_COMUNIDAD;
+import static com.didekinlib.model.relacion.usuariocomunidad.UsuarioComunidadSerialNumber.MIEMBRO_COMUNIDAD;
 
 /**
  * User: pedro
  * Date: 29/03/15
  * Time: 12:02
  */
-public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Serializable, RelEntidadUsuario<Comunidad> {
+public final class ComunidadMiembro implements Comparable<ComunidadMiembro>, Serializable {
 
     private final String portal;
     private final String escalera;
     private final String planta;
     private final String puerta;
+    private final Timestamp fechaInicio;
+    private final Timestamp fechaFin;
 
     private final Usuario usuario;
     private final Comunidad comunidad;
 
-    private UsuarioComunidad(UserComuBuilder userComuBuilder)
+    private ComunidadMiembro(ComuMiembroBuilder comuMiembroBuilder)
     {
-        portal = userComuBuilder.portal;
-        escalera = userComuBuilder.escalera;
-        planta = userComuBuilder.planta;
-        puerta = userComuBuilder.puerta;
-        usuario = userComuBuilder.usuario;
-        comunidad = userComuBuilder.comunidad;
+        portal = comuMiembroBuilder.portal;
+        escalera = comuMiembroBuilder.escalera;
+        planta = comuMiembroBuilder.planta;
+        puerta = comuMiembroBuilder.puerta;
+        fechaInicio = comuMiembroBuilder.fechaInicio;
+        fechaFin = comuMiembroBuilder.fechaFin;
+        usuario = comuMiembroBuilder.usuario;
+        comunidad = comuMiembroBuilder.comunidad;
     }
 
-    @Override
     public Comunidad getEntidad()
     {
         return comunidad;
     }
 
-    @Override
     public Usuario getUsuario()
     {
         return usuario;
@@ -74,10 +75,20 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
         return puerta;
     }
 
+    public Timestamp getFechaInicio()
+    {
+        return fechaInicio;
+    }
+
+    public Timestamp getFechaFin()
+    {
+        return fechaFin;
+    }
+
     // ............................ Serializable ...............................
 
     /**
-     * Return an InnerSerial object that will replace the current UsuarioComunidad object during serialization.
+     * Return an InnerSerial object that will replace the current ComunidadMiembro object during serialization.
      * In the deserialization the readResolve() method of the InnerSerial object will be used.
      */
     private Object writeReplace()
@@ -94,9 +105,9 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
     public boolean equals(Object o)
     {
         if (this == o) return true;
-        if (!(o instanceof UsuarioComunidad)) return false;
+        if (!(o instanceof ComunidadMiembro)) return false;
 
-        UsuarioComunidad that = (UsuarioComunidad) o;
+        ComunidadMiembro that = (ComunidadMiembro) o;
 
         return usuario.equals(that.usuario) && comunidad.equals(that.comunidad);
     }
@@ -110,7 +121,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
     }
 
     @Override
-    public int compareTo(UsuarioComunidad o)
+    public int compareTo(ComunidadMiembro o)
     {
         int result;
 
@@ -139,65 +150,76 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     //    ==================== BUILDER ====================
 
-
-    public static class UserComuBuilder implements BeanBuilder<UsuarioComunidad> {
+    public static class ComuMiembroBuilder implements BeanBuilder<ComunidadMiembro> {
 
         private String portal;
         private String escalera;
         private String planta;
         private String puerta;
 
-        private Timestamp fechaAlta;
-        private Timestamp fechaMod;
+        private Timestamp fechaInicio;
+        private Timestamp fechaFin;
 
         // Required parameters.
-        private Usuario usuario; // It can be null in beans coming from the android client.
+        private Usuario usuario;
         private Comunidad comunidad;
 
-        public UserComuBuilder(Comunidad comunidad, Usuario usuario)
+        public ComuMiembroBuilder(Comunidad comunidad, Usuario usuario)
         {
             this.comunidad = comunidad;
             this.usuario = usuario;
         }
 
-
-        public UserComuBuilder userComuRest(UsuarioComunidad initValue)
+        @SuppressWarnings("Duplicates")
+        public ComuMiembroBuilder comuMiembroRest(ComunidadMiembro initValue)
         {
-            portal = initValue.getPortal();
-            escalera = initValue.getEscalera();
-            planta = initValue.getPlanta();
-            puerta = initValue.getPuerta();
+            portal = initValue.portal;
+            escalera = initValue.escalera;
+            planta = initValue.planta;
+            puerta = initValue.puerta;
+            fechaInicio = initValue.fechaInicio;
+            fechaFin = initValue.fechaFin;
             return this;
         }
 
-        public UserComuBuilder portal(String initValue)
+        public ComuMiembroBuilder portal(String initValue)
         {
             portal = initValue;
             return this;
         }
 
-        public UserComuBuilder escalera(String initValue)
+        public ComuMiembroBuilder escalera(String initValue)
         {
             escalera = initValue;
             return this;
         }
 
-        public UserComuBuilder planta(String initValue)
+        public ComuMiembroBuilder planta(String initValue)
         {
             planta = initValue;
             return this;
         }
 
-        public UserComuBuilder puerta(String initValue)
+        public ComuMiembroBuilder puerta(String initValue)
         {
             puerta = initValue;
             return this;
         }
 
+        public ComuMiembroBuilder fechaInicio(Timestamp fechaInicioIn){
+            fechaInicio = fechaInicioIn;
+            return this;
+        }
+
+        public ComuMiembroBuilder fechaFin(Timestamp fechaFinIn){
+            fechaFin = fechaFinIn;
+            return this;
+        }
+
         @Override
-        public UsuarioComunidad build()
+        public ComunidadMiembro build()
         {
-            UsuarioComunidad userComu = new UsuarioComunidad(this);
+            ComunidadMiembro userComu = new ComunidadMiembro(this);
             if (userComu.getEntidad() == null) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
@@ -209,7 +231,7 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
 
     private static class InnerSerial implements Serializable {
 
-        private static final long serialVersionUID = USUARIO_COMUNIDAD.serial();
+        private static final long serialVersionUID = MIEMBRO_COMUNIDAD.serial();
 
         private final Comunidad comunidad;
         private final Usuario usuario;
@@ -217,24 +239,31 @@ public final class UsuarioComunidad implements Comparable<UsuarioComunidad>, Ser
         private final String escalera;
         private final String planta;
         private final String puerta;
+        private final Timestamp fechaInicio;
+        private final Timestamp fechaFin;
 
-        public InnerSerial(UsuarioComunidad usuarioComunidad)
+        @SuppressWarnings("Duplicates")
+        public InnerSerial(ComunidadMiembro comunidadMiembro)
         {
-            comunidad = usuarioComunidad.comunidad;
-            usuario = usuarioComunidad.usuario;
-            portal = usuarioComunidad.getPortal();
-            escalera = usuarioComunidad.getEscalera();
-            planta = usuarioComunidad.getPlanta();
-            puerta = usuarioComunidad.getPuerta();
+            comunidad = comunidadMiembro.comunidad;
+            usuario = comunidadMiembro.usuario;
+            portal = comunidadMiembro.portal;
+            escalera = comunidadMiembro.escalera;
+            planta = comunidadMiembro.planta;
+            puerta = comunidadMiembro.puerta;
+            fechaInicio = comunidadMiembro.fechaInicio;
+            fechaFin = comunidadMiembro.fechaFin;
         }
 
         private Object readResolve()
         {
-            return new UserComuBuilder(comunidad, usuario)
+            return new ComuMiembroBuilder(comunidad, usuario)
                     .portal(portal)
                     .escalera(escalera)
                     .planta(planta)
                     .puerta(puerta)
+                    .fechaInicio(fechaInicio)
+                    .fechaFin(fechaFin)
                     .build();
         }
     }

@@ -118,7 +118,7 @@ public enum ValidDataPatterns implements DataPatternsIf {
         }
     },
 
-    // ============== USUARIO_COMUNIDAD  ==============
+    // ============== MIEMBRO_COMUNIDAD  ==============
     PORTAL("[\\w_ñÑáéíóúüÜºª\\.\\-\\s]{1,10}"),
     ESCALERA("[\\w_ñÑáéíóúüÜºª\\.\\-\\s]{1,10}"),
     PLANTA("[\\w_ñÑáéíóúüÜºª\\.\\-\\s]{1,10}"),

@@ -1,7 +1,7 @@
 package com.didekinlib.model.relacion.incidencia.dominio;
 
 import com.didekinlib.BeanBuilder;
-import com.didekinlib.model.relacion.usuariocomunidad.UsuarioComunidad;
+import com.didekinlib.model.relacion.usuariocomunidad.ComunidadMiembro;
 
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -21,7 +21,7 @@ import static com.didekinlib.model.relacion.incidencia.dominio.IncidenciaSerialN
 public final class IncidImportancia implements Serializable {
 
     private final Incidencia incidencia;
-    private final UsuarioComunidad userComu;
+    private final ComunidadMiembro userComu;
     private final short importancia;
     private final Timestamp fechaAlta;
 
@@ -38,7 +38,7 @@ public final class IncidImportancia implements Serializable {
         return incidencia;
     }
 
-    public UsuarioComunidad getUserComu()
+    public ComunidadMiembro getUserComu()
     {
         return userComu;
     }
@@ -86,7 +86,7 @@ public final class IncidImportancia implements Serializable {
     public final static class IncidImportanciaBuilder implements BeanBuilder<IncidImportancia> {
 
         private Incidencia incidencia;
-        private UsuarioComunidad userComu;
+        private ComunidadMiembro userComu;
         private short importancia;
         private Timestamp fechaAlta;
 
@@ -95,7 +95,7 @@ public final class IncidImportancia implements Serializable {
             this.incidencia = incidencia;
         }
 
-        public IncidImportanciaBuilder usuarioComunidad(UsuarioComunidad initValue)
+        public IncidImportanciaBuilder usuarioComunidad(ComunidadMiembro initValue)
         {
             userComu = initValue;
             return this;
@@ -157,7 +157,7 @@ public final class IncidImportancia implements Serializable {
         private static final long serialVersionUID = INCID_IMPORTANCIA.serial();
 
         private final Incidencia incidencia;
-        private final UsuarioComunidad userComu;
+        private final ComunidadMiembro userComu;
         private final short importancia;
         private final Timestamp fechaAlta;
 

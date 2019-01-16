@@ -116,7 +116,7 @@ public final class Resolucion implements Serializable {
 
     public long getComunidadId()
     {
-        return incidencia.getComunidad().getId();
+        return incidencia.getComunidad().getEId();
     }
 
     //    ===============================  BUILDER  ============================

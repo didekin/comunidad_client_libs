@@ -10,6 +10,7 @@ import com.didekinlib.model.common.SerialNumber;
 public enum UsuarioSerialNumber implements SerialNumber {
 
     USUARIO(21000L),
+    USUARIO_APP_INSTANCE(22000L),
     ;
 
     private final long number;

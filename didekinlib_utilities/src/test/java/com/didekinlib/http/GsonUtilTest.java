@@ -2,7 +2,6 @@ package com.didekinlib.http;
 
 import com.didekinlib.http.exception.ErrorBean;
 import com.didekinlib.http.retrofit.HttpHandler;
-import com.google.gson.Gson;
 
 import org.junit.Test;
 
@@ -12,11 +11,11 @@ import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
 
-import static com.didekinlib.http.retrofit.GsonUtil.NullOnEmptyConverterFactory.getNullConverter;
+import static com.didekinlib.json.MoshiUtil.NullOnEmptyConverterFactory.getNullConverter;
+import static com.didekinlib.json.MoshiUtil.getMoshiConverterForJwk;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
-import static retrofit2.converter.gson.GsonConverterFactory.create;
 
 /**
  * User: pedro@didekin
@@ -26,7 +25,7 @@ import static retrofit2.converter.gson.GsonConverterFactory.create;
 public class GsonUtilTest {
 
     @Test
-    public void test_GetGsonConverterForJwk()
+    public void test_getMoshiConverterForJwk()
     {
         HttpHandler httpHandler = new HttpHandler.HttpHandlerBuilder("http://www.didekin.es").build();
         Retrofit myRetrofit = httpHandler.getRetrofit();
@@ -35,7 +34,7 @@ public class GsonUtilTest {
         Converter<ResponseBody, ErrorBean> converter =
                 myRetrofit.nextResponseBodyConverter(getNullConverter(myRetrofit), ErrorBean.class, new Annotation[0]);
         assertThat(
-                create(new Gson()).responseBodyConverter(ErrorBean.class, new Annotation[0], myRetrofit).getClass().isInstance(converter),
+                getMoshiConverterForJwk().responseBodyConverter(ErrorBean.class, new Annotation[0], myRetrofit).getClass().isInstance(converter),
                 is(true));
     }
 }

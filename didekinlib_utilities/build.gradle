@@ -11,8 +11,10 @@ compileJava {
 }
 
 dependencies {
+    implementation rootProject.retrofit2_rxjava
     implementation rootProject.retrofit2
-    implementation rootProject.rxjava     
+    implementation rootProject.moshi
+    implementation rootProject.javax_annotation
     testImplementation rootProject.mock_server as Object
     testImplementation rootProject.hamcrest_lib
 }

@@ -12,6 +12,7 @@ public enum EntidadSerialNumber implements SerialNumber {
 
     COMUNIDAD(11001L),
     COMUNIDAD_AUTONOMA(12000L),
+    ENTIDAD(17000L),
     MUNICIPIO(13000L),
     PROVEEDOR(16000L),
     PROVINCIA(14000L),

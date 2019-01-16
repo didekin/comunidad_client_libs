@@ -3,17 +3,15 @@ package com.didekinlib.http.retrofit;
 import com.didekinlib.BeanBuilder;
 import com.didekinlib.http.JksInClient;
 import com.didekinlib.http.exception.ErrorBean;
-import com.didekinlib.http.retrofit.GsonUtil.NullOnEmptyConverterFactory;
+import com.didekinlib.json.MoshiUtil.NullOnEmptyConverterFactory;
 
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.security.KeyManagementException;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
-import java.util.List;
 
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
@@ -23,7 +21,6 @@ import javax.net.ssl.X509TrustManager;
 
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
@@ -31,8 +28,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import static com.didekinlib.http.retrofit.GsonUtil.NullOnEmptyConverterFactory.getNullConverter;
-import static com.didekinlib.http.retrofit.GsonUtil.getGsonConverterForJwk;
+import static com.didekinlib.http.retrofit.RetrofitUtil.getRetrofitErrorBean;
+import static com.didekinlib.json.MoshiUtil.getMoshiConverterForJwk;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static javax.net.ssl.TrustManagerFactory.getDefaultAlgorithm;
 import static javax.net.ssl.TrustManagerFactory.getInstance;
@@ -63,15 +60,7 @@ public class HttpHandler implements HttpHandlerIf {
     @Override
     public ErrorBean getErrorBean(Response<?> response) throws IOException
     {
-        List<Converter.Factory> converters = retrofit.converterFactories();
-        Converter<ResponseBody, ErrorBean> converter =
-                retrofit.nextResponseBodyConverter(getNullConverter(retrofit), ErrorBean.class, new Annotation[0]);
-        ErrorBean errorBean = converter.convert(response.errorBody());
-        if (errorBean == null || errorBean.getMessage() == null) {
-            okhttp3.Response okhttpResponse = response.raw();
-            errorBean = new ErrorBean(okhttpResponse.message(), okhttpResponse.code());
-        }
-        return errorBean;
+        return getRetrofitErrorBean(response, retrofit);
     }
 
     public Retrofit getRetrofit()
@@ -94,8 +83,9 @@ public class HttpHandler implements HttpHandlerIf {
             retrofitBuilder = new Retrofit.Builder();
             okhttpClBuilder = new OkHttpClient.Builder();
             retrofitBuilder
+                    // TODO: testar si es necesario este converter.
                     .addConverterFactory(new NullOnEmptyConverterFactory())
-                    .addConverterFactory(getGsonConverterForJwk())
+                    .addConverterFactory(getMoshiConverterForJwk())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
             okhttpClBuilder
                     .addNetworkInterceptor(doLoggingInterceptor());

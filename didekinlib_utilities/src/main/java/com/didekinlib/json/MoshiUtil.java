@@ -1,7 +1,6 @@
-package com.didekinlib.http.retrofit;
+package com.didekinlib.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.squareup.moshi.Moshi;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -10,34 +9,40 @@ import java.util.List;
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.moshi.MoshiConverterFactory;
+
+import static retrofit2.converter.moshi.MoshiConverterFactory.create;
 
 /**
  * User: pedro@didekin
- * Date: 09/05/2018
- * Time: 10:47
+ * Date: 2019-01-13
+ * Time: 20:29
  */
-public final class GsonUtil {
+public class MoshiUtil {
 
-    private GsonUtil()
+    private MoshiUtil()
     {
     }
 
-    public static GsonConverterFactory getGsonConverterForJwk()
+    public static <T> String toJsonStr(T objectToJson)
     {
-        return GsonConverterFactory.create(
-                new GsonBuilder()
-                        .setLenient()
-                        .create());
+        Moshi moshi = new Moshi.Builder().build();
+        @SuppressWarnings("unchecked") Class<T> objectClass = (Class<T>) objectToJson.getClass();
+        return moshi.adapter(objectClass).nonNull().toJson(objectToJson);
     }
 
-    public static <T> String objectToJsonStr(T object)
+    public static MoshiConverterFactory getMoshiConverterForJwk()
     {
-        return new Gson().toJson(object);
+        // TODO: quitar lenient cuando no exista JWT.
+        return create().asLenient().withNullSerialization();
     }
 
-    // =============================== HELPER CLASSES ===============================
+    public static MoshiConverterFactory getMoshiConverterForGcm()
+    {
+        return create();
+    }
 
+    // TODO: borrar esta clase tras testar que no es necesaria con .withNullSerialization().
     public static class NullOnEmptyConverterFactory extends Converter.Factory {
 
         @Override

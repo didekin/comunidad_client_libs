@@ -1,11 +1,10 @@
 package com.didekinlib.model.tx;
 
 import com.didekinlib.BeanBuilder;
-import com.squareup.moshi.JsonAdapter;
-import com.squareup.moshi.Moshi;
 
 import java.util.List;
 
+import static com.didekinlib.json.MoshiUtil.toJsonStr;
 import static java.util.Collections.emptyList;
 
 /**
@@ -16,9 +15,9 @@ import static java.util.Collections.emptyList;
 public class Transaction<T extends TxState> {
 
     /**
-     * It refers to type of logic to apply to the sha256PkNextSigner and  ecSignatureTx fields.
+     * It refers to type of logic to apply to the sha256PkNextSigner and ecSignatureTx fields.
      */
-    private final TxTypeByInOut txTypeVerifyCode;
+    private final List<? extends TxRuleVerification> txVerifyRules;
     /**
      * The list of states' primary keys modified by this transaction.
      */
@@ -34,22 +33,15 @@ public class Transaction<T extends TxState> {
 
     private Transaction(TxBuilder<T> builder)
     {
-        txTypeVerifyCode = builder.txTypeByInOut;
+        txVerifyRules = builder.txVerifyRules;
         inputStateIds = builder.inputsIds;
         outputStates = builder.outputs;
         sha256SignerPk = builder.hashPk;
     }
 
-    byte[] toJson()
+    public List<? extends TxRuleVerification> getTxVerifyRules()
     {
-        Moshi moshi = new Moshi.Builder().build();
-        JsonAdapter<Transaction> jsonAdapter = moshi.adapter(Transaction.class).nonNull();
-        return jsonAdapter.toJson(this).getBytes();
-    }
-
-    public TxTypeByInOut getTxTypeVerifyCode()
-    {
-        return txTypeVerifyCode;
+        return txVerifyRules;
     }
 
     public List<TxState.TxStateId> getInputStateIds()
@@ -67,14 +59,12 @@ public class Transaction<T extends TxState> {
         return sha256SignerPk;
     }
 
-    // .............. Static classes ...........
-
 
     //    ==================== BUILDER ====================
 
-    public static class TxBuilder<T extends TxState> implements BeanBuilder<Transaction> {
+    public static class TxBuilder<T extends TxState> implements BeanBuilder<Transaction<T>> {
 
-        private TxTypeByInOut txTypeByInOut;
+        private List<? extends TxRuleVerification> txVerifyRules;
         private List<TxState.TxStateId> inputsIds;
         private List<T> outputs;
         private byte[] hashPk;
@@ -83,9 +73,9 @@ public class Transaction<T extends TxState> {
         {
         }
 
-        TxBuilder version(TxTypeByInOut txTypeByInOutIn)
+        TxBuilder version(List<TxRuleVerification> txRules)
         {
-            txTypeByInOut = txTypeByInOutIn;
+            txVerifyRules = txRules;
             return this;
         }
 
@@ -108,17 +98,31 @@ public class Transaction<T extends TxState> {
         }
 
         @Override
-        public Transaction build()
+        public Transaction<T> build()
         {
-            Transaction transaction = new Transaction<>(this);
-            if (txTypeByInOut == null
+            Transaction<T> transaction = new Transaction<>(this);
+            boolean areRulesOk = true;
+            for (TxRuleVerification rule : transaction.getTxVerifyRules()) {
+                if (!rule.verifyTx(transaction)) {
+                    areRulesOk = false;
+                    break;
+                }
+            }
+            if (txVerifyRules == null
                     || outputs == null
                     || outputs.size() == 0
                     || hashPk == null
-                    || !transaction.txTypeVerifyCode.verifyInputOutput(transaction)) {
+                    || !areRulesOk) {
                 throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
             }
             return transaction;
         }
+    }
+
+    //    ============================= SERIALIZATION ==================================
+
+    byte[] toJson()
+    {
+        return toJsonStr(this).getBytes();
     }
 }

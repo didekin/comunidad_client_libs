@@ -80,7 +80,7 @@ public final class Incidencia implements Serializable {
 
     public long getComunidadId()
     {
-        return comunidad.getId();
+        return comunidad.getEId();
     }
 
     // .................................... Serializable ...........................

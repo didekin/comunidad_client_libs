@@ -1,8 +1,8 @@
 package com.didekinlib.model.relacion.incidencia.dominio;
 
+import com.didekinlib.model.entidad.Entidad;
+import com.didekinlib.model.entidad.comunidad.CifComunidad;
 import com.didekinlib.model.entidad.comunidad.Comunidad;
-import com.didekinlib.model.relacion.incidencia.dominio.Incidencia;
-import com.didekinlib.model.relacion.incidencia.dominio.IncidenciaUser;
 import com.didekinlib.model.relacion.incidencia.dominio.IncidenciaUser.IncidenciaUserBuilder;
 import com.didekinlib.model.usuario.Usuario;
 
@@ -40,7 +40,7 @@ public class IncidenciaUserTest {
     {
         Incidencia incidencia = new Incidencia.IncidenciaBuilder()
                 .incidenciaId(1L)
-                .comunidad(new Comunidad.ComunidadBuilder().c_id(1L).build())
+                .comunidad(new Comunidad(new Entidad.EntidadBuilder<CifComunidad>().eId(1L)))
                 .userName(userNameIncidencia)
                 .build();
         return new IncidenciaUserBuilder(incidencia)

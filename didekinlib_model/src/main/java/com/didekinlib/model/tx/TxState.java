@@ -1,5 +1,6 @@
 package com.didekinlib.model.tx;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import static com.didekinlib.BeanBuilder.error_message_bean_building;
@@ -9,7 +10,7 @@ import static com.didekinlib.BeanBuilder.error_message_bean_building;
  * Date: 2018-12-17
  * Time: 13:03
  */
-public interface TxState {
+public interface TxState extends Serializable {
 
     LifeCycleEnum getLifeCycle();
 
@@ -64,9 +65,14 @@ public interface TxState {
         }
     }
 
+    /**
+     *  Simple life cycle implemented as a couple of string values in DB:
+     *  - op: open.
+     *  - cl: close.
+     */
     enum LifeCycleEnum {
-        OPEN,
-        CLOSE,
+        op,
+        cl,
         ;
     }
 }

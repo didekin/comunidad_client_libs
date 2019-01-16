@@ -1,6 +1,7 @@
 package com.didekinlib.model.entidad.proveedor;
 
 import com.didekinlib.model.entidad.Cif;
+import com.didekinlib.model.entidad.Entidad;
 import com.didekinlib.model.entidad.IdFiscal;
 import com.didekinlib.model.entidad.Nie;
 import com.didekinlib.model.entidad.Nif;
@@ -20,9 +21,9 @@ import static org.junit.Assert.assertThat;
  */
 public class ProveedorTest {
 
-    final Proveedor<Cif> proveedor_1 = new Proveedor.ProveedorBuilder<Cif>().domicilio(domicilio_1).nombreComercial("B_NOMBRE").build();
-    final Proveedor<Nif> proveedor_2 = new Proveedor.ProveedorBuilder<Nif>().domicilio(domicilio_1).nombreComercial("A_NOMBRE").build();
-    final Proveedor<Nie> proveedor_3 = new Proveedor.ProveedorBuilder<Nie>().domicilio(domicilio_1).nombreComercial("C_NOMBRE").build();
+    final Proveedor<Cif> proveedor_1 = new Proveedor.ProveedorBuilder<>(new Entidad.EntidadBuilder<Cif>().domicilio(domicilio_1)).nombreComercial("B_NOMBRE").build();
+    final Proveedor<Nif> proveedor_2 = new Proveedor.ProveedorBuilder<>(new Entidad.EntidadBuilder<Nif>().domicilio(domicilio_1)).nombreComercial("A_NOMBRE").build();
+    final Proveedor<Nie> proveedor_3 = new Proveedor.ProveedorBuilder<>(new Entidad.EntidadBuilder<Nie>().domicilio(domicilio_1)).nombreComercial("C_NOMBRE").build();
 
     @Test
     public void test_CompareTo()
@@ -37,15 +38,13 @@ public class ProveedorTest {
     {
         assertThat(proveedor_1.equals(proveedor_2), is(false));
 
-        final Proveedor<? extends IdFiscal> proveedor_4 = new Proveedor.ProveedorBuilder<>()
-                .domicilio(domicilio_1)
-                .nombreComercial("B_NOMBRE")
-                .idFiscal(cif_ok).build();
+        final Proveedor<? extends IdFiscal> proveedor_4 = new Proveedor.ProveedorBuilder<>(
+                new Entidad.EntidadBuilder<Cif>().domicilio(domicilio_1).idFiscal(cif_ok)
+        ).nombreComercial("B_NOMBRE").build();
 
-        final Proveedor<? extends IdFiscal> proveedor_5 = new Proveedor.ProveedorBuilder<>()
-                .domicilio(domicilio_1)
-                .nombreComercial("B_NOMBRE")
-                .idFiscal(nif_ok).build();
+        final Proveedor<? extends IdFiscal> proveedor_5 = new Proveedor.ProveedorBuilder<>(
+                new Entidad.EntidadBuilder<Nif>().domicilio(domicilio_1).idFiscal(nif_ok)
+        ).nombreComercial("B_NOMBRE").build();
 
         assertThat(proveedor_4.equals(proveedor_5), is(false));
     }

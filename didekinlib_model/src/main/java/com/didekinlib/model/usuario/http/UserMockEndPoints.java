@@ -1,7 +1,7 @@
 package com.didekinlib.model.usuario.http;
 
 
-import com.didekinlib.model.relacion.usuariocomunidad.UsuarioComunidad;
+import com.didekinlib.model.relacion.usuariocomunidad.ComunidadMiembro;
 
 import io.reactivex.Single;
 import retrofit2.Call;
@@ -33,10 +33,10 @@ public interface UserMockEndPoints {
     String user_delete = mockPath + "/user_delete";
 
     @POST(regComu_User_UserComu)
-    Single<Response<String>> regComuAndUserAndUserComu(@Body UsuarioComunidad usuarioCom);
+    Single<Response<String>> regComuAndUserAndUserComu(@Body ComunidadMiembro usuarioCom);
 
     @POST(regUser_UserComu)
-    Single<Response<String>> regUserAndUserComu(@Body UsuarioComunidad userCom);
+    Single<Response<String>> regUserAndUserComu(@Body ComunidadMiembro userCom);
 
     @FormUrlEncoded
     @POST(user_delete)

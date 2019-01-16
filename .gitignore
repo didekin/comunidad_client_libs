@@ -13,7 +13,6 @@
 # Build and logs
 /**/build/
 /**/out/
-/**/*.bat
 
 # Releases
 /**/releases/
@@ -21,4 +20,5 @@
 # Credentials
 didekinlib_utilities/firebase_credential
 
+# Design
 design_blockchain/
