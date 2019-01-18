@@ -10,7 +10,7 @@ import java.security.SignatureException;
  */
 public interface Signer {
 
-    EcDidekinSk getPrivateKey();
+    EcDidekinKey.EcDidekinSk getPrivateKey();
 
     byte[] getMsgToSign();
 

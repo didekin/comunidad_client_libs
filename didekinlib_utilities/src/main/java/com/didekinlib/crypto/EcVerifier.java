@@ -4,7 +4,7 @@ import java.security.InvalidKeyException;
 import java.security.Signature;
 import java.security.SignatureException;
 
-import static com.didekinlib.crypto.EcSignature.getSignature;
+import static com.didekinlib.crypto.EcSignatureProvider.signatureProvider;
 import static java.util.Base64.getDecoder;
 
 /**
@@ -12,21 +12,22 @@ import static java.util.Base64.getDecoder;
  * Date: 2018-12-17
  * Time: 17:42
  */
-public class EcVerifier implements SignatureVerifier {
+public class EcVerifier implements SignatureVerifier<EcDidekinPkIf> {
 
     /**
      * Base64 encoded byte array.
      */
     private final byte[] signedMsg;
-    private final EcDidekinPk publicKey;
+    private final EcDidekinPkIf publicKey;
     private final byte[] msgToVerify;
-    private static final Signature signature = getSignature();
+    private final Signature signature;
 
-    public EcVerifier(byte[] msgToVerify, byte[] signedMsg, EcDidekinPk publicKey)
+    public EcVerifier(byte[] msgToVerify, byte[] signedMsg, EcDidekinPkIf publicKey)
     {
         this.msgToVerify = msgToVerify;
         this.signedMsg = signedMsg;
         this.publicKey = publicKey;
+        signature = signatureProvider.getSignature();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class EcVerifier implements SignatureVerifier {
     }
 
     @Override
-    public EcDidekinPk getPublicKey()
+    public EcDidekinPkIf getPublicKey()
     {
         return publicKey;
     }

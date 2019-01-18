@@ -13,6 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Arrays;
 
+import javax.annotation.Nonnull;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
@@ -78,7 +79,7 @@ public class HttpHandler implements HttpHandlerIf {
         /**
          * @param hostPortIn: host concatenated with listening port.
          */
-        public HttpHandlerBuilder(String hostPortIn)
+        public HttpHandlerBuilder(@Nonnull String hostPortIn)
         {
             retrofitBuilder = new Retrofit.Builder();
             okhttpClBuilder = new OkHttpClient.Builder();
@@ -129,11 +130,7 @@ public class HttpHandler implements HttpHandlerIf {
         public HttpHandler build()
         {
             retrofitBuilder.client(okhttpClBuilder.build());
-            HttpHandler httpHandler = new HttpHandler(this);
-            if (httpHandler.retrofit.baseUrl() == null) {
-                throw new IllegalStateException(error_message_bean_building + this.getClass().getName());
-            }
-            return httpHandler;
+            return new HttpHandler(this);
         }
 
         // ====================== HELPER METHODS ======================

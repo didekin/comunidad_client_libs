@@ -60,7 +60,6 @@ public class GcmEndPointImp implements GcmEndPoint {
         return gcmResponse;
     }
 
-    @SuppressWarnings("SameParameterValue")
     public GcmResponse sendMulticastGzip(String authorizationKey, GcmMulticastRequest multicastRequest)
             throws GcmException
     {

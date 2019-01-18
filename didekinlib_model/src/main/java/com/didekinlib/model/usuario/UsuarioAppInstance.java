@@ -1,7 +1,7 @@
 package com.didekinlib.model.usuario;
 
 import com.didekinlib.BeanBuilder;
-import com.didekinlib.crypto.EcDidekinPk;
+import com.didekinlib.crypto.EcDidekinPkStored;
 import com.didekinlib.model.tx.TxState;
 
 import java.io.InvalidObjectException;
@@ -21,7 +21,7 @@ public class UsuarioAppInstance implements TxState {
 
     private final long uId;
     private final TxStateId txStateId;
-    private final EcDidekinPk publicKey;
+    private final EcDidekinPkStored publicKey;
     private final String gcmToken;
     private final LifeCycleEnum lifeCycle;
     private final Timestamp fechaFinKeys;
@@ -41,7 +41,7 @@ public class UsuarioAppInstance implements TxState {
         return uId;
     }
 
-    public EcDidekinPk getPublicKey()
+    public EcDidekinPkStored getPublicKey()
     {
         return publicKey;
     }
@@ -105,7 +105,7 @@ public class UsuarioAppInstance implements TxState {
     public static class UserAppInstBuilder implements BeanBuilder<UsuarioAppInstance> {
         public long uId;
         public TxStateId txStateId;
-        public EcDidekinPk publicKey;
+        public EcDidekinPkStored publicKey;
         public String gcmToken;
         public LifeCycleEnum lifeCycle;
         public Timestamp fechaFinKeys;
@@ -126,7 +126,7 @@ public class UsuarioAppInstance implements TxState {
             return this;
         }
 
-        public UserAppInstBuilder publicKey(EcDidekinPk pk)
+        public UserAppInstBuilder publicKey(EcDidekinPkStored pk)
         {
             publicKey = pk;
             return this;
@@ -170,7 +170,7 @@ public class UsuarioAppInstance implements TxState {
 
         private final long uId;
         private final TxStateId txStateId;
-        private final EcDidekinPk publicKey;
+        private final EcDidekinPkStored publicKey;
         private final String gcmToken;
         private final LifeCycleEnum lifeCycle;
         private final Timestamp fechaFinKeys;

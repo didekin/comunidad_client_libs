@@ -12,7 +12,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 import static com.didekinlib.http.retrofit.RetrofitUtil.getRetrofitErrorBean;
-import static com.didekinlib.json.MoshiUtil.getMoshiConverterForJwk;
+import static com.didekinlib.json.MoshiUtil.getMoshiConverterForGcm;
 import static java.util.concurrent.TimeUnit.SECONDS;
 import static okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
 
@@ -27,11 +27,10 @@ public class GcmRetrofitHandler implements HttpHandlerIf {
 
     public GcmRetrofitHandler(final String hostPort, int timeOut)
     {
-        getMoshiConverterForJwk();
         retrofit = new Retrofit.Builder()
                 .baseUrl(hostPort)
                 .client(getOkHttpClient(timeOut))
-                .addConverterFactory(getMoshiConverterForJwk())
+                .addConverterFactory(getMoshiConverterForGcm())
                 .build();
     }
 

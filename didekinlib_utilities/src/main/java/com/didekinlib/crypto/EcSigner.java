@@ -4,29 +4,32 @@ import java.security.InvalidKeyException;
 import java.security.Signature;
 import java.security.SignatureException;
 
-import static com.didekinlib.crypto.EcSignature.getSignature;
+import static com.didekinlib.crypto.EcSignatureProvider.signatureProvider;
+
 
 /**
  * User: pedro@didekin
  * Date: 10/12/2018
  * Time: 12:16
  * <p>
- * secp256r1 [NIST P-256, X9.62 prime256v1]
+ *
+ * Elliptic curve: secp256r1 [NIST P-256, X9.62 prime256v1]
  */
 public class EcSigner implements Signer {
 
-    private final EcDidekinSk privateKey;
+    private final EcDidekinKey.EcDidekinSk privateKey;
     private final byte[] msgToSign;
-    private static final Signature signature = getSignature();
+    private final Signature signature;
 
-    public EcSigner(EcDidekinSk privateKey, byte[] msgToSign)
+    public EcSigner(EcDidekinKey.EcDidekinSk privateKey, byte[] msgToSign)
     {
         this.privateKey = privateKey;
         this.msgToSign = msgToSign;
+        signature = signatureProvider.getSignature();
     }
 
     @Override
-    public EcDidekinSk getPrivateKey()
+    public EcDidekinKey.EcDidekinSk getPrivateKey()
     {
         return privateKey;
     }

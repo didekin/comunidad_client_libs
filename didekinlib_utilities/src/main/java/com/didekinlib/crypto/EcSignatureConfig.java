@@ -11,9 +11,9 @@ public final class EcSignatureConfig {
 
     public static final String ec_public_key_format = "X.509";
     public static final String ec_curve_name = "secp256r1";
-    public static final String alg_for_signing = "SHA256withECDSA";
-    public static final int signing_key_size = 256;
-    public static final String alg_for_signing_keys = "EC";
+    public static final String ecdsa_sha256_sign_alg = "SHA256withECDSA";
+    public static final int ec_key_size = 256;
+    public static final String ec_keys_generation_alg = "EC";
 
     private EcSignatureConfig()
     {

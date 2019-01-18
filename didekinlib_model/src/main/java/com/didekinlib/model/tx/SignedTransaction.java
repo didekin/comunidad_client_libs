@@ -2,7 +2,6 @@ package com.didekinlib.model.tx;
 
 import com.didekinlib.BeanBuilder;
 import com.didekinlib.crypto.Sha256Worker;
-import com.didekinlib.crypto.Sha256WorkerIf;
 
 import java.security.PublicKey;
 
@@ -55,7 +54,7 @@ public class SignedTransaction<T extends TxState, E extends PublicKey> {
         private byte[] signature;
         private E pkForVerifying;
         private byte[] txId;
-        private final Sha256WorkerIf sha256Worker = new Sha256Worker();
+        private final Sha256Worker sha256Worker = new Sha256Worker();
 
         public SignedTxBuilder(Transaction<T> transaction)
         {
